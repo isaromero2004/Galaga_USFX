@@ -18,16 +18,18 @@ public:
 	UStaticMeshComponent* NaveEnemigaMesh; //malla nave enemigo
 
 private:
-	
-	float resistencia;
+	float resistencia; //Numero de disparos que puede recibir antes de ser destruido
 	float velocidad;
-	float danoProducido;
+	float danoProducido; //potencia de cada proyectil que dispsra la nave
 	FString nombre;
-	float tiempoDisparo;
-	float posicionX;
-	float posicionY;   //FVecttor posicion(x,y,z)
-	float posicionZ;
+	float tiempoDisparo; //Tiempo que debe transcurrir entre cada disparo
 	FVector posicion;
+	int trayectoria; //cada valor numerico
+	int capacidadPasajeros;
+	int capacidadMunicion;
+	int tipoNave;
+	float experencia;
+	float energia;
 
 public:
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -35,18 +37,29 @@ public:
 	FORCEINLINE float GetDanoProducido() const { return danoProducido; }
 	FORCEINLINE FString GetNombre() const { return nombre; }
 	FORCEINLINE float GetTiempoDisparo() const { return tiempoDisparo; }
-	FORCEINLINE float GetPosicionX() const { return posicionX; }
-	FORCEINLINE float GetPosicionY() const { return posicionY; }
-	FORCEINLINE float GetPosicionZ() const { return posicionZ; }
+	FORCEINLINE FVector GetPosicion() const { return posicion; }
+	FORCEINLINE int Gettrayectoria() const { return trayectoria; }
+	FORCEINLINE int GetcapacidadPasajeros() const { return capacidadPasajeros; }
+	FORCEINLINE int GetcapacidadMunicion() const { return capacidadMunicion; }
+	FORCEINLINE int GettipoNave() const { return tipoNave; }
+	FORCEINLINE float Getexperencia() const { return experencia; }
+	FORCEINLINE float Getenergia() const { return energia; }
+	
 
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
 	FORCEINLINE void SetDanoProducido(float _danoProducido) { danoProducido = _danoProducido; }
 	FORCEINLINE void SetNombre(FString _nombre) { nombre = _nombre; }
 	FORCEINLINE void SetTiempoDisparo(float _tiempoDisparo) { tiempoDisparo = _tiempoDisparo; }
-	FORCEINLINE void SetPosicionX(float _posicionX) { posicionX = _posicionX; }
-	FORCEINLINE void SetPosicionY(float _posicionY) { posicionY = _posicionY; }
-	FORCEINLINE void SetPosicionZ(float _posicionZ) { posicionZ = _posicionZ; }
+	FORCEINLINE void SetPosicion(FVector _posicion) { posicion = _posicion; }
+	FORCEINLINE void Settrayectoria(int _trayectoria) { trayectoria = _trayectoria; }
+	FORCEINLINE void SetcapacidadPasajeros(int _capacidadPasajeros) { capacidadPasajeros = _capacidadPasajeros; }
+	FORCEINLINE void SetcapacidadMunicion(int _capacidadMunicion) { capacidadMunicion = _capacidadMunicion; }
+	FORCEINLINE void SettipoNave(int _tipoNave) { tipoNave = _tipoNave; }
+	FORCEINLINE void Setexperencia(float _experencia) { experencia = _experencia; }
+	FORCEINLINE void Setenergia(float _energia) { energia = _energia; }
+	
+	
 
 	
 public:	
