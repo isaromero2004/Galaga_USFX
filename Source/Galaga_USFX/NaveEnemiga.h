@@ -23,13 +23,15 @@ private:
 	float danoProducido; //potencia de cada proyectil que dispsra la nave
 	FString nombre;
 	float tiempoDisparo; //Tiempo que debe transcurrir entre cada disparo
-	FVector posicion;
-	int trayectoria; //cada valor numerico
-	int capacidadPasajeros;
-	int capacidadMunicion;
-	int tipoNave;
+	FVector posicion; 
+	int trayectoria; //representa a una funcion que la nave debe asumir para moverse
+	int capacidadPasajeros; //numero de naves que puede transportar
+	int capacidadMunicion; //numero de disparos que puede realizar antes de recargar
+	int tipoNave; //
 	float experencia;
 	float energia;
+	float peso;
+	float volumen;
 
 public:
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -44,6 +46,8 @@ public:
 	FORCEINLINE int GettipoNave() const { return tipoNave; }
 	FORCEINLINE float Getexperencia() const { return experencia; }
 	FORCEINLINE float Getenergia() const { return energia; }
+	FORCEINLINE float Getpeso() const { return peso; }
+	FORCEINLINE float Getvolumen() const { return volumen; }
 	
 
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
@@ -58,6 +62,8 @@ public:
 	FORCEINLINE void SettipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void Setexperencia(float _experencia) { experencia = _experencia; }
 	FORCEINLINE void Setenergia(float _energia) { energia = _energia; }
+	FORCEINLINE void Setpeso(float _peso) { peso = _peso; }
+	FORCEINLINE void Setvolumen(float _volumen) { volumen = _volumen; }
 	
 	
 
