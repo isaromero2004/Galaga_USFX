@@ -6,9 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "NaveEnemiga.generated.h"
 
-class UstaticMeshComponent;
 
-UCLASS()
+UCLASS(abstract)
 class GALAGA_USFX_API ANaveEnemiga : public AActor
 {
 	GENERATED_BODY()
@@ -30,6 +29,7 @@ private:
 	int tipoNave; //
 	float experencia;
 	float energia;
+
 	float peso;
 	float volumen;
 
@@ -46,6 +46,7 @@ public:
 	FORCEINLINE int GettipoNave() const { return tipoNave; }
 	FORCEINLINE float Getexperencia() const { return experencia; }
 	FORCEINLINE float Getenergia() const { return energia; }
+
 	FORCEINLINE float Getpeso() const { return peso; }
 	FORCEINLINE float Getvolumen() const { return volumen; }
 	
@@ -62,6 +63,7 @@ public:
 	FORCEINLINE void SettipoNave(int _tipoNave) { tipoNave = _tipoNave; }
 	FORCEINLINE void Setexperencia(float _experencia) { experencia = _experencia; }
 	FORCEINLINE void Setenergia(float _energia) { energia = _energia; }
+
 	FORCEINLINE void Setpeso(float _peso) { peso = _peso; }
 	FORCEINLINE void Setvolumen(float _volumen) { volumen = _volumen; }
 	
@@ -79,5 +81,11 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+protected:
+	//virtual void Mover() = 0;
+	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	void Destruirse(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
+	void Escapar(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Escapar, );
+	void Atacar(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Atacar, );
 
 };

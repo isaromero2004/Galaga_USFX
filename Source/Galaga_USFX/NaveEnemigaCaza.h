@@ -18,8 +18,13 @@ private:
 	int cantidadBombas;
 
 public:
+	ANaveEnemigaCaza();
 	FORCEINLINE int GetCantidadBombas() const { return cantidadBombas; }
 	FORCEINLINE void SetCantidadBombas(int _cantidadBombas) { cantidadBombas = _cantidadBombas; }
 
-	
+protected:
+	virtual void Mover();
+	virtual void Destruirse();
+	virtual void Escapar();
+	virtual void Atacar();
 };
