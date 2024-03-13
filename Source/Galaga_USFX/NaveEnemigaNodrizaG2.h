@@ -23,10 +23,10 @@ public:
 	FORCEINLINE void SetDuracionAparicion(float _duracionAparicion) { duracionAparicion = _duracionAparicion; }
 
 protected:
-	virtual void Mover();
-	virtual void Destruirse();
-	virtual void Escapar();
-	virtual void Atacar();
+	virtual void Mover()override;
+	virtual void Destruirse()override;
+	virtual void Escapar()override;
+	virtual void Atacar()override;
 };
 
 
