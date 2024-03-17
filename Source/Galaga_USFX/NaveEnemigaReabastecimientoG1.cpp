@@ -25,3 +25,4 @@ void ANaveEnemigaReabastecimientoG1::Escapar()
 void ANaveEnemigaReabastecimientoG1::Atacar()
 {
 }
+

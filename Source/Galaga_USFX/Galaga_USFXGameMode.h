@@ -54,6 +54,16 @@ public:
 	ABonus* Bonus01;
 	APuntaje* Puntaje01;
 
+/*public:
+	TArray<ANaveEnemigaCaza*> TANaveEnemigasCaza;
+	TArray<ANaveEnemigaTransporte*> TANaveEnemigasTransporte;
+	*/
+private:
+	int TiempoTranscurrido;
+	
+public:
+	virtual void Tick(float DeltaTime) override;
+
 };
 
 

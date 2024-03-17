@@ -24,9 +24,11 @@ public:
 	FORCEINLINE void SetCapacidadCargaPeso(float capacidad) { capacidadCargaPeso = capacidad; }
 	FORCEINLINE float GetCapacidadCargaVolumen() const { return capacidadCargaVolumen; }
 	FORCEINLINE void SetCapacidadCargaVolumen(float capacidad) { capacidadCargaVolumen = capacidad; }
+protected:
+	virtual void Tick(float DeltaTime) override;
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

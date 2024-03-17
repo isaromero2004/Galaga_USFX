@@ -30,9 +30,12 @@ public:
 	FORCEINLINE void SetIntervaloAparicion(float _intervaloAparicion) { intervaloAparicion = _intervaloAparicion; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();
+
+public:
+	virtual void Tick(float DeltaTime) override;
 };
 

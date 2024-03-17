@@ -23,8 +23,14 @@ public:
 	FORCEINLINE void SetCantidadBombas(int _cantidadBombas) { cantidadBombas = _cantidadBombas; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 };
+

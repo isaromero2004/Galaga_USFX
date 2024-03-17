@@ -8,6 +8,7 @@
 /NODEFAULTLIB
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\Galaga_USFXEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Bonus.cpp.obj"
+"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\escenario.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFX.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFXGameMode.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFXPawn.cpp.obj"
@@ -31,6 +32,7 @@
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\proyectilEnemigo.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Puntaje.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Bonus.gen.cpp.obj"
+"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\escenario.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFX.init.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFXGameMode.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Galaga_USFXPawn.gen.cpp.obj"

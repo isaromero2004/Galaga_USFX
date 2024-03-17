@@ -21,10 +21,10 @@ public:
 	FORCEINLINE void SetAlcanceBombas(float _alcanceBombas) { alcanceBombas = _alcanceBombas; }
 
 protected:
-	virtual void Mover() override;
-	virtual void Destruirse()override;
-	virtual void Escapar()override;
-	virtual void Atacar()override;
+	virtual void Mover();
+	virtual void Destruirse();
+	virtual void Escapar();
+	virtual void Atacar();
 };
 	
 
