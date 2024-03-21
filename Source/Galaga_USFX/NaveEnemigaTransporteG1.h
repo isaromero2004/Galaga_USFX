@@ -23,7 +23,7 @@ public:
 	FORCEINLINE void SetvelocidadTransportacion(float _velocidadTransportacion) { velocidadTransportacion = _velocidadTransportacion; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

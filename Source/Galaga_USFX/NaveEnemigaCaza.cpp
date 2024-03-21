@@ -20,17 +20,42 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 }
 
 void ANaveEnemigaCaza::Mover(float DeltaTime)
+
 {
-	FVector PosicionActual = GetActorLocation();
+	//movimiento circular
+    FVector PosicionActual = GetActorLocation();
 
-	float NuevaX = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaY = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaZ = FMath::RandRange(-500.0f, 500.0f) *  DeltaTime;
+    float VelocidadHorizontal = GetVelocidad();
 
-	FVector NuevaPosicion = FVector(PosicionActual.X + NuevaX, PosicionActual.Y + NuevaY, PosicionActual.Z + NuevaZ);
+    float VelocidadRotacion = 60.0f;
 
-	SetActorLocation(NuevaPosicion);
+    FVector DireccionMovimiento = FVector(0.0f, -1.0f, 0.0f);
 
+    FVector DesplazamientoHorizontal = DireccionMovimiento * VelocidadHorizontal * DeltaTime;
+
+    float TiempoTranscurrido = GetWorld()->TimeSeconds * 0.1f;
+    float Angulo = FMath::Fmod(TiempoTranscurrido, 6.0f) * VelocidadRotacion;
+
+    float Radio = 50.0f;
+
+    float X = FMath::Cos(Angulo) * Radio;
+    float Y = FMath::Sin(Angulo) * Radio;
+
+    FVector NuevaPosicion = FVector(X, Y, PosicionActual.Z);
+
+    float TopeAbajo = PosicionActual.X - 1300.0f;
+    float Reaparicion = PosicionActual.X + 200.0f;
+
+
+    NuevaPosicion += DesplazamientoHorizontal;
+
+    if (NuevaPosicion.X < TopeAbajo)
+    {
+        NuevaPosicion.X = Reaparicion;
+    }
+
+   
+    SetActorLocation(NuevaPosicion);
 	
 }
 

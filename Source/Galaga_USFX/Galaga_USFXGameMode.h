@@ -6,7 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "Galaga_USFXGameMode.generated.h"
 
-//class ANaveEnemiga;
+class ANaveEnemiga;
 class ANaveEnemigaTransporte;
 class ANaveEnemigaCaza;
 class ANaveEnemigaEspia;
@@ -41,23 +41,30 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	ANaveEnemigaTransporteG1* NaveEnemigaTransporte01;
-	ANaveEnemigaCazaG1* NaveEnemigaCaza01;
-	ANaveEnemigaEspiaG1* NaveEnemigaEspia01;
-	ANaveEnemigaReabastecimientoG1* NaveEnemigaReabastecimiento01;
-	ANaveEnemigaNodrizaG1* NaveEnemigaNodriza01;
-	ANaveEnemigaTransporteG2* NaveEnemigaTransporte02;
-	ANaveEnemigaCazaG2* NaveEnemigaCaza02;
-	ANaveEnemigaEspiaG2* NaveEnemigaEspia02;
-	ANaveEnemigaReabastecimientoG2* NaveEnemigaReabastecimiento02;
-	ANaveEnemigaNodrizaG2* NaveEnemigaNodriza02;
-	ABonus* Bonus01;
-	APuntaje* Puntaje01;
+	
+	/*ABonus* Bonus01;
+	APuntaje* Puntaje01;*/
 
-/*public:
-	TArray<ANaveEnemigaCaza*> TANaveEnemigasCaza;
-	TArray<ANaveEnemigaTransporte*> TANaveEnemigasTransporte;
-	*/
+public:
+
+	TArray<ANaveEnemiga*> TANavesEnemigas;
+	TArray<TSubclassOf<ANaveEnemiga>> TANavesEnemigasClase;
+	TArray<ANaveEnemigaCaza*> TANavesEnemigasCaza;
+	TArray<ANaveEnemigaCazaG1*> TANavesEnemigasCazaG1;
+	TArray<ANaveEnemigaCazaG2*> TANavesEnemigasCazaG2;
+	TArray<ANaveEnemigaTransporte*> TANavesEnemigasTransporte;
+	TArray<ANaveEnemigaTransporteG1*> TANavesEnemigasTransporteG1;
+	TArray<ANaveEnemigaTransporteG2*> TANavesEnemigasTransporteG2;
+	TArray<ANaveEnemigaEspia*> TANavesEnemigasEspia;
+	TArray<ANaveEnemigaEspiaG1*> TANavesEnemigasEspiaG1;
+	TArray<ANaveEnemigaEspiaG2*> TANavesEnemigasEspiaG2;
+	TArray<ANaveEnemigaReabastecimiento*> TANavesEnemigasReabastecimiento;
+	TArray<ANaveEnemigaReabastecimientoG1*> TANavesEnemigasReabastecimientoG1;
+	TArray<ANaveEnemigaReabastecimientoG2*> TANavesEnemigasReabastecimientoG2;
+	TArray<ANaveEnemigaNodriza*> TANavesEnemigasNodriza;
+	TArray<ANaveEnemigaNodrizaG1*> TANavesEnemigasNodrizaG1;
+	TArray<ANaveEnemigaNodrizaG2*> TANavesEnemigasNodrizaG2;
+
 private:
 	int TiempoTranscurrido;
 	

@@ -17,19 +17,38 @@ void ANaveEnemigaTransporte::Tick(float DeltaTime)
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
-	// Obtiene la posición actual del actor
-	FVector PosicionActual = GetActorLocation();
+    //MoverParabolico
+   
+        static FVector PosicionActual = GetActorLocation();
+        float VelocidadHorizontal = GetVelocidad();
 
-	// Genera nuevas coordenadas X e Y aleatorias
-	float NuevaX = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaY = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaZ = FMath::RandRange(-500.0f, 500.0f) * DeltaTime;
+        float VelocidadInicialY = 50.0f; // Velocidad inicial en dirección vertical
+        float Gravedad = -980.0f; // Valor de la gravedad (puedes ajustarlo según tu necesidad)
 
-	// Crea un nuevo vector de posición con las coordenadas aleatorias y la misma Z que la posición actual
-	FVector NuevaPosicion = FVector(PosicionActual.X + NuevaX, PosicionActual.Y + NuevaY, PosicionActual.Z + NuevaZ);
+        FVector DireccionMovimiento = FVector(-100.0f, 0.0f, 0.0f);
+        FVector DesplazamientoHorizontal = DireccionMovimiento * VelocidadHorizontal * DeltaTime;
 
-	// Establece la nueva posición del actor
-	SetActorLocation(NuevaPosicion);
+        float TiempoTranscurrido = GetWorld()->TimeSeconds;
+
+        // Calcular la posición vertical en función del tiempo usando la ecuación de movimiento parabólico
+        float PosicionY = VelocidadInicialY * TiempoTranscurrido + 0.5f * Gravedad * FMath::Square(TiempoTranscurrido);
+
+        // Combinar el desplazamiento horizontal y vertical para obtener la nueva posición
+        FVector NuevaPosicion = PosicionActual + DesplazamientoHorizontal + FVector(0.0f, 0.0f, PosicionY);
+
+        // Verificar si la nave ha alcanzado el límite inferior
+        static float TopeAbajo = PosicionActual.X - 1300.0f;
+        static float Reaparicion = PosicionActual.X + 200.0f;
+        if (NuevaPosicion.X < TopeAbajo)
+        {
+            // Reposicionar la nave en la parte superior cuando alcanza el límite inferior
+            NuevaPosicion.X = Reaparicion;
+        }
+
+        // Actualizar la posición de la nave
+        SetActorLocation(NuevaPosicion);
+    
+
 }
 
 

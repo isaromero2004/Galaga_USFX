@@ -23,7 +23,7 @@ public:
 	FORCEINLINE void SetvisionAnticipada(float _visionAnticipada) { visionAnticipada = _visionAnticipada; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

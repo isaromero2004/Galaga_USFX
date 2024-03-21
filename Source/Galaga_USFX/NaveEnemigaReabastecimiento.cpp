@@ -12,16 +12,37 @@ ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 
 void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 {
-	FVector PosicionActual = GetActorLocation();
+	//MoverOndulado
+	static FVector PosicionActual = GetActorLocation();
+	float VelocidadHorizontal = 100.0f;
 
+	float VelocidadRotacion = 200.0f;
 
-	float NuevaX = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaY = FMath::RandRange(-500.0f, 500.0f) * (DeltaTime / 500.0f);
-	float NuevaZ = FMath::RandRange(-500.0f, 500.0f) * DeltaTime;
+	FVector DireccionMovimiento = FVector(-1.0f, 0.0f, 0.0f);
+	FVector DesplazamientoHorizontal = DireccionMovimiento * VelocidadHorizontal * DeltaTime;
 
-	FVector NuevaPosicion = FVector(PosicionActual.X + NuevaX, PosicionActual.Y + NuevaY, PosicionActual.Z + NuevaZ);
+	float TiempoTranscurrido = GetWorld()->TimeSeconds * 0.2f;
 
+	float Angulo = FMath::Fmod(TiempoTranscurrido, 60.0f) * VelocidadRotacion;
+
+	float Radio = 50.0f;
+	float X = FMath::Cos(Angulo) * Radio;
+	float Y = FMath::Sin(Angulo) * Radio;
+
+	static float TopeAbajo = PosicionActual.X - 1300.0f;
+	static float Reaparicion = PosicionActual.X + 200.0f;
+	static float MovimientoY = 30.0f;
+	static float Amplitud = 100.0f;
+
+	FVector NuevaPosicion = GetActorLocation() + DesplazamientoHorizontal;
+	NuevaPosicion.Y += FMath::Sin(TiempoTranscurrido) * Amplitud; // Agregar movimiento ondulado
+
+	if (NuevaPosicion.X < TopeAbajo)
+	{
+		NuevaPosicion.X = Reaparicion;
+	}
 	SetActorLocation(NuevaPosicion);
+
 }
 
 void ANaveEnemigaReabastecimiento::Destruirse()

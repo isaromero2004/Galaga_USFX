@@ -21,7 +21,7 @@ public:
 	FORCEINLINE void SetAlcanceBombas(float _alcanceBombas) { alcanceBombas = _alcanceBombas; }
 
 protected:
-	virtual void Mover();
+	virtual void Mover(float DeltaTime);
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();
