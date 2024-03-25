@@ -29,7 +29,7 @@ void ANaveEnemigaReabastecimiento::Mover(float DeltaTime)
 	float X = FMath::Cos(Angulo) * Radio;
 	float Y = FMath::Sin(Angulo) * Radio;
 
-	static float TopeAbajo = PosicionActual.X - 1300.0f;
+	//static float TopeAbajo = PosicionActual.X - 1300.0f;
 	static float Reaparicion = PosicionActual.X + 200.0f;
 	static float MovimientoY = 30.0f;
 	static float Amplitud = 100.0f;

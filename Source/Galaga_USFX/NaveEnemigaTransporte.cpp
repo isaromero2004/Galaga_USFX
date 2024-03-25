@@ -37,7 +37,7 @@ void ANaveEnemigaTransporte::Mover(float DeltaTime)
         FVector NuevaPosicion = PosicionActual + DesplazamientoHorizontal + FVector(0.0f, 0.0f, PosicionY);
 
         // Verificar si la nave ha alcanzado el límite inferior
-        static float TopeAbajo = PosicionActual.X - 1300.0f;
+        //static float TopeAbajo = PosicionActual.X - 1300.0f;
         static float Reaparicion = PosicionActual.X + 200.0f;
         if (NuevaPosicion.X < TopeAbajo)
         {

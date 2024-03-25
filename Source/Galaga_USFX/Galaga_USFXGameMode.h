@@ -24,7 +24,9 @@ class ANaveEnemigaReabastecimientoG2;
 class ANaveEnemigaNodrizaG2;
 
 
-class ABonus;
+class ACapsulas;
+class ACapsulasArmas;
+class ACapsulasEnergia;
 class APuntaje;
 
 
@@ -39,11 +41,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
-public:
-	
-	/*ABonus* Bonus01;
-	APuntaje* Puntaje01;*/
 
 public:
 
@@ -64,6 +61,11 @@ public:
 	TArray<ANaveEnemigaNodriza*> TANavesEnemigasNodriza;
 	TArray<ANaveEnemigaNodrizaG1*> TANavesEnemigasNodrizaG1;
 	TArray<ANaveEnemigaNodrizaG2*> TANavesEnemigasNodrizaG2;
+
+	TArray<ACapsulas*> TACapsulas;
+	TArray<TSubclassOf<ACapsulas>> TACapsulasClase;
+	TArray<ACapsulasArmas*> TACapsulasArmas;
+	TArray<ACapsulasEnergia*> TACapsulasEnergia;
 
 private:
 	int TiempoTranscurrido;

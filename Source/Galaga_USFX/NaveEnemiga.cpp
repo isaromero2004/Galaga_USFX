@@ -16,8 +16,9 @@ ANaveEnemiga::ANaveEnemiga()
 	NaveEnemigaMesh->SetupAttachment(RootComponent);
 	RootComponent = NaveEnemigaMesh;
 	velocidad = 1;
-
+	TopeAbajo = -16000.0f;
 }
+
 
 // Called when the game starts or when spawned
 void ANaveEnemiga::BeginPlay()

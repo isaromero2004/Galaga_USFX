@@ -32,7 +32,7 @@ void ANaveEnemigaCazaG1::Mover(float DeltaTime)
 
     FVector NuevaPosicion = FVector(X, Y, PosicionActual.Z);
 
-    float TopeAbajo = PosicionActual.X - 1300.0f;
+    //loat TopeAbajo = PosicionActual.X - 1300.0f;
     float Reaparicion = PosicionActual.X + 200.0f;
 
 

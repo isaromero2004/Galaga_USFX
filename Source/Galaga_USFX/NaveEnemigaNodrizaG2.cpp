@@ -32,7 +32,7 @@ void ANaveEnemigaNodrizaG2::Mover(float DeltaTime)
 	float X = FMath::Cos(Angulo) * RadioX;
 	float Y = FMath::Sin(Angulo) * RadioY;
 
-	static float TopeAbajo = PosicionActual.X - 1300.0f;
+//	static float TopeAbajo = PosicionActual.X - 1300.0f;
 	static float Reaparicion = PosicionActual.X + 200.0f;
 	static float MovimientoY = 0.0f;
 
