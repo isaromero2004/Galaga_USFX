@@ -13,8 +13,19 @@ ANaveEnemigaReabastecimientoG2::ANaveEnemigaReabastecimientoG2()
 
 void ANaveEnemigaReabastecimientoG2::Mover(float DeltaTime)
 {
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
 
-	//MoverOndulado
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX) {
+
+		SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
+
+	}
+
+	/*/MoverOndulado
 	static FVector PosicionActual = GetActorLocation();
 	float VelocidadHorizontal = GetVelocidad();
 
@@ -43,7 +54,7 @@ void ANaveEnemigaReabastecimientoG2::Mover(float DeltaTime)
 	{
 		NuevaPosicion.X = Reaparicion;
 	}
-	SetActorLocation(NuevaPosicion);
+	SetActorLocation(NuevaPosicion);*/
 
 }
 

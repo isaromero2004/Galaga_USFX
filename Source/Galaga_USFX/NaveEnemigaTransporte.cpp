@@ -17,7 +17,19 @@ void ANaveEnemigaTransporte::Tick(float DeltaTime)
 
 void ANaveEnemigaTransporte::Mover(float DeltaTime)
 {
-    //MoverParabolico
+    FVector PosicionActual = GetActorLocation();
+    FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+    SetActorLocation(NuevaPosicion);
+
+
+    if (NuevaPosicion.X < limiteX) {
+
+        SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
+
+    }
+
+    /*/MoverParabolico
    
         static FVector PosicionActual = GetActorLocation();
         float VelocidadHorizontal = GetVelocidad();
@@ -46,7 +58,7 @@ void ANaveEnemigaTransporte::Mover(float DeltaTime)
         }
 
         // Actualizar la posición de la nave
-        SetActorLocation(NuevaPosicion);
+        SetActorLocation(NuevaPosicion);*/
     
 
 }

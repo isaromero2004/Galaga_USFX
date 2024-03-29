@@ -24,7 +24,6 @@ public:
 
 protected:
 	virtual void MoverCapsulas(float DeltaTime);
-	virtual void DestruirCapsulas();
 public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void BeginPlay() override;

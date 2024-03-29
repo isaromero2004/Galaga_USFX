@@ -13,6 +13,17 @@ ANaveEnemigaCazaG1::ANaveEnemigaCazaG1()
 void ANaveEnemigaCazaG1::Mover(float DeltaTime)
 {
     FVector PosicionActual = GetActorLocation();
+    FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+    SetActorLocation(NuevaPosicion);
+
+
+    if (NuevaPosicion.X < limiteX) {
+
+        SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
+
+    }
+    /*FVector PosicionActual = GetActorLocation();
 
     float VelocidadHorizontal = GetVelocidad();
 
@@ -32,7 +43,7 @@ void ANaveEnemigaCazaG1::Mover(float DeltaTime)
 
     FVector NuevaPosicion = FVector(X, Y, PosicionActual.Z);
 
-    //loat TopeAbajo = PosicionActual.X - 1300.0f;
+    float TopeAbajo = PosicionActual.X - 1300.0f;
     float Reaparicion = PosicionActual.X + 200.0f;
 
 
@@ -44,7 +55,7 @@ void ANaveEnemigaCazaG1::Mover(float DeltaTime)
     }
 
 
-    SetActorLocation(NuevaPosicion);
+    SetActorLocation(NuevaPosicion);*/
 }
 
 void ANaveEnemigaCazaG1::Destruirse()

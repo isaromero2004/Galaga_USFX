@@ -22,7 +22,19 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 void ANaveEnemigaCaza::Mover(float DeltaTime)
 
 {
-        // Parámetros del círculo
+
+    FVector PosicionActual = GetActorLocation();
+    FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+    SetActorLocation(NuevaPosicion);
+
+
+    if (NuevaPosicion.X < limiteX) {
+
+        SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
+
+    }
+       /* // Parámetros del círculo
         float Radio = 200.0f; // Radio del círculo
         float VelocidadAngular = 2.0f * PI; // Velocidad angular (en radianes por segundo)
 
@@ -43,7 +55,7 @@ void ANaveEnemigaCaza::Mover(float DeltaTime)
         // Restablece la posición cuando alcanza el límite en el eje X
         if (NuevaPosicion.X < TopeAbajo) {
             SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
-        }
+        }*/
     }
 
     /*//movimiento circular

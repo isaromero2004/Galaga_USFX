@@ -23,8 +23,7 @@ public:
 	FORCEINLINE void SetCantidadArmas(int cantidad) { cantidadArmas = cantidad; }
 	
 protected:
-		virtual void MoverCapsulas(float DeltaTime);
-		virtual void DestruirCapsulas();
+	virtual void MoverCapsulas(float DeltaTime);
 public:
 	virtual void Tick(float DeltaTime) override;
 	

@@ -22,9 +22,9 @@ void ACapsulasEnergia::Tick(float DeltaTime)
 
 void ACapsulasEnergia::MoverCapsulas(float DeltaTime)
 {
-	float velocidad = velocidadCapsulas;
+	float velocidad = GetVelocidadCapsulas();
 	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+	FVector NuevaPosicion = FVector(PosicionActual.X, -100 * DeltaTime * velocidad, PosicionActual.Z);
 
 	SetActorLocation(NuevaPosicion);
 
@@ -36,7 +36,4 @@ void ACapsulasEnergia::MoverCapsulas(float DeltaTime)
 	}
 }
 
-void ACapsulasEnergia::DestruirCapsulas()
-{
-	Destroy();
-}
+

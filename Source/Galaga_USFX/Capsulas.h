@@ -44,6 +44,9 @@ public:
 public:	
 	// Sets default values for this actor's properties
 	ACapsulas();
+
+	virtual void Recoger();
+	virtual void Soltar(FTransform TargetLocation);
 	
 protected:
 	// Called when the game starts or when spawned
@@ -53,12 +56,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+
 protected:
 
 	void MoverCapsulas(float DeltaTime) PURE_VIRTUAL(ACapsulas::MoverCapsulas, );
-
-	void DestruirCapsulas() PURE_VIRTUAL(ACapsulas::DestruirCapsulas, );
-
 	void ColisionCapsulas() PURE_VIRTUAL(ACapsulas::ColisionCapsulas, );
+
+	
+
+
+	
 
 };

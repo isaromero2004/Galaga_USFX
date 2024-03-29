@@ -16,7 +16,7 @@ ANaveEnemiga::ANaveEnemiga()
 	NaveEnemigaMesh->SetupAttachment(RootComponent);
 	RootComponent = NaveEnemigaMesh;
 	velocidad = 1;
-	TopeAbajo = -16000.0f;
+	limiteX = -16000.0f;
 }
 
 
@@ -34,4 +34,5 @@ void ANaveEnemiga::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
 

@@ -12,7 +12,18 @@ ANaveEnemigaEspiaG1::ANaveEnemigaEspiaG1()
 
 void ANaveEnemigaEspiaG1::Mover(float DeltaTime)
 {
-	//moverse en zigzag
+	FVector PosicionActual = GetActorLocation();
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+
+	SetActorLocation(NuevaPosicion);
+
+
+	if (NuevaPosicion.X < limiteX) {
+
+		SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
+
+	}
+	/*/moverse en zigzag
 	float VelocidadHorizontal = GetVelocidad();
 
 	float VelocidadRotacion = 40.0f;
@@ -29,7 +40,7 @@ void ANaveEnemigaEspiaG1::Mover(float DeltaTime)
 
 	FVector NuevaPosicion = GetActorLocation() + DesplazamientoHorizontal;//FVector(0.0f, ZigzagOffset, 0.0f);
 
-	SetActorLocation(NuevaPosicion);
+	SetActorLocation(NuevaPosicion);*/
 }
 void ANaveEnemigaEspiaG1::Destruirse()
 {

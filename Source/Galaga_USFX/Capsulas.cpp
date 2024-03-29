@@ -3,6 +3,7 @@
 
 #include "Capsulas.h"
 
+
 // Sets default values
 ACapsulas::ACapsulas()
 {
@@ -12,10 +13,9 @@ ACapsulas::ACapsulas()
 	mallaCapsulas= CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	mallaCapsulas->SetupAttachment(RootComponent);
 	RootComponent=mallaCapsulas;
+	SetActorEnableCollision(true);
 	limiteX= -16000.0f;
 }
-
-// Called when the game starts or when spawned
 void ACapsulas::BeginPlay()
 {
 	Super::BeginPlay();
@@ -28,4 +28,24 @@ void ACapsulas::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
+
+void ACapsulas::Recoger()
+{
+	SetActorTickEnabled(false);
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
+}
+
+void ACapsulas::Soltar(FTransform TargetLocation)
+{
+	SetActorLocation(TargetLocation.GetLocation());
+	SetActorTickEnabled(true);
+	SetActorHiddenInGame(false);
+	SetActorEnableCollision(true);
+}
+
+
+
+
+
 

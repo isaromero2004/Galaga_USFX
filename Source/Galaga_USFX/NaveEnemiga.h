@@ -33,7 +33,7 @@ protected:
 	float peso;
 	float volumen;
 
-	float TopeAbajo;
+	float limiteX;
 
 public:
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -51,8 +51,8 @@ public:
 
 	FORCEINLINE float Getpeso() const { return peso; }
 	FORCEINLINE float Getvolumen() const { return volumen; }
-	FORCEINLINE float GetTopeAbajo() const { return TopeAbajo; }
-	FORCEINLINE void SetTopeAbajo(float _TopeAbajo) { TopeAbajo = _TopeAbajo; }
+	FORCEINLINE float GetLimiteX() const { return limiteX; }
+	FORCEINLINE void SetLimiteX(float _limiteX) { limiteX = _limiteX; }
 	
 
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }

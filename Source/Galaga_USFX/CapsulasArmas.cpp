@@ -7,6 +7,9 @@ ACapsulasArmas::ACapsulasArmas()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 	mallaCapsulas->SetStaticMesh(ShipMesh.Object);
+
+	PrimaryActorTick.bCanEverTick = true;
+
 }
 
 void ACapsulasArmas::Tick(float DeltaTime)
@@ -17,9 +20,9 @@ void ACapsulasArmas::Tick(float DeltaTime)
 
 void ACapsulasArmas::MoverCapsulas(float DeltaTime)
 {
-	float velocidad = velocidadCapsulas;
+	float velocidad = GetVelocidadCapsulas();
 	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X, - 100 * DeltaTime * velocidad, PosicionActual.Z);
+	FVector NuevaPosicion = FVector(PosicionActual.X, -100 * DeltaTime * velocidad, PosicionActual.Z);
 
 	SetActorLocation(NuevaPosicion);
 
@@ -29,9 +32,4 @@ void ACapsulasArmas::MoverCapsulas(float DeltaTime)
 		SetActorLocation(FVector(1500.0f, FMath::RandRange(-500.0f, 200.0f) + 100.0f, PosicionActual.Z));
 
 	}
-}
-
-void ACapsulasArmas::DestruirCapsulas()
-{
-	Destroy();
 }
