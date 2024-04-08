@@ -116,6 +116,9 @@ protected:
 
 	
 	FTimerHandle TimerHandle_Salto;
+	FTimerHandle TimerHandle_CrearBarrera;
+	FTimerHandle BarreraTimerHandle;
+	FTimerHandle DestruirBarrera;
 	 
 	virtual void noroeste(float Value);
 	virtual void noreste(float Value);

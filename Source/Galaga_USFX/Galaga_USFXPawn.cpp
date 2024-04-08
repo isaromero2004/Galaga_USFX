@@ -93,9 +93,7 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	FInputAxisKeyMapping movSuroesteKey("movSuroeste", EKeys::Z, 1.0f);
 	FInputAxisKeyMapping movSuresteKey("movSureste", EKeys::C, 1.0f);
 	FInputActionKeyMapping saltoKey("Salto", EKeys::T, 0, 0, 0, 0);
-	/*FInputActionKeyMapping CrearBarreraKey("CrearBarrera", EKeys::K, 0, 0, 0, 0);
-	FInputActionKeyMapping ActivDoDispKey("ActivDobDisparo", EKeys::J, 0, 0, 0, 0);
-	FInputActionKeyMapping devPrincKey("devolInicio", EKeys::G, 0, 0, 0, 0);*/
+	
 
 	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movNoroesteKey);
 	PlayerInputComponent->BindAxis("movNoroeste", this, &AGalaga_USFXPawn::noroeste);
@@ -109,13 +107,6 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 	UPlayerInput::AddEngineDefinedActionMapping(saltoKey);
 	PlayerInputComponent->BindAction("Salto", IE_Pressed, this, &AGalaga_USFXPawn::Salto);
-	//UPlayerInput::AddEngineDefinedActionMapping(CrearBarreraKey);
-	//PlayerInputComponent->BindAction("CrearBarrera", IE_Pressed, this, &AGalaga_USFXPawn::CrearBarrera);
-	//UPlayerInput::AddEngineDefinedActionMapping(ActivDoDispKey);
-	//PlayerInputComponent->BindAction("ActivDobDisparo", IE_Pressed, this, &AGalaga_USFXPawn::ActivarDobleDisparo);
-	//UPlayerInput::AddEngineDefinedActionMapping(devPrincKey);
-	//PlayerInputComponent->BindAction("devolInicio", IE_Pressed, this, &AGalaga_USFXPawn::deEstreno);
-
 	
 
 
@@ -195,58 +186,7 @@ void AGalaga_USFXPawn::descender()
 	AddActorLocalOffset(FVector(0.0f, 0.0f, -FuerzaSalto * GetWorld()->GetDeltaSeconds()), true);
 }
 
-//void AGalaga_USFXPawn::CrearBarrera()
-//{
-//	if (!bCrearBarr)
-//	{
-//		return;
-//	}
-//	FVector Location = GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
-//	FRotator Rotation = GetActorRotation();
-//
-//	USceneComponentBarrera* CrearBarreraComponent = GetWorld()->SpawnActor<USceneComponentBarrera>(USceneComponentBarrera::StaticClass(), Location, Rotation);
-//
-//	if (CrearBarreraComponent != nullptr)
-//	{
-//		CrearBarreraComponent->SetWorldLocation(Location);
-//		CrearBarreraComponent->SetWorldRotation(Rotation);
-//	}
-//	ABarrera* CrearBarreraActor = GetWorld()->SpawnActor<ABarrera>(ABarrera::StaticClass(), Location, Rotation);
-//	if (CrearBarreraActor != nullptr)
-//	{
-//		CrearBarreraActor->SetActorLocation(Location);
-//		CrearBarreraActor->SetActorRotation(Rotation);
-//
-//		// Crear un delegado de temporizador
-//		FTimerDelegate TimerDel;
-//		TimerDel.BindLambda([CrearBarreraActor]()
-//			{
-//				if (CrearBarreraActor && CrearBarreraActor->IsValidLowLevel())
-//				{
-//					CrearBarreraActor->Destroy();
-//				}
-//			});
-//
-//		// Destruccion del actor despues de 5 segundos de aparecer
-//		GetWorld()->GetTimerManager().SetTimer(DestruirBarrera, TimerDel, 5.0f, false);
-//	}
-//	bCrearBarr = false;
-//	GetWorld()->GetTimerManager().SetTimer(TimerHandle_CrearBarrera, this, &AGalaga_USFX_L01Pawn::ResetCrearBarrera, 10.0f, false);
-//}
-//
-//void AGalaga_USFXPawn::ResetCrearBarrera()
-//{
-//	bCrearBarr = true;
-//}
-//
-//void AGalaga_USFXPawn::devolverAlPrincipio()
-//{
-//	movimiento = true;
-//	velNave = 2000.0f;
-//	velNaveX = 2000.0f;
-//	velNaveY = 2000.0f;
-//
-//};
+
 
 
 void AGalaga_USFXPawn::Tick(float DeltaSeconds)
