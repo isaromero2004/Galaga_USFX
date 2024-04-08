@@ -8,10 +8,12 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Inventario.h"
 #include "Capsulas.h"
 #include "CapsulasArmas.h"
 #include "CapsulasEnergia.h"
+#include "Inventario.h"
+#include "GameFramework/PlayerInput.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/Engine.h"
 #include "Containers/Queue.h"
 #include "Engine/CollisionProfile.h"
@@ -86,7 +88,166 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("ReloadAmmo", IE_Pressed, this, &AGalaga_USFXPawn::ReloadAmmo);
 	PlayerInputComponent->BindAction("ReloadEnergy", IE_Pressed, this, &AGalaga_USFXPawn::ReloadEnergy);
 
+	FInputAxisKeyMapping movNoroesteKey("movNoroeste", EKeys::Q, 1.0f);
+	FInputAxisKeyMapping movNoresteKey("movNoreste", EKeys::E, 1.0f);
+	FInputAxisKeyMapping movSuroesteKey("movSuroeste", EKeys::Z, 1.0f);
+	FInputAxisKeyMapping movSuresteKey("movSureste", EKeys::C, 1.0f);
+	FInputActionKeyMapping saltoKey("Salto", EKeys::T, 0, 0, 0, 0);
+	/*FInputActionKeyMapping CrearBarreraKey("CrearBarrera", EKeys::K, 0, 0, 0, 0);
+	FInputActionKeyMapping ActivDoDispKey("ActivDobDisparo", EKeys::J, 0, 0, 0, 0);
+	FInputActionKeyMapping devPrincKey("devolInicio", EKeys::G, 0, 0, 0, 0);*/
+
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movNoroesteKey);
+	PlayerInputComponent->BindAxis("movNoroeste", this, &AGalaga_USFXPawn::noroeste);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movNoresteKey);
+	PlayerInputComponent->BindAxis("movNoreste", this, &AGalaga_USFXPawn::noreste);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movSuroesteKey);
+	PlayerInputComponent->BindAxis("movSuroeste", this, &AGalaga_USFXPawn::suroeste);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movSuresteKey);
+	PlayerInputComponent->BindAxis("movSureste", this, &AGalaga_USFXPawn::sureste);
+
+
+	UPlayerInput::AddEngineDefinedActionMapping(saltoKey);
+	PlayerInputComponent->BindAction("Salto", IE_Pressed, this, &AGalaga_USFXPawn::Salto);
+	//UPlayerInput::AddEngineDefinedActionMapping(CrearBarreraKey);
+	//PlayerInputComponent->BindAction("CrearBarrera", IE_Pressed, this, &AGalaga_USFXPawn::CrearBarrera);
+	//UPlayerInput::AddEngineDefinedActionMapping(ActivDoDispKey);
+	//PlayerInputComponent->BindAction("ActivDobDisparo", IE_Pressed, this, &AGalaga_USFXPawn::ActivarDobleDisparo);
+	//UPlayerInput::AddEngineDefinedActionMapping(devPrincKey);
+	//PlayerInputComponent->BindAction("devolInicio", IE_Pressed, this, &AGalaga_USFXPawn::deEstreno);
+
+	
+
+
+
 }
+
+void AGalaga_USFXPawn::noroeste(float Value)
+{
+	const FVector Velocidad = FVector(650.0f, -650.0f, 0.0f);
+
+	AddActorWorldOffset(Velocidad * Value * GetWorld()->GetDeltaSeconds(), true);
+
+	if (Value)
+	{
+		FRotator RotQ = Velocidad.Rotation();
+		SetActorRotation(RotQ);
+	}
+	
+}
+
+void AGalaga_USFXPawn::noreste(float Value)
+{
+	const FVector Velocidad = FVector(650.0f, 650.0f, 0.0f);
+
+	AddActorWorldOffset(Velocidad * Value * GetWorld()->GetDeltaSeconds(), true);
+
+	if (Value)
+	{
+		FRotator RotE = Velocidad.Rotation();
+		SetActorRotation(RotE);
+	}
+}
+
+void AGalaga_USFXPawn::suroeste(float Value)
+{
+	const FVector Velocidad = FVector(-650.0f, -650.0f, 0.0f);
+
+	AddActorWorldOffset(Velocidad * Value * GetWorld()->GetDeltaSeconds(), true);
+
+	if (Value)
+	{
+		FRotator RotZ = Velocidad.Rotation();
+		SetActorRotation(RotZ);
+	}
+}
+
+void AGalaga_USFXPawn::sureste(float Value)
+{
+	const FVector Velocidad = FVector(-650.0f, 650.0f, 0.0f);
+
+	AddActorWorldOffset(Velocidad * Value * GetWorld()->GetDeltaSeconds(), true);
+
+	if (Value)
+	{
+		FRotator RotC = Velocidad.Rotation();
+		SetActorRotation(RotC);
+	}
+}
+
+
+void AGalaga_USFXPawn::Salto()
+{
+	const float FuerzaSalto = 11000.0f;
+	const FVector Impulso = FVector(0.0f, 0.0f, 1.0f) * FuerzaSalto;
+
+	AddActorLocalOffset(FVector(0.0f, 0.0f, FuerzaSalto * GetWorld()->GetDeltaSeconds()), true);
+
+	GetWorldTimerManager().SetTimer(TimerHandle_Salto, this, &AGalaga_USFXPawn::descender, 0.4f, false);
+
+}
+
+void AGalaga_USFXPawn::descender()
+{
+	const float FuerzaSalto = 11000.0f;
+	const FVector Impulso = FVector(0.0f, 0.0f, -1.0f) * FuerzaSalto;
+
+	AddActorLocalOffset(FVector(0.0f, 0.0f, -FuerzaSalto * GetWorld()->GetDeltaSeconds()), true);
+}
+
+//void AGalaga_USFXPawn::CrearBarrera()
+//{
+//	if (!bCrearBarr)
+//	{
+//		return;
+//	}
+//	FVector Location = GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
+//	FRotator Rotation = GetActorRotation();
+//
+//	USceneComponentBarrera* CrearBarreraComponent = GetWorld()->SpawnActor<USceneComponentBarrera>(USceneComponentBarrera::StaticClass(), Location, Rotation);
+//
+//	if (CrearBarreraComponent != nullptr)
+//	{
+//		CrearBarreraComponent->SetWorldLocation(Location);
+//		CrearBarreraComponent->SetWorldRotation(Rotation);
+//	}
+//	ABarrera* CrearBarreraActor = GetWorld()->SpawnActor<ABarrera>(ABarrera::StaticClass(), Location, Rotation);
+//	if (CrearBarreraActor != nullptr)
+//	{
+//		CrearBarreraActor->SetActorLocation(Location);
+//		CrearBarreraActor->SetActorRotation(Rotation);
+//
+//		// Crear un delegado de temporizador
+//		FTimerDelegate TimerDel;
+//		TimerDel.BindLambda([CrearBarreraActor]()
+//			{
+//				if (CrearBarreraActor && CrearBarreraActor->IsValidLowLevel())
+//				{
+//					CrearBarreraActor->Destroy();
+//				}
+//			});
+//
+//		// Destruccion del actor despues de 5 segundos de aparecer
+//		GetWorld()->GetTimerManager().SetTimer(DestruirBarrera, TimerDel, 5.0f, false);
+//	}
+//	bCrearBarr = false;
+//	GetWorld()->GetTimerManager().SetTimer(TimerHandle_CrearBarrera, this, &AGalaga_USFX_L01Pawn::ResetCrearBarrera, 10.0f, false);
+//}
+//
+//void AGalaga_USFXPawn::ResetCrearBarrera()
+//{
+//	bCrearBarr = true;
+//}
+//
+//void AGalaga_USFXPawn::devolverAlPrincipio()
+//{
+//	movimiento = true;
+//	velNave = 2000.0f;
+//	velNaveX = 2000.0f;
+//	velNaveY = 2000.0f;
+//
+//};
+
 
 void AGalaga_USFXPawn::Tick(float DeltaSeconds)
 {
@@ -406,4 +567,5 @@ void AGalaga_USFXPawn::ReloadEnergy()
 		}
 	}
 }
+
 

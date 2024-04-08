@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Inventario.h"
-#include "Capsulas.h"
 #include "Galaga_USFXPawn.generated.h"
 
 UCLASS(Blueprintable)
@@ -29,7 +28,7 @@ public:
 	AGalaga_USFXPawn();
 
 	UPROPERTY()
-	UInventario* MyInventory;
+	UInventario *MyInventory;
 	UFUNCTION()
 	void DropItem();
 	UFUNCTION()
@@ -43,6 +42,7 @@ public:
 	UFUNCTION()
 	void MoveForward(float Value);
 	void MoveRight(float AxisValue);
+	void MovNoroeste(float AxisValue);
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 	void ReloadAmmo();
@@ -50,6 +50,8 @@ public:
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
 	FVector GunOffset;
+	FVector GunOffset2;
+	FVector PosicionInicial;
 	
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
@@ -95,6 +97,7 @@ private:
 	int32 NumProyectilesDisparados;
 	int32 MaxProyectilesDisparados;
 	int32 NumItems;
+	bool Saltar;
 
 
 public:
@@ -108,5 +111,17 @@ public:
 private:
 	FVector MovementInput;
 	FVector CameraInput;
+
+protected:
+
+	
+	FTimerHandle TimerHandle_Salto;
+	 
+	virtual void noroeste(float Value);
+	virtual void noreste(float Value);
+	virtual void suroeste(float Value);
+	virtual void sureste(float Value);
+	virtual void Salto();
+	virtual void descender();
 };
 
