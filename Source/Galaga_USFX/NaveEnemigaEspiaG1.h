@@ -24,7 +24,7 @@ public:
 	FORCEINLINE void SetvisionNocturna(float _visionNocturna) { visionNocturna = _visionNocturna; }
 
 protected:
-	virtual void Mover(float DeltaTime);
+	
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

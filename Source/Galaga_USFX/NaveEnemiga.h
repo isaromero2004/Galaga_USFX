@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Movimiento.h"
 #include "NaveEnemiga.generated.h"
 
 
@@ -33,7 +34,14 @@ protected:
 	float peso;
 	float volumen;
 
-	float limiteX;
+	//float limiteX;
+	float Radio = 500.0f; // Radio de la circunferencia
+	float Angulo = 0.0f; // Ángulo inicial
+	float Speed = 20.0f; // Velocidad de rotación
+	//float Visibilty;
+
+	UMovimiento* MovimientoNaves;
+
 
 public:
 	FORCEINLINE float GetResistencia() const { return resistencia; }
@@ -51,8 +59,7 @@ public:
 
 	FORCEINLINE float Getpeso() const { return peso; }
 	FORCEINLINE float Getvolumen() const { return volumen; }
-	FORCEINLINE float GetLimiteX() const { return limiteX; }
-	FORCEINLINE void SetLimiteX(float _limiteX) { limiteX = _limiteX; }
+	
 	
 
 	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
@@ -88,7 +95,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 protected:
 	//virtual void Mover() = 0;
-	void Mover(float DeltaTime) PURE_VIRTUAL(ANaveEnemiga::Mover, );
+	
 	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	void Atacar() PURE_VIRTUAL(ANaveEnemiga::Atacar, );

@@ -24,7 +24,7 @@ void ACapsulasEnergia::MoverCapsulas(float DeltaTime)
 {
 	float velocidad = GetVelocidadCapsulas();
 	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X, -100 * DeltaTime * velocidad, PosicionActual.Z);
+	FVector NuevaPosicion = FVector(PosicionActual.X -100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
 
 	SetActorLocation(NuevaPosicion);
 

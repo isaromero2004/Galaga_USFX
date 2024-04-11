@@ -81,11 +81,15 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 
 
-	PlayerInputComponent->BindAction("DropItem",
-		EInputEvent::IE_Pressed, this,
-		&AGalaga_USFXPawn::DropItem);
-
+	
+	FInputAxisKeyMapping DropItemKey("DropItem", EKeys::X, 1.0f);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(DropItemKey);
+	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
+	FInputAxisKeyMapping ReloadAmmoKey("ReloadAmmo", EKeys::R, 1.0f);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(ReloadAmmoKey);
 	PlayerInputComponent->BindAction("ReloadAmmo", IE_Pressed, this, &AGalaga_USFXPawn::ReloadAmmo);
+	FInputAxisKeyMapping ReloadEnergyKey("ReloadEnergy", EKeys::V, 1.0f);
+	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(ReloadEnergyKey);
 	PlayerInputComponent->BindAction("ReloadEnergy", IE_Pressed, this, &AGalaga_USFXPawn::ReloadEnergy);
 
 	FInputAxisKeyMapping movNoroesteKey("movNoroeste", EKeys::Q, 1.0f);
@@ -230,7 +234,7 @@ void AGalaga_USFXPawn::Tick(float DeltaSeconds)
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
-	if (bCanFire == true && NumProyectilesDisparados < MaxProyectilesDisparados)
+	if (bCanFire == true) //&& NumProyectilesDisparados < MaxProyectilesDisparados)
 	{
 		// If we are pressing fire stick in a direction
 		if (FireDirection.SizeSquared() > 0.0f)
@@ -242,29 +246,19 @@ void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 			UWorld* const World = GetWorld();
 			if (World != nullptr)
 			{
-				for (int i = 0; i < 3; ++i)
-				{
-					//World->SpawnActor<AGalaga_USFX_L01Projectile>(SpawnLocation, FireRotation);
-					FRotator ModifiedRotation = FireRotation;
-					// Modify rotation for each projectile
-					ModifiedRotation.Yaw += (i - 1) * 20.0f; // Offset rotation by 10 degrees
+				FRotator ModifiedRotation = FireRotation;
 
-					// Calcular la ubicación de spawn de la bala actual
-					//FVector BulletSpawnLocation = SpawnLocation + FireRotation.RotateVector(FVector(0.f, i * BulletSpacing, 0.f));
+				// Spawn the projectile
 
-					// Spawn the projectile
-					//World->SpawnActor<AGalaga_USFX_L01Projectile>(BulletSpawnLocation, FireRotation);
+				const FVector ModifiedSpawnLocation = GetActorLocation() + ModifiedRotation.RotateVector(GunOffset);
 
-
-					const FVector ModifiedSpawnLocation = GetActorLocation() + ModifiedRotation.RotateVector(GunOffset);
-
-					//// Spawn the projectile
-					World->SpawnActor<AGalaga_USFXProjectile>(ModifiedSpawnLocation, ModifiedRotation);
-				}
+				// Spawn the projectile
+				World->SpawnActor<AGalaga_USFXProjectile>(ModifiedSpawnLocation, ModifiedRotation);
+				
 			}
 
 			// Restablece el contador cuando se alcance el límite máximo
-			if (NumProyectilesDisparados >= MaxProyectilesDisparados)
+			if (NumProyectilesDisparados >= ProyectilesPorDisparar)
 			{
 				bCanFire = false;
 				GetWorld()->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AGalaga_USFXPawn::ShotTimerExpired, FireRate);
@@ -282,20 +276,20 @@ void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 			bCanFire = false;
 		}
 	}
-}
+};
 
 void AGalaga_USFXPawn::ShotTimerExpired()
 {
 	// Restablece el contador y permite disparar de nuevo
 	++NumProyectilesDisparados; // Incrementa el contador de proyectiles disparados en 1
 
-	if (NumProyectilesDisparados >= MaxProyectilesDisparados)
+	if (NumProyectilesDisparados >= ProyectilesPorDisparar)
 	{
 		//NumProyectilesDisparados = 0;
 		if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municiones");
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Presiona Q para recargar");
+			
 
 
 		}
@@ -403,12 +397,12 @@ void AGalaga_USFXPawn::ReloadAmmo()
 			// Elimina el objeto de munición del inventario			
 			//MyInventory->RemoveFromInventory(AmmoItem);
 			NumProyectilesDisparados = 0; // Restablece el contador de proyectiles disparados.
-			MaxProyectilesDisparados = 20; // Establece el número máximo de proyectiles disparados
+			ProyectilesPorDisparar += 20; 
 			bCanFire = true; // Permite al jugador disparar nuevamente.
 
 			if (GEngine)
 			{
-				FString Message = FString::Printf(TEXT("Se recargaron +%d de municion"), MaxProyectilesDisparados);
+				FString Message = FString::Printf(TEXT("Se recargaron +%d de municion"), ProyectilesPorDisparar);
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, Message);
 			}
 

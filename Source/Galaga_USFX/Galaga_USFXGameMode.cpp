@@ -21,7 +21,6 @@
 #include "Capsulas.h"
 #include "CapsulasArmas.h"
 #include "CapsulasEnergia.h"
-#include "Puntaje.h"
 
 AGalaga_USFXGameMode::AGalaga_USFXGameMode()
 {
@@ -30,57 +29,71 @@ AGalaga_USFXGameMode::AGalaga_USFXGameMode()
 	DefaultPawnClass = AGalaga_USFXPawn::StaticClass();
 	// NaveEnemiga01 = nullptr;
 	//Puntaje01 = nullptr;
+    SpawnLocationInicial = FVector(-700.0f, -400.0f, 250.0f);
+    SeparacionColumnas = 200.0f; 
+    SeparacionFilas = 150.0f;
 
 }
-
 void AGalaga_USFXGameMode::BeginPlay()
 {
-	Super::BeginPlay();
-	//Set the game state to playing
+    Super::BeginPlay();
 
-	//FVector ubicacionInicioNavesEnemigas = FVector(0.0f, 0.0f, 250.0f);
+    const int32 NumeroDeColumnas = 5; // Número de columnas
+    const int32 NumeroDeFilas = 6;    // Número de filas
 
-	FVector InicialSpawnNaveLocation = FVector(100.f, -500.f, 200.f);
-	FRotator rotacionNave = FRotator(0.0f, 0.0f, 0.0f);
+    FVector InicialSpawnNaveLocation = FVector(100.f, -500.f, 200.f);
+    FRotator RotacionNave = FRotator::ZeroRotator;
 
-	FVector SpawnCapsulasLocation = FVector(100.f, -500.f, 200.f);
-	FRotator rotacionCapsulas = FRotator(0.0f, 0.0f, 0.0f);
+    FVector SpawnCapsulasLocation = FVector(100.f, -500.f, 200.f);
+    FRotator rotacionCapsulas = FRotator(0.0f, 0.0f, 0.0f);
 
-	//FVector ubicacionPuntaje = FVector(100.0f, 700.0f, 350.0f);
-	//FRotator rotacionPuntaje = FRotator(0.0f, 0.0f, 0.0f);
+    UWorld* const World = GetWorld();
+    if (World != nullptr)
+    {
+        // Matriz que contiene arrays de clases de naves para cada columna
+        TArray<TArray<TSubclassOf<ANaveEnemiga>>> ClasesNavesColumnas;
+        TArray<TSubclassOf<ACapsulas>> ClasesCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
+        // Agregar arrays de clases de naves a la matriz para cada columna
+        for (int32 Columna = 0; Columna < NumeroDeColumnas; ++Columna)
+        {
+            TArray<TSubclassOf<ANaveEnemiga>> NavesColumna;
+            // Agregar diferentes tipos de naves a la columna (puedes modificar esto según tus necesidades)
+            NavesColumna.Add(ANaveEnemigaCazaG1::StaticClass());
+            NavesColumna.Add(ANaveEnemigaCazaG2::StaticClass());
+            NavesColumna.Add(ANaveEnemigaTransporteG1::StaticClass());
+            NavesColumna.Add(ANaveEnemigaTransporteG2::StaticClass());
+            NavesColumna.Add(ANaveEnemigaEspiaG1::StaticClass());
+            NavesColumna.Add(ANaveEnemigaEspiaG2::StaticClass());
+            NavesColumna.Add(ANaveEnemigaReabastecimientoG1::StaticClass());
+            NavesColumna.Add(ANaveEnemigaReabastecimientoG2::StaticClass());
+            NavesColumna.Add(ANaveEnemigaNodrizaG1::StaticClass());
+            NavesColumna.Add(ANaveEnemigaNodrizaG2::StaticClass());
 
-	UWorld* const World = GetWorld();
-	if (World != nullptr)
-	{
-		TArray<TSubclassOf<ANaveEnemiga>> claseNave = { ANaveEnemigaCazaG1::StaticClass(), ANaveEnemigaCazaG2::StaticClass(),ANaveEnemigaEspiaG1::StaticClass(),ANaveEnemigaEspiaG2::StaticClass(),
-		ANaveEnemigaNodrizaG1::StaticClass(),ANaveEnemigaNodrizaG2::StaticClass(),ANaveEnemigaReabastecimientoG1::StaticClass(),ANaveEnemigaReabastecimientoG2::StaticClass(),
-		ANaveEnemigaTransporteG1::StaticClass(),ANaveEnemigaTransporteG2::StaticClass() };
+            ClasesNavesColumnas.Add(NavesColumna);
+        }
 
-		TArray<TSubclassOf<ACapsulas>> claseCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
+        // Spawnear las naves de acuerdo a la matriz de clases de naves
+        for (int32 Columna = 0; Columna < NumeroDeColumnas; ++Columna)
+        {
+            for (int32 Fila = 0; Fila < NumeroDeFilas; ++Fila)
+            {
+                TSubclassOf<ANaveEnemiga> ClaseNaveSeleccionada = ClasesNavesColumnas[Columna][FMath::RandRange(0, ClasesNavesColumnas[Columna].Num() - 1)];
 
-		
+                FVector SpawnLocation = InicialSpawnNaveLocation + FVector(Columna * SeparacionColumnas, Fila * SeparacionFilas, 0.f);
 
-		for (int i = 0; i < 30; i++) {
-			TSubclassOf<ANaveEnemiga> ClaseRandom = claseNave[FMath::RandRange(0, claseNave.Num() - 1)];
+                ANaveEnemiga* NuevaNave = World->SpawnActor<ANaveEnemiga>(ClaseNaveSeleccionada, SpawnLocation, RotacionNave);
+                
+            }
+        }
 
-			FVector SpawnLocation = InicialSpawnNaveLocation + FVector(0.f, i * 80.f, 0.f);
+		TSubclassOf<ACapsulas> CapsulasRandom = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
-			FRotator SpawnRotation = FRotator::ZeroRotator;
-			ANaveEnemiga* NuevaNaveSpawn = GetWorld()->SpawnActor<ANaveEnemiga>(ClaseRandom, SpawnLocation, SpawnRotation);
-
-			claseNave.Add(ClaseRandom);
-		}
-
-		for (int i = 0; i < 4; i++) {
-
-			TSubclassOf<ACapsulas> CapsulasRandom = claseCapsulas[FMath::RandRange(0, claseCapsulas.Num() - 1)];
-
-			FVector SpawnLocation = SpawnCapsulasLocation + FVector(0.f, i * 80.f, 0.f);
+		FVector SpawnLocation = FVector(FMath::RandRange(-200.f, 200.f), -500.f, 200.f);
 
 			FRotator SpawnRotation = FRotator::ZeroRotator;
 			ACapsulas* CapsulasSpawn = GetWorld()->SpawnActor<ACapsulas>(CapsulasRandom, SpawnLocation, SpawnRotation);
 
-		}
+		
 
 		TiempoTranscurrido = 0;
 

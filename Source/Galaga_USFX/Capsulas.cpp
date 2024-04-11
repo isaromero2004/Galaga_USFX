@@ -33,7 +33,7 @@ void ACapsulas::Recoger()
 {
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
-	SetActorEnableCollision(false);
+	SetActorEnableCollision(true);
 }
 
 void ACapsulas::Soltar(FTransform TargetLocation)

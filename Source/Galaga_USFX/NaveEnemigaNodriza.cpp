@@ -10,20 +10,6 @@ ANaveEnemigaNodriza::ANaveEnemigaNodriza()
 
 }
 
-void ANaveEnemigaNodriza::Mover(float DeltaTime)
-{
-
-	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
-
-	SetActorLocation(NuevaPosicion);
-
-
-	if (NuevaPosicion.X < limiteX) {
-
-		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
-
-	}
 
 	/*/movimiento eliptico
 	static FVector PosicionActual = GetActorLocation();
@@ -59,7 +45,7 @@ void ANaveEnemigaNodriza::Mover(float DeltaTime)
 	SetActorLocation(ReaparicionPosicion);*/
 
 
-}
+
 
 void ANaveEnemigaNodriza::Destruirse()
 {
@@ -74,5 +60,5 @@ void ANaveEnemigaNodriza::Atacar()
 void ANaveEnemigaNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
+	
 }

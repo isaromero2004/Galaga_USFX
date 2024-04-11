@@ -5,7 +5,7 @@
 
 ACapsulasArmas::ACapsulasArmas()
 {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
 	mallaCapsulas->SetStaticMesh(ShipMesh.Object);
 
 	PrimaryActorTick.bCanEverTick = true;
@@ -22,7 +22,7 @@ void ACapsulasArmas::MoverCapsulas(float DeltaTime)
 {
 	float velocidad = GetVelocidadCapsulas();
 	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X, -100 * DeltaTime * velocidad, PosicionActual.Z);
+	FVector NuevaPosicion = FVector(PosicionActual.X -100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
 
 	SetActorLocation(NuevaPosicion);
 

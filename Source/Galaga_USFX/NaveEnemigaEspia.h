@@ -23,7 +23,7 @@ public:
 	FORCEINLINE void SetCapacidadVisualizacion(float _capacidadVisualizacion) { capacidadVisualizacion = _capacidadVisualizacion; }
 
 protected:
-	virtual void Mover(float DeltaTime);
+	
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

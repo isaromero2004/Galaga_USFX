@@ -23,7 +23,7 @@ public:
 	FORCEINLINE void SetCapacidadCombustible(float _capacidadCombustible) { capacidadCombustible = _capacidadCombustible; }
 
 protected:
-	virtual void Mover(float DeltaTime);
+	
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();

@@ -27,7 +27,6 @@ class ANaveEnemigaNodrizaG2;
 class ACapsulas;
 class ACapsulasArmas;
 class ACapsulasEnergia;
-class APuntaje;
 
 
 UCLASS(MinimalAPI)
@@ -45,33 +44,26 @@ protected:
 public:
 
 	TArray<ANaveEnemiga*> TANavesEnemigas;
-	TArray<TSubclassOf<ANaveEnemiga>> TANavesEnemigasClase;
-	TArray<ANaveEnemigaCaza*> TANavesEnemigasCaza;
-	TArray<ANaveEnemigaCazaG1*> TANavesEnemigasCazaG1;
-	TArray<ANaveEnemigaCazaG2*> TANavesEnemigasCazaG2;
-	TArray<ANaveEnemigaTransporte*> TANavesEnemigasTransporte;
-	TArray<ANaveEnemigaTransporteG1*> TANavesEnemigasTransporteG1;
-	TArray<ANaveEnemigaTransporteG2*> TANavesEnemigasTransporteG2;
-	TArray<ANaveEnemigaEspia*> TANavesEnemigasEspia;
-	TArray<ANaveEnemigaEspiaG1*> TANavesEnemigasEspiaG1;
-	TArray<ANaveEnemigaEspiaG2*> TANavesEnemigasEspiaG2;
-	TArray<ANaveEnemigaReabastecimiento*> TANavesEnemigasReabastecimiento;
-	TArray<ANaveEnemigaReabastecimientoG1*> TANavesEnemigasReabastecimientoG1;
-	TArray<ANaveEnemigaReabastecimientoG2*> TANavesEnemigasReabastecimientoG2;
-	TArray<ANaveEnemigaNodriza*> TANavesEnemigasNodriza;
-	TArray<ANaveEnemigaNodrizaG1*> TANavesEnemigasNodrizaG1;
-	TArray<ANaveEnemigaNodrizaG2*> TANavesEnemigasNodrizaG2;
+	TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
 
 	TArray<ACapsulas*> TACapsulas;
-	TArray<TSubclassOf<ACapsulas>> TACapsulasClase;
-	TArray<ACapsulasArmas*> TACapsulasArmas;
-	TArray<ACapsulasEnergia*> TACapsulasEnergia;
+	TArray<TSubclassOf<ACapsulas>> claseCapsulas; 
+	
 
 private:
 	int TiempoTranscurrido;
-	
+	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
+
+
+	FVector SpawnLocationInicial; 
+
+	float SeparacionColumnas; 
+
+	float SeparacionFilas; 
 public:
 	virtual void Tick(float DeltaTime) override;
+
+
 
 };
 

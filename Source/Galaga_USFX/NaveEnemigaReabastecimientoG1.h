@@ -24,7 +24,7 @@ public:
 	FORCEINLINE void SetVidas(float _vidas) { vidas = _vidas; }
 
 protected:
-	virtual void Mover(float DeltaTime);
+	
 	virtual void Destruirse();
 	virtual void Escapar();
 	virtual void Atacar();
