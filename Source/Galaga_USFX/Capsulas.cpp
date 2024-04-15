@@ -14,7 +14,7 @@ ACapsulas::ACapsulas()
 	mallaCapsulas->SetupAttachment(RootComponent);
 	RootComponent=mallaCapsulas;
 	SetActorEnableCollision(true);
-	limiteX= -16000.0f;
+	limiteX= -1600.0f;
 }
 void ACapsulas::BeginPlay()
 {
@@ -33,15 +33,17 @@ void ACapsulas::Recoger()
 {
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
-	SetActorEnableCollision(true);
+	SetActorEnableCollision(false);
 }
 
-void ACapsulas::Soltar(FTransform TargetLocation)
+void ACapsulas::Soltar(const FTransform& PutDownLocation)
 {
-	SetActorLocation(TargetLocation.GetLocation());
+	
 	SetActorTickEnabled(true);
 	SetActorHiddenInGame(false);
 	SetActorEnableCollision(true);
+	SetActorLocation(PutDownLocation.GetLocation());
+
 }
 
 

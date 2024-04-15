@@ -21,6 +21,7 @@
 #include "Capsulas.h"
 #include "CapsulasArmas.h"
 #include "CapsulasEnergia.h"
+#include "TimerManager.h"
 
 AGalaga_USFXGameMode::AGalaga_USFXGameMode()
 {
@@ -52,7 +53,7 @@ void AGalaga_USFXGameMode::BeginPlay()
     {
         // Matriz que contiene arrays de clases de naves para cada columna
         TArray<TArray<TSubclassOf<ANaveEnemiga>>> ClasesNavesColumnas;
-        TArray<TSubclassOf<ACapsulas>> ClasesCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
+        //TArray<TSubclassOf<ACapsulas>> ClasesCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
         // Agregar arrays de clases de naves a la matriz para cada columna
         for (int32 Columna = 0; Columna < NumeroDeColumnas; ++Columna)
         {
@@ -82,25 +83,36 @@ void AGalaga_USFXGameMode::BeginPlay()
                 FVector SpawnLocation = InicialSpawnNaveLocation + FVector(Columna * SeparacionColumnas, Fila * SeparacionFilas, 0.f);
 
                 ANaveEnemiga* NuevaNave = World->SpawnActor<ANaveEnemiga>(ClaseNaveSeleccionada, SpawnLocation, RotacionNave);
-                
+
             }
-        }
+        }/*
 
-		TSubclassOf<ACapsulas> CapsulasRandom = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
+        TSubclassOf<ACapsulas> CapsulasRandom = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
-		FVector SpawnLocation = FVector(FMath::RandRange(-200.f, 200.f), -500.f, 200.f);
+        FVector SpawnLocation = FVector(400.0f, FMath::RandRange(-1000.f, 1000.f), 200.f);
 
-			FRotator SpawnRotation = FRotator::ZeroRotator;
-			ACapsulas* CapsulasSpawn = GetWorld()->SpawnActor<ACapsulas>(CapsulasRandom, SpawnLocation, SpawnRotation);
+        FRotator SpawnRotation = FRotator::ZeroRotator;
+        ACapsulas* CapsulasSpawn = GetWorld()->SpawnActor<ACapsulas>(CapsulasRandom, SpawnLocation, SpawnRotation);*/
 
-		
+        GetWorldTimerManager().SetTimer(AparicionCapsula, this, & AGalaga_USFXGameMode::SpawnCapsula, 20.0f, true);
+        //GetWorld()->GetTimerManager().SetTimer(AparicionCapsula, this, &AGalaga_USFXGameMode::AparicionDeCapsula, 20.0f, false);
 
-		TiempoTranscurrido = 0;
+    }
 
-	}
+    TiempoTranscurrido = 0;
+
+
 }
+void AGalaga_USFXGameMode::SpawnCapsula()
+{
+    TArray<TSubclassOf<ACapsulas>> ClasesCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
+
+    TSubclassOf<ACapsulas> RandomCapsulas = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
 
+    GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(400.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
+
+}
 
 
 void AGalaga_USFXGameMode::Tick(float DeltaTime)

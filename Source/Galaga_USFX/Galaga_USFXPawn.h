@@ -95,7 +95,7 @@ private:
 	FTimerHandle TimerHandle_ShotTimerExpired;
 
 	int32 NumProyectilesDisparados=0;
-	int32 ProyectilesPorDisparar=100;
+	int32 ProyectilesPorDisparar=20;
 	int32 NumItems;
 	bool Saltar;
 

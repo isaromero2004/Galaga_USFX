@@ -41,25 +41,34 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
+protected:
 
 	TArray<ANaveEnemiga*> TANavesEnemigas;
 	TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
 
+	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
+
 	TArray<ACapsulas*> TACapsulas;
-	TArray<TSubclassOf<ACapsulas>> claseCapsulas; 
-	
+	//TArray<TSubclassOf<ACapsulas>> ClasesCapsulas;
+
 
 private:
 	int TiempoTranscurrido;
-	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
-
 
 	FVector SpawnLocationInicial; 
+
+	FTimerHandle  AparicionCapsula;
 
 	float SeparacionColumnas; 
 
 	float SeparacionFilas; 
+
+	bool aparecerCap;
+
+protected:
+
+	virtual void SpawnCapsula();
+
 public:
 	virtual void Tick(float DeltaTime) override;
 

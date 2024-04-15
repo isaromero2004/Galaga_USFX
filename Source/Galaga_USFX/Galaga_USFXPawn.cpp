@@ -59,9 +59,8 @@ AGalaga_USFXPawn::AGalaga_USFXPawn()
 	FireRate = 0.1f;
 	bCanFire = true;
 
-	MyInventory =
-		CreateDefaultSubobject<UInventario>("MyInventory");
-	//NumItems = 0;
+	MyInventory = CreateDefaultSubobject<UInventario>("MyInventory");
+	NumItems = 0;
 }
 void AGalaga_USFXPawn::MoveForward(float Value)
 {
@@ -82,22 +81,24 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 
 	
-	FInputAxisKeyMapping DropItemKey("DropItem", EKeys::X, 1.0f);
-	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(DropItemKey);
-	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
-	FInputAxisKeyMapping ReloadAmmoKey("ReloadAmmo", EKeys::R, 1.0f);
-	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(ReloadAmmoKey);
+	//FInputAxisKeyMapping DropItemKey("DropItem", EKeys::X, 1.0f);
+	//GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(DropItemKey);
+	//PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
+	FInputActionKeyMapping ReloadAmmoKey("ReloadAmmo", EKeys::R, 0, 0, 0, 0);
+	UPlayerInput::AddEngineDefinedActionMapping(ReloadAmmoKey);
 	PlayerInputComponent->BindAction("ReloadAmmo", IE_Pressed, this, &AGalaga_USFXPawn::ReloadAmmo);
-	FInputAxisKeyMapping ReloadEnergyKey("ReloadEnergy", EKeys::V, 1.0f);
-	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(ReloadEnergyKey);
+
+	FInputActionKeyMapping ReloadEnergyKey("ReloadEnergy", EKeys::V, 0,0,0,0);
+	UPlayerInput::AddEngineDefinedActionMapping(ReloadEnergyKey);
 	PlayerInputComponent->BindAction("ReloadEnergy", IE_Pressed, this, &AGalaga_USFXPawn::ReloadEnergy);
+
 
 	FInputAxisKeyMapping movNoroesteKey("movNoroeste", EKeys::Q, 1.0f);
 	FInputAxisKeyMapping movNoresteKey("movNoreste", EKeys::E, 1.0f);
 	FInputAxisKeyMapping movSuroesteKey("movSuroeste", EKeys::Z, 1.0f);
 	FInputAxisKeyMapping movSuresteKey("movSureste", EKeys::C, 1.0f);
 	FInputActionKeyMapping saltoKey("Salto", EKeys::T, 0, 0, 0, 0);
-	
+	FInputActionKeyMapping DropItemKey("DropItem", EKeys::X, 0, 0, 0, 0);
 
 	GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(movNoroesteKey);
 	PlayerInputComponent->BindAxis("movNoroeste", this, &AGalaga_USFXPawn::noroeste);
@@ -111,7 +112,9 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 	UPlayerInput::AddEngineDefinedActionMapping(saltoKey);
 	PlayerInputComponent->BindAction("Salto", IE_Pressed, this, &AGalaga_USFXPawn::Salto);
-	
+	UPlayerInput::AddEngineDefinedActionMapping(DropItemKey);
+	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
+
 
 	
 
@@ -309,11 +312,9 @@ void AGalaga_USFXPawn::DropItem()
 		return;
 	}
 	ACapsulas* Item = nullptr;
-	MyInventory->CurrentInventory.Dequeue(Item);//MyInventory->CurrentInventory.Last();
-	//MyInventory->CurrentInventory.Last();
-//MyInventory->RemoveFromInventory(Item);
+	MyInventory->CurrentInventory.Dequeue(Item);
 	NumItems -= 1;
-	// Obtén la ubicación actual de la nave
+	
 	FVector ShipLocation = GetActorLocation();
 	FVector ItemOrigin;
 	FVector ItemBounds;
@@ -321,7 +322,8 @@ void AGalaga_USFXPawn::DropItem()
 
 	// Ajusta la posición para centrar el objeto con respecto a la nave
 	float DropDistance = 200.0f; // Distancia adicional para dejar caer el objeto
-	FVector DropOffset = FVector(0.0f, 0.0f, ItemBounds.Z * 0.5f); // Ajusta la posición verticalmente para centrar el objeto
+	float ItemVelocidad = 0.0f; // Velocidad del objeto al soltarlo
+	FVector DropOffset = FVector(0.0f, 0.0f, 0.0f); // Ajusta la posición verticalmente para centrar el objeto
 	FTransform PutDownLocation = FTransform(GetActorRotation(), ShipLocation + DropOffset +
 		(RootComponent->GetForwardVector() * DropDistance)); // Combina la ubicación de la nave con el desplazamiento vertical y horizontal
 
@@ -383,7 +385,7 @@ void AGalaga_USFXPawn::ReloadAmmo()
 	// Itera sobre los objetos en el inventario para encontrar uno de munición
 	ACapsulas* InventoryItem = nullptr;
 
-	//for (AInventoryActor* InventoryItem : MyInventory->CurrentInventory)
+	
 	while (MyInventory->CurrentInventory.Dequeue(InventoryItem))
 	{
 		// Intenta hacer un cast a AInventoryActorMunicion
@@ -392,10 +394,6 @@ void AGalaga_USFXPawn::ReloadAmmo()
 		{
 			// Se encontró un objeto de munición en el inventario
 			bFoundAmmo = true;
-
-			// Se encontró un objeto de munición en el inventario
-			// Elimina el objeto de munición del inventario			
-			//MyInventory->RemoveFromInventory(AmmoItem);
 			NumProyectilesDisparados = 0; // Restablece el contador de proyectiles disparados.
 			ProyectilesPorDisparar += 20; 
 			bCanFire = true; // Permite al jugador disparar nuevamente.
@@ -431,18 +429,6 @@ void AGalaga_USFXPawn::CheckInventory()
 	// Verifica si el componente de inventario existe
 	if (MyInventory)
 	{
-		// Obtiene el número de objetos de inventario en el inventario del jugador
-		//Artificio para tener el numero de objetos en el inventario
-
-
-		// Inicializa una variable para contar el número de elementos
-		// Declarar la cola y obtener un puntero a ella
-		// Obtener un puntero a la cola de inventario
-
-
-		//int32 NumItems = MyInventory->CurrentInventory.Num();
-
-		// Puedes hacer lo que quieras con NumItems, como mostrarlo en pantalla, usarlo en lógica de juego, etc.
 		if (GEngine)
 		{
 			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);
@@ -463,7 +449,7 @@ void AGalaga_USFXPawn::CheckInventory()
 
 void AGalaga_USFXPawn::ReloadEnergy()
 {
-	// Bandera para verificar si se encontró un objeto de munición
+	// Bandera para verificar si se encontró un objeto de energia
 	bool bFoundEnergy = false;
 	// Itera sobre los objetos en el inventario para encontrar uno de Energia
 	ACapsulas* InventoryItem = nullptr;

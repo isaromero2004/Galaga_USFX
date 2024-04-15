@@ -9,7 +9,7 @@ ACapsulasArmas::ACapsulasArmas()
 	mallaCapsulas->SetStaticMesh(ShipMesh.Object);
 
 	PrimaryActorTick.bCanEverTick = true;
-
+	
 }
 
 void ACapsulasArmas::Tick(float DeltaTime)
@@ -23,7 +23,7 @@ void ACapsulasArmas::MoverCapsulas(float DeltaTime)
 	float velocidad = GetVelocidadCapsulas();
 	FVector PosicionActual = GetActorLocation();
 	FVector NuevaPosicion = FVector(PosicionActual.X -100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
-
+	
 	SetActorLocation(NuevaPosicion);
 
 

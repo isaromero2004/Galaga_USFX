@@ -40,37 +40,6 @@ void UInventario::RemoveFromInventory(ACapsulas* ActorToRemove)
 	CurrentInventory.Dequeue(ActorToRemove);
 }
 
-//void UInventario::Recoger()
-//{
-//	TArray<AActor*> FoundActors;
-//	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ACapsulas::StaticClass(), FoundActors);
-//	for (AActor* Actor : FoundActors)
-//	{
-//		ACapsulas* Capsula = Cast<ACapsulas>(Actor);
-//		if (Capsula)
-//		{
-//			if (Capsula->IsOverlappingActor(GetOwner()))
-//			{
-//				AddToInventory(Capsula);
-//				Capsula->Destroy();
-//			}
-//		}
-//	}
-//}
-//
-//void UInventario::Soltar(FTransform TargetLocation)
-//{
-//	ACapsulas* Capsula = nullptr;
-//	if (CurrentInventory.Peek(Capsula))
-//	{
-//		FVector SpawnLocation = GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 100;
-//		FRotator SpawnRotation = GetOwner()->GetActorRotation();
-//		FActorSpawnParameters SpawnInfo;
-//		SpawnInfo.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-//		GetWorld()->SpawnActor<ACapsulas>(Capsula->GetClass(), SpawnLocation, SpawnRotation, SpawnInfo);
-//		RemoveFromInventory(Capsula);
-//	}
-//}
 
 
 

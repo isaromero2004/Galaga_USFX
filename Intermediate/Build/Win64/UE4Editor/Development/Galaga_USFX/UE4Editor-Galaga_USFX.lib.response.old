@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\Galaga_USFXEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Bombas.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Capsulas.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\CapsulasArmas.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\CapsulasEnergia.cpp.obj"
@@ -32,8 +33,7 @@
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporte.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporteG1.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporteG2.cpp.obj"
-"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\proyectilEnemigo.cpp.obj"
-"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Puntaje.cpp.obj"
+"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Bombas.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Capsulas.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\CapsulasArmas.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\CapsulasEnergia.gen.cpp.obj"
@@ -59,7 +59,5 @@
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporte.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporteG1.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\NaveEnemigaTransporteG2.gen.cpp.obj"
-"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\proyectilEnemigo.gen.cpp.obj"
-"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Puntaje.gen.cpp.obj"
 "C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Default.rc2.res"
 /OUT:"C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\UE4Editor-Galaga_USFX.lib"

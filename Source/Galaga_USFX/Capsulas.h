@@ -17,8 +17,8 @@ public:
 
 protected:
 
-	float velocidadCapsulas = 5.0f;
-	float intervaloAparicion;
+	float velocidadCapsulas = 10.0f;
+	float intervaloAparicion= 10.0f;
 	FVector posicion;
 	int trayectoria;
 	float duracion;
@@ -46,7 +46,7 @@ public:
 	ACapsulas();
 
 	virtual void Recoger();
-	virtual void Soltar(FTransform TargetLocation);
+	virtual void Soltar(const FTransform& PutDownLocation);
 	
 protected:
 	// Called when the game starts or when spawned
