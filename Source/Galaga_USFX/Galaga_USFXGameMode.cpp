@@ -2,6 +2,7 @@
 
 #include "Galaga_USFXGameMode.h"
 #include "Galaga_USFXPawn.h"
+#include "FabricaNaves.h"
 #include "NaveEnemiga.h"
 #include "NaveEnemigaTransporte.h"
 #include "NaveEnemigaTransporteG1.h"
@@ -54,17 +55,42 @@ void AGalaga_USFXGameMode::BeginPlay()
     if (World != nullptr)
     {
 
-        AFabricaNaves* CrearNaves = World->SpawnActor<AFabricaNaves>();
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaEspiaG1::StaticClass(), InicialSpawnNaveLocation, RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaEspiaG2::StaticClass(), InicialSpawnNaveLocation + FVector(-50.0f, 250.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaNodrizaG1::StaticClass(), InicialSpawnNaveLocation + FVector(-100.0f, 500.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaNodrizaG2::StaticClass(), InicialSpawnNaveLocation + FVector(-150.0f, 750.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaReabastecimientoG1::StaticClass(), InicialSpawnNaveLocation + FVector(-200.0f, 1000.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaReabastecimientoG2::StaticClass(), InicialSpawnNaveLocation + FVector(-250.0f, 1250.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaTransporteG1::StaticClass(), InicialSpawnNaveLocation + FVector(-300.0f, 1500.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaTransporteG2::StaticClass(), InicialSpawnNaveLocation + FVector(-350.0f, 1750.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaCazaG1::StaticClass(), InicialSpawnNaveLocation + FVector(-400.0f, 2000.0f, 0.0f), RotacionNave);
-        CrearNaves->FabricarNaveEnemiga(ANaveEnemigaCazaG2::StaticClass(), InicialSpawnNaveLocation + FVector(-450.0f, 2250.0f, 0.0f), RotacionNave);
+        for (int i = 0; i < 6; i++)
+        {
+            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
+            ANaveEnemiga* NuevaNaveEnemigaCaza = AFabricaNaves::FabricarNaveEnemiga("Caza", World, PosicionNaveActual, RotacionNave);
+            TANavesEnemigas.Push(NuevaNaveEnemigaCaza);
+		}
+
+        for (int i = 0; i < 6; i++)
+        {
+			FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X+200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
+			ANaveEnemiga* NuevaNaveEnemigaEspia = AFabricaNaves::FabricarNaveEnemiga("Espia", World, PosicionNaveActual, RotacionNave);
+			TANavesEnemigas.Push(NuevaNaveEnemigaEspia);
+		}
+
+        for (int i = 0; i < 6; i++)
+        {
+            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X +400, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
+            ANaveEnemiga* NuevaNaveEnemigaNodriza = AFabricaNaves::FabricarNaveEnemiga("Nodriza", World, PosicionNaveActual, RotacionNave);
+            TANavesEnemigas.Push(NuevaNaveEnemigaNodriza);
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+			FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
+			ANaveEnemiga* NuevaNaveEnemigaReabastecimiento = AFabricaNaves::FabricarNaveEnemiga("Reabastecimiento", World, PosicionNaveActual, RotacionNave);
+			TANavesEnemigas.Push(NuevaNaveEnemigaReabastecimiento);
+		}
+
+        for (int i = 0; i < 6; i++)
+        {
+            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 400, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
+            ANaveEnemiga* NuevaNaveEnemigaTransporte = AFabricaNaves::FabricarNaveEnemiga("Transporte", World, PosicionNaveActual, RotacionNave);
+            TANavesEnemigas.Push(NuevaNaveEnemigaTransporte);
+        }
+
+
 
 
         //// Matriz que contiene arrays de clases de naves para cada columna

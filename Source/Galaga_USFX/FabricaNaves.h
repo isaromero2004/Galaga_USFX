@@ -23,6 +23,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	virtual void FabricarNaveEnemiga(TSubclassOf<class ANaveEnemiga> claseNave, FVector Posicion, FRotator Rotacion);
+	static ANaveEnemiga* FabricarNaveEnemiga(FString ClaseNave, UWorld* World, FVector SpawnLocation, FRotator SpawnRotation);
 };

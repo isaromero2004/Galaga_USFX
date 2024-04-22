@@ -3,6 +3,7 @@
 
 #include "FabricaNaves.h"
 #include "NaveEnemigaCaza.h"
+
 #include "NaveEnemigaEspia.h"
 #include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaReabastecimiento.h"
@@ -31,11 +32,40 @@ void AFabricaNaves::Tick(float DeltaTime)
 
 }
 
-void AFabricaNaves::FabricarNaveEnemiga(TSubclassOf<class ANaveEnemiga> claseNave, FVector Posicion, FRotator Rotacion)
+ANaveEnemiga * AFabricaNaves::FabricarNaveEnemiga(FString ClaseNave, UWorld* World, FVector SpawnLocation, FRotator SpawnRotation)
 {
-	if (claseNave)
-	{
-		GetWorld()->SpawnActor<ANaveEnemiga>(claseNave, Posicion, Rotacion);
+    if (!World)
+    {
+        return nullptr;
+    }
+    FVector NuevaSpawnLocation = SpawnLocation;
+    if (ClaseNave == "Caza")
+    {
+        ANaveEnemigaCaza* Nave = World->SpawnActor<ANaveEnemigaCaza>(NuevaSpawnLocation, SpawnRotation);
+        return Nave;
+    }
+    else if (ClaseNave == "Espia")
+    {
+		ANaveEnemigaEspia* Nave = World->SpawnActor<ANaveEnemigaEspia>(NuevaSpawnLocation, SpawnRotation);
+		return Nave;
 	}
-}
+    else if (ClaseNave == "Nodriza")
+    {
+		ANaveEnemigaNodriza* Nave = World->SpawnActor<ANaveEnemigaNodriza>(NuevaSpawnLocation, SpawnRotation);
+		return Nave;
+	}
+    else if (ClaseNave == "Reabastecimiento")
+    {
+		ANaveEnemigaReabastecimiento* Nave = World->SpawnActor<ANaveEnemigaReabastecimiento>(NuevaSpawnLocation, SpawnRotation);
+		return Nave;
+	}
+    else if (ClaseNave == "Transporte")
+    {
+		ANaveEnemigaTransporte* Nave = World->SpawnActor<ANaveEnemigaTransporte>(NuevaSpawnLocation, SpawnRotation);
+		return Nave;
+	}
 
+
+
+    return nullptr;
+}
