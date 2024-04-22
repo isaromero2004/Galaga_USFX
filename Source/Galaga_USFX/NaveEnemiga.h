@@ -87,6 +87,7 @@ public:
 	ANaveEnemiga();
 
 protected:
+	FString NombreNave;
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -95,7 +96,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 protected:
 	//virtual void Mover() = 0;
-	
+	FString GetNombreNave();
 	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	void Atacar() PURE_VIRTUAL(ANaveEnemiga::Atacar, );

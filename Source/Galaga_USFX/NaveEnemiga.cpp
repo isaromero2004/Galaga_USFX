@@ -41,4 +41,9 @@ void ANaveEnemiga::Tick(float DeltaTime)
 	MovimientoNaves->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
 }
 
+FString ANaveEnemiga::GetNombreNave()
+{
+	return NombreNave;
+}
+
 

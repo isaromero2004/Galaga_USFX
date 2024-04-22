@@ -36,6 +36,7 @@ class AGalaga_USFXGameMode : public AGameModeBase
 
 public:
 	AGalaga_USFXGameMode();
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -43,10 +44,10 @@ protected:
 
 protected:
 
-	TArray<ANaveEnemiga*> TANavesEnemigas;
-	TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
+	//TArray<ANaveEnemiga*> TANavesEnemigas;
+	//TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
 
-	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
+	//TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
 
 	TArray<ACapsulas*> TACapsulas;
 	//TArray<TSubclassOf<ACapsulas>> ClasesCapsulas;
@@ -59,11 +60,11 @@ private:
 
 	FTimerHandle  AparicionCapsula;
 
-	float SeparacionColumnas; 
+	//float SeparacionColumnas; 
 
-	float SeparacionFilas; 
+	//float SeparacionFilas; 
 
-	bool aparecerCap;
+	//bool aparecerCap;
 
 protected:
 
