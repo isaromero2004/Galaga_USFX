@@ -17,7 +17,7 @@ class GALAGA_USFX_API ANaveEnemigaNodriza : public ANaveEnemiga
 private:
 	float tamano;
 	int cantidadSubnaves;
-	float intervaloAparicion;
+
 
 
 public:
@@ -26,9 +26,7 @@ public:
 	FORCEINLINE void SetTamano(float _tamano) { tamano = _tamano; }
 	FORCEINLINE int GetCantidadSubnaves() const { return cantidadSubnaves; }
 	FORCEINLINE void SetCantidadSubnaves(int _cantidadSubnaves) { cantidadSubnaves = _cantidadSubnaves; }
-	FORCEINLINE float GetIntervaloAparicion() const { return intervaloAparicion; }
-	FORCEINLINE void SetIntervaloAparicion(float _intervaloAparicion) { intervaloAparicion = _intervaloAparicion; }
-
+	
 protected:
 	
 	virtual void Destruirse();

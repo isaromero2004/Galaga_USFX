@@ -8,7 +8,7 @@
 #include "Galaga_USFXPawn.generated.h"
 
 UCLASS(Blueprintable)
-class AGalaga_USFXPawn : public APawn
+class AGalaga_USFXPawn : public APawn 
 {
 	GENERATED_BODY()
 

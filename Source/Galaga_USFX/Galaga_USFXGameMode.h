@@ -28,6 +28,10 @@ class ACapsulas;
 class ACapsulasArmas;
 class ACapsulasEnergia;
 
+class ANaveNodriza;
+class AConcretoBuilderNodriza;
+class ADirectorBuilderNodriza;
+
 
 UCLASS(MinimalAPI)
 class AGalaga_USFXGameMode : public AGameModeBase
@@ -45,9 +49,9 @@ protected:
 protected:
 
 	TArray<ANaveEnemiga*> TANavesEnemigas;
-	/*TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
+	//TArray<TSubclassOf<ANaveEnemiga>> ClaseNaveEnemiga;
 
-	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;*/
+	TMap < int32, TArray<TSubclassOf<ANaveEnemiga*>>> MatrizNavesEnemigas;
 
 	TArray<ACapsulas*> TACapsulas;
 	//TArray<TSubclassOf<ACapsulas>> ClasesCapsulas;
@@ -72,6 +76,15 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY(VisibleAnywhere, Category = "DirectorBuilderNodriza")
+	ADirectorBuilderNodriza* DirectorBuilderNodriza;
+
+	UPROPERTY(VisibleAnywhere, Category = "ConcretoBuilderNodriza")
+	AConcretoBuilderNodriza* ConcretoBuilderNodriza;
+
+	UPROPERTY(VisibleAnywhere, Category = "NaveNodriza")
+	ANaveNodriza* NaveNodriza;
 
 
 
