@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Movimiento.h"
 #include "ArmamentoNodriza.generated.h"
 
 UCLASS()
@@ -17,6 +18,8 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ArmamentoNodrizaMesh;
+
+	UMovimiento* MovimientoNodriza;
 
 protected:
 	// Called when the game starts or when spawned

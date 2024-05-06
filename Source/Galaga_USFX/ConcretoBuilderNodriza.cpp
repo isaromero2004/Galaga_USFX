@@ -46,7 +46,7 @@ void AConcretoBuilderNodriza::BuildCascos()
 
 void AConcretoBuilderNodriza::BuildMotor()
 {
-	FVector Posicion = FVector(450.0f, 0.0f, 200.0f);
+	FVector Posicion = FVector(470.0f, 0.0f, 200.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
 	AMotorNodriza* Motor = GetWorld()->SpawnActor<AMotorNodriza>(Posicion, Rotacion);
 
@@ -58,10 +58,10 @@ void AConcretoBuilderNodriza::BuildMotor()
 
 void AConcretoBuilderNodriza::BuildArmamento()
 {
-	FVector Posicion1 = FVector(400.0f, -100.0f, 200.0f);
+	FVector Posicion1 = FVector(350.0f, -50.0f, 200.0f);
 	FRotator Rotacion1 = FRotator(0.0f, 0.0f, 0.0f);
-	FVector Posicion2 = FVector(400.0f, 100.0f, 200.0f);
-	FRotator Rotacion2 = FRotator(0.0f, 180.0f, 0.0f);
+	FVector Posicion2 = FVector(350.0f, 50.0f, 200.0f);
+	FRotator Rotacion2 = FRotator(0.0f, 90.0f, 0.0f);
 	AArmamentoNodriza* Armamento1 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion1, Rotacion1);
 	AArmamentoNodriza* Armamento2 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion2, Rotacion2);
 
@@ -78,7 +78,7 @@ void AConcretoBuilderNodriza::BuildArmamento()
 void AConcretoBuilderNodriza::BuildEscudos()
 {
 	FVector Posicion = FVector(350.0f, 0.0f, 200.0f);
-	FRotator Rotacion = FRotator(0.0f, -1.0f, 0.0f);
+	FRotator Rotacion = FRotator(0.0f, 180.0f, 0.0f);
 	AEscudosNodriza* Escudos = GetWorld()->SpawnActor<AEscudosNodriza>(Posicion, Rotacion);
 
 	if (Escudos)

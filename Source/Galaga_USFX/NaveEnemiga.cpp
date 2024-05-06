@@ -15,7 +15,7 @@ ANaveEnemiga::ANaveEnemiga()
 	NaveEnemigaMesh->SetupAttachment(RootComponent);
 	RootComponent = NaveEnemigaMesh;
 
-	MovimientoNaves= CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNavesComponente"));
+	MovimientoNaves= CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNaves"));
 
 	//// Establece el componente de movimiento como tickeable
 	// puede recibir eventos de "tick" usando el Pr

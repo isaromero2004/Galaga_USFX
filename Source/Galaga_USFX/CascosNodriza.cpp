@@ -15,6 +15,8 @@ ACascosNodriza::ACascosNodriza()
 	NaveNodrizaMesh->SetStaticMesh(malla.Object);
 	RootComponent = NaveNodrizaMesh;
 
+	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodriza"));
+	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +30,7 @@ void ACascosNodriza::BeginPlay()
 void ACascosNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
 
 }
 

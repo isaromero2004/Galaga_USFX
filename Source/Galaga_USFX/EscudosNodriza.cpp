@@ -9,11 +9,14 @@ AEscudosNodriza::AEscudosNodriza()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> malla(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim_90_In.Shape_Trim_90_In'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> malla(TEXT("StaticMesh'/Game/TwinStick/Meshes/Shape_Pipe_181.Shape_Pipe_181'"));
 	EscudosNodrizaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("EscudosNodrizaMesh"));
 	EscudosNodrizaMesh->SetupAttachment(RootComponent);
 	EscudosNodrizaMesh->SetStaticMesh(malla.Object);
 	RootComponent =EscudosNodrizaMesh;
+
+	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodriza"));
+	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
 
 }
 
@@ -28,6 +31,6 @@ void AEscudosNodriza::BeginPlay()
 void AEscudosNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
 }
 

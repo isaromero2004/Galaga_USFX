@@ -2,16 +2,18 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Galaga_USFX.cpp.obj": [
+			"BuilderNodriza.cpp.obj",
 			"Capsulas.cpp.obj",
 			"CapsulasArmas.cpp.obj",
 			"CapsulasEnergia.cpp.obj",
+			"DirectorBuilderNodriza.cpp.obj",
 			"FabricaNaves.cpp.obj",
 			"Galaga_USFX.cpp.obj",
+			"Galaga_USFXGameMode.cpp.obj",
 			"Galaga_USFXPawn.cpp.obj",
 			"Galaga_USFXProjectile.cpp.obj",
 			"Inventario.cpp.obj",
 			"Movimiento.cpp.obj",
-			"NaveEnemiga.cpp.obj",
 			"NaveEnemigaCaza.cpp.obj",
 			"NaveEnemigaCazaG1.cpp.obj",
 			"NaveEnemigaCazaG2.cpp.obj",
@@ -27,24 +29,30 @@
 			"NaveEnemigaTransporte.cpp.obj",
 			"NaveEnemigaTransporteG1.cpp.obj",
 			"NaveEnemigaTransporteG2.cpp.obj",
+			"NaveNodriza.cpp.obj",
 			"ArmamentoNodriza.cpp.obj",
-			"BuilderNodriza.cpp.obj",
 			"CascosNodriza.cpp.obj",
 			"ConcretoBuilderNodriza.cpp.obj",
-			"DirectorBuilderNodriza.cpp.obj",
 			"EscudosNodriza.cpp.obj",
-			"Galaga_USFXGameMode.cpp.obj",
 			"MotorNodriza.cpp.obj",
-			"NaveNodriza.cpp.obj"
+			"NaveEnemiga.cpp.obj"
 		],
 		"Module.Galaga_USFX.gen.cpp.obj": [
+			"ArmamentoNodriza.gen.cpp.obj",
+			"BuilderNodriza.gen.cpp.obj",
 			"Capsulas.gen.cpp.obj",
 			"CapsulasArmas.gen.cpp.obj",
 			"CapsulasEnergia.gen.cpp.obj",
+			"CascosNodriza.gen.cpp.obj",
+			"ConcretoBuilderNodriza.gen.cpp.obj",
+			"DirectorBuilderNodriza.gen.cpp.obj",
+			"EscudosNodriza.gen.cpp.obj",
 			"FabricaNaves.gen.cpp.obj",
+			"Galaga_USFXGameMode.gen.cpp.obj",
 			"Galaga_USFXPawn.gen.cpp.obj",
 			"Galaga_USFXProjectile.gen.cpp.obj",
 			"Inventario.gen.cpp.obj",
+			"MotorNodriza.gen.cpp.obj",
 			"Movimiento.gen.cpp.obj",
 			"NaveEnemiga.gen.cpp.obj",
 			"NaveEnemigaCaza.gen.cpp.obj",
@@ -62,16 +70,8 @@
 			"NaveEnemigaTransporte.gen.cpp.obj",
 			"NaveEnemigaTransporteG1.gen.cpp.obj",
 			"NaveEnemigaTransporteG2.gen.cpp.obj",
-			"ArmamentoNodriza.gen.cpp.obj",
-			"BuilderNodriza.gen.cpp.obj",
-			"CascosNodriza.gen.cpp.obj",
-			"ConcretoBuilderNodriza.gen.cpp.obj",
-			"DirectorBuilderNodriza.gen.cpp.obj",
-			"EscudosNodriza.gen.cpp.obj",
-			"Galaga_USFX.init.gen.cpp.obj",
-			"Galaga_USFXGameMode.gen.cpp.obj",
-			"MotorNodriza.gen.cpp.obj",
-			"NaveNodriza.gen.cpp.obj"
+			"NaveNodriza.gen.cpp.obj",
+			"Galaga_USFX.init.gen.cpp.obj"
 		]
 	}
 }
