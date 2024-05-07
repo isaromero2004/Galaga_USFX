@@ -48,7 +48,6 @@ void AGalaga_USFXGameMode::BeginPlay()
     Super::BeginPlay();
 
     ConcretoBuilderNodriza = GetWorld()->SpawnActor<AConcretoBuilderNodriza>(AConcretoBuilderNodriza::StaticClass());
-    DirectorBuilderNodriza = GetWorld()->SpawnActor<ADirectorBuilderNodriza>(ADirectorBuilderNodriza::StaticClass());
     DirectorBuilderNodriza->SetNaveNodriza(ConcretoBuilderNodriza);
 
     FVector InicialSpawnNaveLocation = FVector(-100.f, -500.f, 200.f);

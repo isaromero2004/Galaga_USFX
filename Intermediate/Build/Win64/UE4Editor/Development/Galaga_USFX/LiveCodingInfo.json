@@ -9,11 +9,11 @@
 			"DirectorBuilderNodriza.cpp.obj",
 			"FabricaNaves.cpp.obj",
 			"Galaga_USFX.cpp.obj",
-			"Galaga_USFXGameMode.cpp.obj",
 			"Galaga_USFXPawn.cpp.obj",
 			"Galaga_USFXProjectile.cpp.obj",
 			"Inventario.cpp.obj",
 			"Movimiento.cpp.obj",
+			"NaveEnemiga.cpp.obj",
 			"NaveEnemigaCaza.cpp.obj",
 			"NaveEnemigaCazaG1.cpp.obj",
 			"NaveEnemigaCazaG2.cpp.obj",
@@ -34,8 +34,8 @@
 			"CascosNodriza.cpp.obj",
 			"ConcretoBuilderNodriza.cpp.obj",
 			"EscudosNodriza.cpp.obj",
-			"MotorNodriza.cpp.obj",
-			"NaveEnemiga.cpp.obj"
+			"Galaga_USFXGameMode.cpp.obj",
+			"MotorNodriza.cpp.obj"
 		],
 		"Module.Galaga_USFX.gen.cpp.obj": [
 			"ArmamentoNodriza.gen.cpp.obj",
@@ -48,7 +48,6 @@
 			"DirectorBuilderNodriza.gen.cpp.obj",
 			"EscudosNodriza.gen.cpp.obj",
 			"FabricaNaves.gen.cpp.obj",
-			"Galaga_USFXGameMode.gen.cpp.obj",
 			"Galaga_USFXPawn.gen.cpp.obj",
 			"Galaga_USFXProjectile.gen.cpp.obj",
 			"Inventario.gen.cpp.obj",
@@ -71,7 +70,8 @@
 			"NaveEnemigaTransporteG1.gen.cpp.obj",
 			"NaveEnemigaTransporteG2.gen.cpp.obj",
 			"NaveNodriza.gen.cpp.obj",
-			"Galaga_USFX.init.gen.cpp.obj"
+			"Galaga_USFX.init.gen.cpp.obj",
+			"Galaga_USFXGameMode.gen.cpp.obj"
 		]
 	}
 }

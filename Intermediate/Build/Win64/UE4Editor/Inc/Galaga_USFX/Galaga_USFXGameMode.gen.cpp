@@ -17,9 +17,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXGameMode() {}
 	GALAGA_USFX_API UClass* Z_Construct_UClass_AGalaga_USFXGameMode();
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
-	GALAGA_USFX_API UClass* Z_Construct_UClass_ADirectorBuilderNodriza_NoRegister();
-	GALAGA_USFX_API UClass* Z_Construct_UClass_AConcretoBuilderNodriza_NoRegister();
-	GALAGA_USFX_API UClass* Z_Construct_UClass_ANaveNodriza_NoRegister();
 // End Cross Module References
 	void AGalaga_USFXGameMode::StaticRegisterNativesAGalaga_USFXGameMode()
 	{
@@ -34,19 +31,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXGameMode() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DirectorBuilderNodriza_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DirectorBuilderNodriza;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ConcretoBuilderNodriza_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ConcretoBuilderNodriza;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NaveNodriza_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_NaveNodriza;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -62,32 +46,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXGameMode() {}
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_DirectorBuilderNodriza_MetaData[] = {
-		{ "Category", "DirectorBuilderNodriza" },
-		{ "ModuleRelativePath", "Galaga_USFXGameMode.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_DirectorBuilderNodriza = { "DirectorBuilderNodriza", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFXGameMode, DirectorBuilderNodriza), Z_Construct_UClass_ADirectorBuilderNodriza_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_DirectorBuilderNodriza_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_DirectorBuilderNodriza_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_ConcretoBuilderNodriza_MetaData[] = {
-		{ "Category", "ConcretoBuilderNodriza" },
-		{ "ModuleRelativePath", "Galaga_USFXGameMode.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_ConcretoBuilderNodriza = { "ConcretoBuilderNodriza", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFXGameMode, ConcretoBuilderNodriza), Z_Construct_UClass_AConcretoBuilderNodriza_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_ConcretoBuilderNodriza_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_ConcretoBuilderNodriza_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_NaveNodriza_MetaData[] = {
-		{ "Category", "NaveNodriza" },
-		{ "ModuleRelativePath", "Galaga_USFXGameMode.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_NaveNodriza = { "NaveNodriza", nullptr, (EPropertyFlags)0x0010000000020001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGalaga_USFXGameMode, NaveNodriza), Z_Construct_UClass_ANaveNodriza_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_NaveNodriza_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_NaveNodriza_MetaData)) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGalaga_USFXGameMode_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_DirectorBuilderNodriza,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_ConcretoBuilderNodriza,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGalaga_USFXGameMode_Statics::NewProp_NaveNodriza,
-	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGalaga_USFXGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGalaga_USFXGameMode>::IsAbstract,
 	};
@@ -97,11 +55,11 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXGameMode() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		Z_Construct_UClass_AGalaga_USFXGameMode_Statics::PropPointers,
+		nullptr,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::PropPointers),
+		0,
 		0,
 		0x008802ACu,
 		METADATA_PARAMS(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_AGalaga_USFXGameMode_Statics::Class_MetaDataParams))
@@ -115,7 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalaga_USFXGameMode, 719080831);
+	IMPLEMENT_CLASS(AGalaga_USFXGameMode, 3460038334);
 	template<> GALAGA_USFX_API UClass* StaticClass<AGalaga_USFXGameMode>()
 	{
 		return AGalaga_USFXGameMode::StaticClass();

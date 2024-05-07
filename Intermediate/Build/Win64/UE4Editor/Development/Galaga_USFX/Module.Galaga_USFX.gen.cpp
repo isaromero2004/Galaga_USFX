@@ -9,7 +9,6 @@
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/DirectorBuilderNodriza.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/EscudosNodriza.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/FabricaNaves.gen.cpp"
-#include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXGameMode.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXPawn.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXProjectile.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Inventario.gen.cpp"

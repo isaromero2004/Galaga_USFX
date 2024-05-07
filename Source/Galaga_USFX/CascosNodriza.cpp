@@ -15,7 +15,7 @@ ACascosNodriza::ACascosNodriza()
 	NaveNodrizaMesh->SetStaticMesh(malla.Object);
 	RootComponent = NaveNodrizaMesh;
 
-	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodriza"));
+	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodrizaCo"));
 	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
 }
 

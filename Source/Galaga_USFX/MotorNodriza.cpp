@@ -31,5 +31,6 @@ void AMotorNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
+
 }
 

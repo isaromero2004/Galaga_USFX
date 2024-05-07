@@ -77,14 +77,11 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(VisibleAnywhere, Category = "DirectorBuilderNodriza")
+	
 	ADirectorBuilderNodriza* DirectorBuilderNodriza;
 
-	UPROPERTY(VisibleAnywhere, Category = "ConcretoBuilderNodriza")
+	
 	AConcretoBuilderNodriza* ConcretoBuilderNodriza;
-
-	UPROPERTY(VisibleAnywhere, Category = "NaveNodriza")
-	ANaveNodriza* NaveNodriza;
 
 
 
