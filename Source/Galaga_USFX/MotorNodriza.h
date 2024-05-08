@@ -19,8 +19,6 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* MotorNodrizaMesh;
 
-	UMovimiento* MovimientoNodriza;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

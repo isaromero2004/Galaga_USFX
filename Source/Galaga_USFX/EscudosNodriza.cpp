@@ -15,8 +15,7 @@ AEscudosNodriza::AEscudosNodriza()
 	EscudosNodrizaMesh->SetStaticMesh(malla.Object);
 	RootComponent =EscudosNodrizaMesh;
 
-	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodriza"));
-	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
+	
 
 }
 
@@ -31,7 +30,7 @@ void AEscudosNodriza::BeginPlay()
 void AEscudosNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
+	
 
 }
 

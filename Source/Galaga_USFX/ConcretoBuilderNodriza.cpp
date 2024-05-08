@@ -14,6 +14,9 @@ AConcretoBuilderNodriza::AConcretoBuilderNodriza()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
+
+
 
 }
 
@@ -22,75 +25,79 @@ void AConcretoBuilderNodriza::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	
+	NaveNodriza = GetWorld()->SpawnActor<ANaveNodriza>(ANaveNodriza::StaticClass());
+
+	NaveNodriza->AttachToActor(this, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 // Called every frame
 void AConcretoBuilderNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
 }
 
-void AConcretoBuilderNodriza::BuildCascos()
+void AConcretoBuilderNodriza::  BuildCascos()
 {
-	FVector Posicion = FVector(500.0f, 0.0f, 200.0f);
-	FRotator Rotacion = FRotator(0.0f, 180.0f, 0.0f);
-	ACascosNodriza* Cascos = GetWorld()->SpawnActor<ACascosNodriza>(Posicion, Rotacion);
+	NaveNodriza->SetCascos();
+	//FVector Posicion = FVector(500.0f, 0.0f, 200.0f);
+	//FRotator Rotacion = FRotator(0.0f, 180.0f, 0.0f);
+	//ACascosNodriza* NuevoCascos = GetWorld()->SpawnActor<ACascosNodriza>(Posicion, Rotacion);
 
-	if (Cascos)
-	{
-		Cascos-> AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	}
+	//NaveNodriza->Cascos= NuevoCascos;
 
 }
 
 void AConcretoBuilderNodriza::BuildMotor()
 {
-	FVector Posicion = FVector(570.0f, 0.0f, 200.0f);
+	NaveNodriza->SetMotor(1);
+	/*FVector Posicion = FVector(570.0f, 0.0f, 200.0f);
 	FRotator Rotacion = FRotator(0.0f, 0.0f, 0.0f);
-	AMotorNodriza* Motor = GetWorld()->SpawnActor<AMotorNodriza>(Posicion, Rotacion);
+	AMotorNodriza* NuevoMotor = GetWorld()->SpawnActor<AMotorNodriza>(Posicion, Rotacion); 	
 
-	if (Motor)
-	{
-		Motor->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	}
+	NaveNodriza->Motor=NuevoMotor*/;
 }
 
 void AConcretoBuilderNodriza::BuildArmamento()
 {
-	FVector Posicion1 = FVector(500.0f, -80.0f, 200.0f);
-	FRotator Rotacion1 = FRotator(0.0f, 90.0f, 0.0f);
-	FVector Posicion2 = FVector(500.0f, 80.0f, 200.0f);
-	FRotator Rotacion2 = FRotator(0.0f, 90.0f, 0.0f);
-	AArmamentoNodriza* Armamento1 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion1, Rotacion1);
-	AArmamentoNodriza* Armamento2 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion2, Rotacion2);
+	NaveNodriza->SetArmamento(2);
 
-	if (Armamento1)
-	{
-		Armamento1->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-		Armamento1->Disparar();
-	}
-	if (Armamento2)
-	{
-		Armamento2->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-		Armamento2->Disparar();
-	}
+	//FVector Posicion1 = FVector(500.0f, -80.0f, 200.0f);
+	//FRotator Rotacion1 = FRotator(0.0f, 90.0f, 0.0f);
+	//FVector Posicion2 = FVector(500.0f, 80.0f, 200.0f);
+	//FRotator Rotacion2 = FRotator(0.0f, 90.0f, 0.0f);
+	//AArmamentoNodriza* Armamento1 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion1, Rotacion1);
+	//AArmamentoNodriza* Armamento2 = GetWorld()->SpawnActor<AArmamentoNodriza>(Posicion2, Rotacion2);
+
+	//if (Armamento1)
+	//{
+	//	
+	//	Armamento1->Disparar();
+	//	NaveNodriza->Armamento[0]=Armamento1;
+	//}
+	//if (Armamento2)
+	//{
+	//	
+	//	Armamento2->Disparar();
+	//	NaveNodriza->Armamento[1]=Armamento2;
+	//}
 }
 
-void AConcretoBuilderNodriza::BuildEscudos()
+ void AConcretoBuilderNodriza::BuildEscudos()
 {
-	FVector Posicion = FVector(450.0f, 0.0f, 200.0f);
-	FRotator Rotacion = FRotator(0.0f, 180.0f, 0.0f);
-	AEscudosNodriza* Escudos = GetWorld()->SpawnActor<AEscudosNodriza>(Posicion, Rotacion);
+	 NaveNodriza->SetEscudo(1);
 
-	if (Escudos)
+	//FVector Posicion = FVector(450.0f, 0.0f, 200.0f);
+	//FRotator Rotacion = FRotator(0.0f, 180.0f, 0.0f);
+	//AEscudosNodriza* NuevoEscudo = GetWorld()->SpawnActor<AEscudosNodriza>(Posicion, Rotacion);
+	//NaveNodriza->Escudo=NuevoEscudo;
+	/*if (Escudos)
 	{
 		Escudos->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	}
+	}*/
 }
 
-ANaveNodriza* AConcretoBuilderNodriza::GetNaveNodriza() const
-{
-	return NaveNodriza;
-}
+ ANaveNodriza* AConcretoBuilderNodriza::GetNaveNodriza()
+ {
+	 return NaveNodriza;
+  }

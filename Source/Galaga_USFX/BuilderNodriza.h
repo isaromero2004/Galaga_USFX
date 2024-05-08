@@ -29,6 +29,7 @@ public:
 	virtual void BuildArmamento() = 0;
 	virtual void BuildEscudos() = 0;
 
+	virtual class ANaveNodriza* GetNaveNodriza() = 0;
 
-	virtual class ANaveNodriza* GetNaveNodriza() const = 0;
+
 };

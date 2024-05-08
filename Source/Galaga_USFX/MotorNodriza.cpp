@@ -15,8 +15,6 @@ AMotorNodriza::AMotorNodriza()
 	MotorNodrizaMesh->SetStaticMesh(malla.Object);
 	RootComponent = MotorNodrizaMesh;
 
-	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodriza"));
-	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
@@ -30,7 +28,6 @@ void AMotorNodriza::BeginPlay()
 void AMotorNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
-
+	
 }
 

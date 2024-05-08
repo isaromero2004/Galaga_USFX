@@ -20,9 +20,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+private: 
+
+	IBuilderNodriza* NaveBuilder;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	ANaveNodriza* SetNaveNodriza(IBuilderNodriza* NaveBuilder);
+	void ConstruirNaveNodriza();
+	void SetBuilder(AActor* Builder);
+	class ANaveNodriza * GetNaveNodriza();
+
 
 };

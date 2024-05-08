@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "DirectorBuilderNodriza.h"
 #include "Galaga_USFXGameMode.generated.h"
 
 class ANaveEnemiga;
@@ -76,12 +77,12 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
+private:
 
 	
-	ADirectorBuilderNodriza* DirectorBuilderNodriza;
+	class ADirectorBuilderNodriza* director;
+	class AConcretoBuilderNodriza* BuilderNaveNodriza;
 
-	
-	AConcretoBuilderNodriza* ConcretoBuilderNodriza;
 
 
 

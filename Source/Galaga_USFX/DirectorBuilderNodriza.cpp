@@ -27,16 +27,31 @@ void ADirectorBuilderNodriza::Tick(float DeltaTime)
 
 }
 
-ANaveNodriza* ADirectorBuilderNodriza::SetNaveNodriza(IBuilderNodriza* NaveBuilder)
+void ADirectorBuilderNodriza::SetBuilder(AActor* Builder)
+{
+	NaveBuilder = Cast<IBuilderNodriza>(Builder);
+}
+
+ANaveNodriza* ADirectorBuilderNodriza::GetNaveNodriza()
 {
 	if (NaveBuilder)
 	{
-		NaveBuilder->BuildCascos();
-		NaveBuilder->BuildMotor();
-		NaveBuilder->BuildArmamento();
-		NaveBuilder->BuildEscudos();
 		return NaveBuilder->GetNaveNodriza();
+
 	}
 	return nullptr;
 }
 
+void ADirectorBuilderNodriza::ConstruirNaveNodriza()
+{
+	if(NaveBuilder)
+	{
+		NaveBuilder->BuildCascos();
+		NaveBuilder->BuildMotor();
+		NaveBuilder->BuildArmamento();
+		NaveBuilder->BuildArmamento();
+		NaveBuilder->BuildEscudos();
+	}
+
+
+}

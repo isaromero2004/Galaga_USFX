@@ -19,7 +19,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ArmamentoNodrizaMesh;
 
-	UMovimiento* MovimientoNodriza;
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,6 +29,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void Disparar();
+	void Disparar();
+	float FireRate;
 	FTimerHandle TimerHandle_Disparo;
 };

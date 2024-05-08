@@ -4,8 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "CascosNodriza.h"
+#include "MotorNodriza.h"
+#include "ArmamentoNodriza.h"
+#include "EscudosNodriza.h"
 #include "NaveNodriza.generated.h"
-
 UCLASS()
 class GALAGA_USFX_API ANaveNodriza : public AActor
 {
@@ -16,14 +19,26 @@ public:
 	ANaveNodriza();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
-	UStaticMeshComponent* NaveNodrizaMesh;
+	UMovimiento* MovimientoNodriza;
+	class ANaveNodriza* NaveNodriza;
 
 protected:
-	// Called when the game starts or when spawned
+	// Called when the game starts or when spawned 
 	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+public:
+	ACascosNodriza* Cascos;
+	AMotorNodriza* Motor;
+	AArmamentoNodriza* Armamento[2];
+	AEscudosNodriza* Escudo;
+
+	void SetCascos();
+	void SetMotor(int a);
+	void SetArmamento(int b);
+	void SetEscudo(int c);
 
 };

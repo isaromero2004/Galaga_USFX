@@ -17,9 +17,9 @@ public:
 	ACascosNodriza();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
-	UStaticMeshComponent* NaveNodrizaMesh;
+	UStaticMeshComponent* CascosNodrizaMesh;
 
-	UMovimiento* MovimientoNodriza;
+
 
 
 protected:

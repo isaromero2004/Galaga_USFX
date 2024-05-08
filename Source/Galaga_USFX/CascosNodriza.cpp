@@ -10,13 +10,11 @@ ACascosNodriza::ACascosNodriza()
 	PrimaryActorTick.bCanEverTick = true;
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> malla(TEXT("StaticMesh'/Game/TwinStick/Meshes/TwinStickUFO_2.TwinStickUFO_2'"));
-	NaveNodrizaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("NaveNodrizaMesh"));
-	NaveNodrizaMesh->SetupAttachment(RootComponent);
-	NaveNodrizaMesh->SetStaticMesh(malla.Object);
-	RootComponent = NaveNodrizaMesh;
+	CascosNodrizaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("NaveNodrizaMesh"));
+	CascosNodrizaMesh->SetupAttachment(RootComponent);
+	CascosNodrizaMesh->SetStaticMesh(malla.Object);
+	RootComponent = CascosNodrizaMesh;
 
-	MovimientoNodriza = CreateDefaultSubobject<UMovimiento>(TEXT("MovimientoNodrizaCo"));
-	MovimientoNodriza->PrimaryComponentTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
@@ -30,7 +28,7 @@ void ACascosNodriza::BeginPlay()
 void ACascosNodriza::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	MovimientoNodriza->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
+	
 
 }
 

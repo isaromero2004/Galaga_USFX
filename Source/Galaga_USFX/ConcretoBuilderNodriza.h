@@ -19,7 +19,9 @@ public:
 
 private:
 	UPROPERTY(VisibleAnywhere, Category = "NaveNodriza")
-	ANaveNodriza* NaveNodriza;
+	class ANaveNodriza* NaveNodriza;
+
+	
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,10 +31,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void BuildCascos() override;
-	void BuildMotor() override;
-	void BuildArmamento()override;
-	void BuildEscudos()override;
-	virtual class ANaveNodriza* GetNaveNodriza() const override;
+	virtual void BuildCascos() override;
+	virtual void BuildMotor() override;
+	virtual void BuildArmamento() override;
+	virtual void BuildEscudos() override;
 
+	virtual class ANaveNodriza* GetNaveNodriza() override;
 };

@@ -33,9 +33,9 @@ void EmptyLinkFunctionForGeneratedCodeCascosNodriza() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NaveNodrizaMesh_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CascosNodrizaMesh_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_NaveNodrizaMesh;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CascosNodrizaMesh;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -51,16 +51,16 @@ void EmptyLinkFunctionForGeneratedCodeCascosNodriza() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACascosNodriza_Statics::NewProp_NaveNodrizaMesh_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACascosNodriza_Statics::NewProp_CascosNodrizaMesh_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Projectile" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "CascosNodriza.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACascosNodriza_Statics::NewProp_NaveNodrizaMesh = { "NaveNodrizaMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACascosNodriza, NaveNodrizaMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACascosNodriza_Statics::NewProp_NaveNodrizaMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACascosNodriza_Statics::NewProp_NaveNodrizaMesh_MetaData)) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACascosNodriza_Statics::NewProp_CascosNodrizaMesh = { "CascosNodrizaMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACascosNodriza, CascosNodrizaMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACascosNodriza_Statics::NewProp_CascosNodrizaMesh_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACascosNodriza_Statics::NewProp_CascosNodrizaMesh_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACascosNodriza_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACascosNodriza_Statics::NewProp_NaveNodrizaMesh,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACascosNodriza_Statics::NewProp_CascosNodrizaMesh,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACascosNodriza_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACascosNodriza>::IsAbstract,
@@ -89,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeCascosNodriza() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACascosNodriza, 2407967657);
+	IMPLEMENT_CLASS(ACascosNodriza, 1017864736);
 	template<> GALAGA_USFX_API UClass* StaticClass<ACascosNodriza>()
 	{
 		return ACascosNodriza::StaticClass();
