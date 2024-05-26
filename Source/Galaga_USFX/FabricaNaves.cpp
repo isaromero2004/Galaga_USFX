@@ -3,9 +3,7 @@
 
 #include "FabricaNaves.h"
 #include "NaveEnemigaCaza.h"
-
 #include "NaveEnemigaEspia.h"
-#include "NaveEnemigaNodriza.h"
 #include "NaveEnemigaReabastecimiento.h"
 #include "NaveEnemigaTransporte.h"
 
@@ -47,11 +45,6 @@ ANaveEnemiga * AFabricaNaves::FabricarNaveEnemiga(FString ClaseNave, UWorld* Wor
     else if (ClaseNave == "Espia")
     {
 		ANaveEnemigaEspia* Nave = World->SpawnActor<ANaveEnemigaEspia>(NuevaSpawnLocation, SpawnRotation);
-		return Nave;
-	}
-    else if (ClaseNave == "Nodriza")
-    {
-		ANaveEnemigaNodriza* Nave = World->SpawnActor<ANaveEnemigaNodriza>(NuevaSpawnLocation, SpawnRotation);
 		return Nave;
 	}
     else if (ClaseNave == "Reabastecimiento")

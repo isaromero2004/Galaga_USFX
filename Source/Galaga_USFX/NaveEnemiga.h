@@ -5,11 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Movimiento.h"
+#include "Subscriptor.h"
 #include "NaveEnemiga.generated.h"
 
 
 UCLASS(abstract)
-class GALAGA_USFX_API ANaveEnemiga : public AActor
+class GALAGA_USFX_API ANaveEnemiga : public AActor//, public ISubscriptor
 {
 	GENERATED_BODY()
 
@@ -33,6 +34,8 @@ protected:
 
 	float peso;
 	float volumen;
+
+	//class ARadarEnemigo* RadarEnemigo;
 
 	//float limiteX;
 	float Radio = 500.0f; // Radio de la circunferencia
@@ -94,6 +97,9 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	//virtual void Update ();
+
 protected:
 	//virtual void Mover() = 0;
 	FString GetNombreNave();
@@ -101,4 +107,12 @@ protected:
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	void Atacar() PURE_VIRTUAL(ANaveEnemiga::Atacar, );
 
+//private:
+//	UPROPERTY()
+//	//ARadarEnemigo*  Radar;
+
+//public:
+	//void setRadar(ARadarEnemigo* _radar);
+
+	//virtual void Destroyed() override;
 };

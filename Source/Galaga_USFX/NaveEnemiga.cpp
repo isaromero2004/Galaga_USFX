@@ -4,6 +4,7 @@
 #include "NaveEnemiga.h"
 
 
+
 // Sets default values
 ANaveEnemiga::ANaveEnemiga()
 {
@@ -20,6 +21,9 @@ ANaveEnemiga::ANaveEnemiga()
 	//// Establece el componente de movimiento como tickeable
 	// puede recibir eventos de "tick" usando el Pr
 	MovimientoNaves->PrimaryComponentTick.bCanEverTick = true;
+
+	//velocidad = 1;
+	//energia=100;
 
 	
 }
@@ -45,5 +49,41 @@ FString ANaveEnemiga::GetNombreNave()
 {
 	return NombreNave;
 }
+
+//void ANaveEnemiga::setRadar(ARadarEnemigo* _radar)
+//{
+//	if (!_radar) {
+//		UE_LOG(LogTemp, Warning, TEXT("No se ha encontrado el radar"));
+//		return;
+//	}
+//	Radar = _radar;
+//	Radar -> suscribe(this);
+//}
+//
+//void ANaveEnemiga::Update()
+//{
+//	if (!Radar) {
+//		UE_LOG(LogTemp, Error, TEXT("No hay radar."));
+//		return;
+//	}
+//
+//	//Get the current time of the Clock Tower
+//	float promedioEnergiaNavesEnemigas = Radar->getPromedioEnergiaNavesEnemigas();
+//	if (!promedioEnergiaNavesEnemigas < 10.0f)
+//	{
+//		moverA(Radar->posicionReabastecimiento);
+//	}
+//}
+//
+//void ANaveEnemiga::Destroyed()
+//{
+//	Super::Destroyed();
+//	if (!Radar) {
+//		UE_LOG(LogTemp, Error, TEXT("No hay radar enemigo."));
+//		return;
+//	}
+//
+//	Radar->unsuscribe(this);
+//}
 
 
