@@ -20,12 +20,10 @@ public:
 	int ciclos = 0;
 	int direccion = 1;
 	FVector posicionInicial;
-	float velocidadPared;
 
 	FORCEINLINE FVector GetPosicionInicial() const { return posicionInicial; }
 	FORCEINLINE void SetPosicionInicial(FVector posicion) { posicionInicial = posicion; }
-	FORCEINLINE float GetVelocidadPared() const { return velocidadPared; }
-	FORCEINLINE void SetVelocidadPared(float velocidad) { velocidadPared = velocidad; }
+
 
 
 protected:

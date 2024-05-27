@@ -9,6 +9,7 @@
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/EscudosNodriza.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/FabricaNaves.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFX.cpp"
+#include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXGameMode.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXPawn.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXProjectile.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Inventario.cpp"

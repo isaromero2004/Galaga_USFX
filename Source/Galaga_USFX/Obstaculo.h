@@ -31,22 +31,22 @@ protected:
 
 	float danio;
 	float tiempoGeneracion;
-	float velocidadObstaculo;
 	float limiteCaida;
 	FVector posicionObstaculo;
+	float velocidadObstaculo;
 
 public:
 	FORCEINLINE float GetDanio() const { return danio; }
 	FORCEINLINE float GetTiempoGeneracion() const { return tiempoGeneracion; }
-	FORCEINLINE float GetVelocidadObstaculo() const { return velocidadObstaculo; }
 	FORCEINLINE float GetLimiteCaida() const { return limiteCaida; }
 	FORCEINLINE FVector GetPosicionObstaculo() const { return posicionObstaculo; }
+	FORCEINLINE float GetVelocidadObstaculo() const { return velocidadObstaculo; }
 
 	FORCEINLINE void SetDanio(float _danio) { danio = _danio; }
 	FORCEINLINE void SetTiempoGeneracion(float _tiempoGeneracion) { tiempoGeneracion = _tiempoGeneracion; }
-	FORCEINLINE void SetVelocidadObstaculo(float _velocidad) { velocidadObstaculo = _velocidad; }
 	FORCEINLINE void SetLimiteCaida(float _limiteCaida) { limiteCaida = _limiteCaida; }
 	FORCEINLINE void SetPosicionObstaculo(FVector _posicionObstaculo) { posicionObstaculo = _posicionObstaculo; }
+	FORCEINLINE void SetVelocidadObstaculo(float _velocidadObstaculo) { velocidadObstaculo = _velocidadObstaculo; }
 
 public:
 	void Mover(float DeltaTime) PURE_VIRTUAL(AObstaculo::Mover, );

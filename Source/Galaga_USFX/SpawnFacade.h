@@ -37,6 +37,7 @@ public:
 	void SpawnearNaves();
 	void SpawnearObstaculos();
 	void SpawnearCapsula();
+	void SpawnComponentes();
 
 private:
 	

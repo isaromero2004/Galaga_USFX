@@ -27,8 +27,8 @@ void ASpawnFacade::BeginPlay()
     Super::BeginPlay();
     UWorld* const World = GetWorld();
     if (World != nullptr) {
-        GetWorldTimerManager().SetTimer(AparicionCapsula, this, &ASpawnFacade::SpawnearCapsula, 15.0f, true);
-        GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 10.0f, true);
+        GetWorldTimerManager().SetTimer(AparicionCapsula, this, &ASpawnFacade::SpawnearCapsula, 5.0f, true);
+        GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 5.0f, true);
     }
 }
 
@@ -115,7 +115,14 @@ void ASpawnFacade::SpawnearNaves()
         TSubclassOf<ACapsulas> RandomCapsulas = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
 
-        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(600.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
+        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(800.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
+
+    }
+
+    void ASpawnFacade::SpawnComponentes() {
+        SpawnearNaves();
+		SpawnearCapsula();
+		SpawnearObstaculos();
 
     }
 

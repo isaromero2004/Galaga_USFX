@@ -29,7 +29,7 @@ void ACapsulasArmas::MoverCapsulas(float DeltaTime)
 
 	if (NuevaPosicion.X < limiteX) {
 
-		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+		Destroy();// SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
 
 	}
 	//else Destroy();

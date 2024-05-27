@@ -16,7 +16,7 @@ class GALAGA_USFX_API AMeteorito : public AObstaculo
 public:
 	AMeteorito();
 
-	/*virtual void estrellar();*/
+	//virtual void estrellar();
 
 protected:
 	float VelocidadMeteorito;

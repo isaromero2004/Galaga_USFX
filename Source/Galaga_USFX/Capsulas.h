@@ -17,7 +17,7 @@ public:
 
 protected:
 
-	float velocidadCapsulas = 10.0f;
+	float velocidadCapsulas = 5.0f;
 	float intervaloAparicion= 10.0f;
 	FVector posicion;
 	int trayectoria;

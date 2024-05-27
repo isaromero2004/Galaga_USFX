@@ -11,10 +11,10 @@ AParedObstaculo::AParedObstaculo()
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/TwinStick/Meshes/Pared.Pared'"));
     mallaObstaculo->SetStaticMesh(ShipMesh.Object);
 
-    mallaObstaculo->SetRelativeScale3D(FVector(3.0f, 3.0f, 3.0f));
+    mallaObstaculo->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
     PrimaryActorTick.bCanEverTick = true;
 
-    velocidadObstaculo = 1000.0f;
+    velocidadObstaculo = 2500.0f;
     ciclos = 0;
    
 }
@@ -30,7 +30,7 @@ void AParedObstaculo::BeginPlay()
 }
 void AParedObstaculo::Tick(float DeltaTime)
 {
-    if (ciclos < 10)
+    if (ciclos < 5)
     {
 
         Mover(DeltaTime);
@@ -47,7 +47,7 @@ void AParedObstaculo::Mover(float DeltaTime)
     float LimiteIzquierdo = -1000.0f;
 
     // Definir la velocidad de movimiento horizontal
-    float VelocidadHorizontal = GetVelocidadPared();
+    float VelocidadHorizontal = GetVelocidadObstaculo();
 
     // Calcular el desplazamiento horizontal para este fotograma
     float DesplazamientoHorizontal = VelocidadHorizontal * DeltaTime;

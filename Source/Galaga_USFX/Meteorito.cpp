@@ -9,7 +9,7 @@ AMeteorito::AMeteorito()
 	mallaObstaculo->SetStaticMesh(ShipMesh.Object);
 
 	PrimaryActorTick.bCanEverTick = true;
-	VelocidadMeteorito = 10.0f;
+	velocidadObstaculo = 20.0f;
 	limiteCaida = -1600.0f;
 }
 
@@ -20,7 +20,7 @@ void AMeteorito::BeginPlay()
 
 void AMeteorito::Mover(float DeltaTime)
 {
-	float velocidadMeteorito = GetVelocidadMeteorito();
+	float velocidadMeteorito = GetVelocidadObstaculo();
 	FVector PosicionActual = GetActorLocation();
 	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidadMeteorito, PosicionActual.Y, PosicionActual.Z);
 
