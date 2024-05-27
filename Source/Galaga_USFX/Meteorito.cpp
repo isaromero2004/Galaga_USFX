@@ -5,10 +5,12 @@
 
 AMeteorito::AMeteorito()
 {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/TwinStick/Meshes/meteorito.meteorito'"));
 	mallaObstaculo->SetStaticMesh(ShipMesh.Object);
 
 	PrimaryActorTick.bCanEverTick = true;
+	VelocidadMeteorito = 10.0f;
+	limiteCaida = -1000.0f;
 }
 
 void AMeteorito::BeginPlay()
@@ -18,9 +20,9 @@ void AMeteorito::BeginPlay()
 
 void AMeteorito::Mover(float DeltaTime)
 {
-	float velocidad = GetVelocidad();
+	float velocidadMeteorito = GetVelocidadMeteorito();
 	FVector PosicionActual = GetActorLocation();
-	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidad, PosicionActual.Y, PosicionActual.Z);
+	FVector NuevaPosicion = FVector(PosicionActual.X - 100 * DeltaTime * velocidadMeteorito, PosicionActual.Y, PosicionActual.Z);
 
 	SetActorLocation(NuevaPosicion);
 
@@ -36,5 +38,12 @@ float AMeteorito::DanioProducido()
 {
 	danio = 10.0f;
 	return danio;
+}
+
+void AMeteorito::estrellar()
+{
+	SetActorTickEnabled(false);
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
 }
 

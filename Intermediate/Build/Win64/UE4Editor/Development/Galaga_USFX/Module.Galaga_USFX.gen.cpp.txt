@@ -26,6 +26,9 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Bui
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/CapsulasEnergia.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/CapsulasEnergia.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasEnergia.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/CapsulasVelocidad.gen.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/CapsulasVelocidad.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasVelocidad.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/CascosNodriza.gen.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/ConcretoBuilderNodriza.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/ConcretoBuilderNodriza.h
@@ -103,3 +106,10 @@ C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Bui
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/NaveEnemigaTransporteG2.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporteG2.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/NaveNodriza.gen.cpp
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Obstaculo.gen.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Obstaculo.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Obstaculo.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/SpawnFacade.gen.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/SpawnFacade.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\SpawnFacade.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Subscriptor.gen.cpp

@@ -66,6 +66,7 @@ private:
 	
 	class ADirectorBuilderNodriza* director;
 	class AConcretoBuilderNodriza* BuilderNaveNodriza;
+	class ASpawnFacade* SpawnFacade;
 
 
 

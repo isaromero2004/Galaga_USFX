@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{DEEAD125-F69B-472F-A5E5-1A4EF4D78837}</UniqueIdentifier>
+      <UniqueIdentifier>{BE9EAA37-9EBD-4C84-AFFB-CE6992EF1EBB}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{9EEC9BC8-9369-4976-A46E-D801C07B7AF8}</UniqueIdentifier>
+      <UniqueIdentifier>{5E5D60EB-52F2-4DCB-8412-04E3371C4C25}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX">
-      <UniqueIdentifier>{F41A267C-7140-4A5F-88C0-07E017B508EF}</UniqueIdentifier>
+      <UniqueIdentifier>{9329E7C3-B975-4620-9B5D-D5EC23B68D6E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Galaga_USFX\ArmamentoNodriza.cpp">
       <Filter>Source\Galaga_USFX</Filter>

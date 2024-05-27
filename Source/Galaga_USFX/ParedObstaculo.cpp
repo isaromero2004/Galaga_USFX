@@ -6,17 +6,18 @@
 AParedObstaculo::AParedObstaculo()
 {
     // Carga el StaticMesh
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Trim.Shape_Trim'"));
-
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/TwinStick/Meshes/Pared.Pared'"));
+    mallaObstaculo->SetStaticMesh(ShipMesh.Object);
     // Crea el componente de malla estática
-    UStaticMeshComponent* Obstaculo = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Obstaculo"));
-    RootComponent = Obstaculo;
-    Obstaculo->SetWorldScale3D(FVector(1.0f, 1.0f, 1.0f));
+    PrimaryActorTick.bCanEverTick = true;
 
-    ciclos=0;
+
+    ciclos = 0;
 }
 void AParedObstaculo::BeginPlay()
 {
+    Super::BeginPlay();
+	posicionInicial = GetActorLocation();
 }
 void AParedObstaculo::Tick(float DeltaTime)
 {
@@ -44,7 +45,7 @@ void AParedObstaculo::Mover(float DeltaTime)
 
     // Verificar si la nave está moviéndose hacia derecha o izquierda
 
-    if (direccion== 1) // Movimiento hacia derecha
+    if (direccion == 1) // Movimiento hacia derecha
     {
 
         // Mover la nave hacia derecha

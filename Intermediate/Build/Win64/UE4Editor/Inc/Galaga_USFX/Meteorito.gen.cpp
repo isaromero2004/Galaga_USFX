@@ -40,7 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeMeteorito() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMeteorito_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "Meteorito.h" },
 		{ "ModuleRelativePath", "Meteorito.h" },
 	};
@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeMeteorito() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMeteorito, 3326308802);
+	IMPLEMENT_CLASS(AMeteorito, 1388253914);
 	template<> GALAGA_USFX_API UClass* StaticClass<AMeteorito>()
 	{
 		return AMeteorito::StaticClass();

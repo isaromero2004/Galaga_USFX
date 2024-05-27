@@ -7,7 +7,7 @@
 #include "ParedObstaculo.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
 class GALAGA_USFX_API AParedObstaculo : public AObstaculo
@@ -29,5 +29,5 @@ protected:
 	virtual void Mover(float DeltaTime);
 
 
-	
+
 };

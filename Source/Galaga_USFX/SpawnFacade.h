@@ -37,9 +37,10 @@ public:
 	void SpawnearNaves();
 	void SpawnearObstaculos();
 	void SpawnearCapsula();
+	void Spawnear();
 
 private:
-	void PerformTask(TArray<class aNaveEnemiga*> _NavesEnemigas, TArray<class AObstaculo*> _Obstaculos, TArray<class ACapsula*> _Capsulas);
+	
 	FTimerHandle  AparicionCapsula;
 	FTimerHandle  AparicionObstaculo;
 };

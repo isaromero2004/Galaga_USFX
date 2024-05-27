@@ -40,7 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeParedObstaculo() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AParedObstaculo_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "ParedObstaculo.h" },
 		{ "ModuleRelativePath", "ParedObstaculo.h" },
 	};
@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeParedObstaculo() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AParedObstaculo, 3196686662);
+	IMPLEMENT_CLASS(AParedObstaculo, 3499790455);
 	template<> GALAGA_USFX_API UClass* StaticClass<AParedObstaculo>()
 	{
 		return AParedObstaculo::StaticClass();

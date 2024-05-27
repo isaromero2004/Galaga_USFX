@@ -7,8 +7,8 @@
 #include "Capsulas.h"
 #include "CapsulasArmas.h"
 #include "CapsulasEnergia.h"
-#include "Obstaculos.h"
-#include "Meteoritos.h"
+#include "Obstaculo.h"
+#include "Meteorito.h"
 #include "ParedObstaculo.h"
 
 // Sets default values
@@ -22,13 +22,11 @@ ASpawnFacade::ASpawnFacade()
 // Called when the game starts or when spawned
 void ASpawnFacade::BeginPlay()
 {
-	Super::BeginPlay();
-	SpawnearNaves();
-	SpawnearObstaculos();
+    Super::BeginPlay();
     UWorld* const World = GetWorld();
     if (World != nullptr) {
         GetWorldTimerManager().SetTimer(AparicionCapsula, this, &ASpawnFacade::SpawnearCapsula, 15.0f, true);
-        GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 10.0f, true);
+        //GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 10.0f, true);
     }
 }
 
@@ -78,28 +76,26 @@ void ASpawnFacade::SpawnearNaves()
     }
 }
 
-  void ASpawnFacade::SpawnearObstaculos()
-  {
-        float randomX= FMath::RandRange(-1000.f, 1000.f);
-        float randomY= FMath::RandRange(-1000.f, 1000.f);
-        FVector SpawnParedObstaculosLocation = FVector(-700.0f, randomY, 200.0f);
-        FVector SpawnMeteoritosLocation = FVector(1000.0f, randomY, 200.0f);
-        FRotator rotacionObstaculos = FRotator(0.0f, 0.0f, 0.0f);
+ void ASpawnFacade::SpawnearObstaculos()
+ {
+    FVector SpawnParedObstaculosLocation = FVector(-700.0f, FMath::RandRange(-1000.f, 1000.f), 200.0f);
+    FVector SpawnMeteoritosLocation = FVector(FMath::RandRange(-1000.f, 1000.f), 1000.0f, 200.0f);
+    FRotator rotacionObstaculos = FRotator::ZeroRotator;
 
-        TArray<TSubclassOf<AObstaculos>> ClasesObstaculos = { AMeteoritos::StaticClass(), AParedObstaculo::StaticClass() };
+    TArray<TSubclassOf<AObstaculo>> ClasesObstaculos = { AMeteorito::StaticClass(), AParedObstaculo::StaticClass() };
 
-        TSubclassOf<AObstaculos> ObstaculosRandom = ClasesObstaculos[FMath::RandRange(0, ClasesObstaculos.Num() - 1)];
-
-        if(ObstaculosRandom == AMeteoritos::StaticClass())
-		{
-			GetWorld()->SpawnActor<AObstaculos>(ObstaculosRandom, SpawnMeteoritosLocation, FRotator(0, 0, 0));
-		}
-        else
-        {
-            GetWorld()->SpawnActor<AObstaculos>(ObstaculosRandom, SpawnParedObstaculosLocation, FRotator(0, 0, 0));
-        }
-    
+    TSubclassOf<AObstaculo> ObstaculosRandom = ClasesObstaculos[FMath::RandRange(0, ClasesObstaculos.Num() - 1)];
+       
+    if(ObstaculosRandom == ClasesObstaculos[0])
+	{
+    	GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnMeteoritosLocation, FRotator(0, 0, 0));
+	}
+    else
+    {
+        GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnParedObstaculosLocation, FRotator(0, 0, 0));
     }
+    
+ }
 
     void ASpawnFacade::SpawnearCapsula()
     {
@@ -115,8 +111,10 @@ void ASpawnFacade::SpawnearNaves()
 
     }
 
-    void ASpawnFacade::PerformTask(TArray<class aNaveEnemiga*> _NavesEnemigas, TArray<class AObstaculo*> _Obstaculos, TArray<class ACapsula*> _Capsulas)
+    void ASpawnFacade::Spawnear()
     {
-    
+        SpawnearNaves();
+        SpawnearCapsula();
+        SpawnearObstaculos();
     }
 

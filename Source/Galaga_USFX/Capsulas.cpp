@@ -14,7 +14,7 @@ ACapsulas::ACapsulas()
 	mallaCapsulas->SetupAttachment(RootComponent);
 	RootComponent=mallaCapsulas;
 	SetActorEnableCollision(true);
-	limiteX= -1600.0f;
+	limiteX= -1700.0f;
 }
 void ACapsulas::BeginPlay()
 {

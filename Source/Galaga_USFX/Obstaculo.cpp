@@ -6,7 +6,7 @@
 // Sets default values
 AObstaculo::AObstaculo()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	mallaObstaculo = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ObstaculoMesh"));
@@ -15,7 +15,6 @@ AObstaculo::AObstaculo()
 	SetActorEnableCollision(true);
 	danio = 10.0f;
 	tiempoGeneracion = 10.0f;
-	velocidad = 10.0f;
 	limiteCaida = -1600.0f;
 
 
@@ -25,7 +24,7 @@ AObstaculo::AObstaculo()
 void AObstaculo::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -34,6 +33,3 @@ void AObstaculo::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-
-
-
