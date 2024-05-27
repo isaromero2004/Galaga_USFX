@@ -30,16 +30,10 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\EscudosNodriza.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveNodriza.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\BuilderNodriza.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CapsulasArmas.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasArmas.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Capsulas.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Capsulas.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasArmas.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CapsulasEnergia.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasEnergia.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasEnergia.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CapsulasVelocidad.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasVelocidad.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Capsulas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Capsulas.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasVelocidad.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CascosNodriza.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/ConcretoBuilderNodriza.cpp
@@ -81,6 +75,10 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasArmas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasArmas.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasEnergia.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasEnergia.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerInput.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\GestureRecognizer.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\KeyState.h

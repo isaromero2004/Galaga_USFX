@@ -10,6 +10,8 @@
 #include "Obstaculo.h"
 #include "Meteorito.h"
 #include "ParedObstaculo.h"
+#include "Galaga_USFXPawn.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ASpawnFacade::ASpawnFacade()
@@ -26,7 +28,7 @@ void ASpawnFacade::BeginPlay()
     UWorld* const World = GetWorld();
     if (World != nullptr) {
         GetWorldTimerManager().SetTimer(AparicionCapsula, this, &ASpawnFacade::SpawnearCapsula, 15.0f, true);
-        //GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 10.0f, true);
+        GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 10.0f, true);
     }
 }
 
@@ -78,8 +80,7 @@ void ASpawnFacade::SpawnearNaves()
 
  void ASpawnFacade::SpawnearObstaculos()
  {
-    FVector SpawnParedObstaculosLocation = FVector(-700.0f, FMath::RandRange(-1000.f, 1000.f), 200.0f);
-    FVector SpawnMeteoritosLocation = FVector(FMath::RandRange(-1000.f, 1000.f), 1000.0f, 200.0f);
+    FVector SpawnMeteoritosLocation = FVector(700.f, FMath::RandRange(-1000.f, 1000.f) , 200.f);
     FRotator rotacionObstaculos = FRotator::ZeroRotator;
 
     TArray<TSubclassOf<AObstaculo>> ClasesObstaculos = { AMeteorito::StaticClass(), AParedObstaculo::StaticClass() };
@@ -90,9 +91,16 @@ void ASpawnFacade::SpawnearNaves()
 	{
     	GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnMeteoritosLocation, FRotator(0, 0, 0));
 	}
-    else
+    else if(ObstaculosRandom == ClasesObstaculos[1])
     {
-        GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnParedObstaculosLocation, FRotator(0, 0, 0));
+
+        AGalaga_USFXPawn* Pawn = Cast<AGalaga_USFXPawn>(UGameplayStatics::GetPlayerPawn(this, 0));
+        if (Pawn)
+        {
+            // Establece SpawnParedObstaculosLocation a 100 unidades en frente del Pawn
+            FVector SpawnParedObstaculosLocation = Pawn->GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
+            GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnParedObstaculosLocation, FRotator(0, 0, 0));
+        }
     }
     
  }
@@ -107,14 +115,9 @@ void ASpawnFacade::SpawnearNaves()
         TSubclassOf<ACapsulas> RandomCapsulas = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
 
-        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(400.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
+        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(600.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
 
     }
 
-    void ASpawnFacade::Spawnear()
-    {
-        SpawnearNaves();
-        SpawnearCapsula();
-        SpawnearObstaculos();
-    }
+    
 

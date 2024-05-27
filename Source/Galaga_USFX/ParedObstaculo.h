@@ -19,8 +19,14 @@ public:
 	AParedObstaculo();
 	int ciclos = 0;
 	int direccion = 1;
-	float velocidad = 10.0f;
 	FVector posicionInicial;
+	float velocidadPared;
+
+	FORCEINLINE FVector GetPosicionInicial() const { return posicionInicial; }
+	FORCEINLINE void SetPosicionInicial(FVector posicion) { posicionInicial = posicion; }
+	FORCEINLINE float GetVelocidadPared() const { return velocidadPared; }
+	FORCEINLINE void SetVelocidadPared(float velocidad) { velocidadPared = velocidad; }
+
 
 protected:
 	// Called when the game starts or when spawned

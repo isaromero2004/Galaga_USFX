@@ -123,5 +123,8 @@ protected:
 	virtual void sureste(float Value);
 	virtual void Salto();
 	virtual void descender();
+
+	public:
+		FVector posicionPawn = GetActorLocation();
 };
 

@@ -33,12 +33,6 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Capsulas.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Inventario.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXPawn.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\FabricaNaves.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemiga.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Subscriptor.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Subscriptor.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemiga.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\FabricaNaves.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ConcretoBuilderNodriza.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ConcretoBuilderNodriza.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\SpawnFacade.h

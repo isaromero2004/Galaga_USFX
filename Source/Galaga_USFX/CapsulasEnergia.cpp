@@ -7,6 +7,8 @@ ACapsulasEnergia::ACapsulasEnergia()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_WideCapsule.Shape_WideCapsule'"));
 	mallaCapsulas->SetStaticMesh(ShipMesh.Object);
+
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 void ACapsulasEnergia::BeginPlay()
@@ -34,6 +36,7 @@ void ACapsulasEnergia::MoverCapsulas(float DeltaTime)
 		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
 
 	}
+	//else Destroy();
 }
 
 

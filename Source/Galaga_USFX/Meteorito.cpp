@@ -10,7 +10,7 @@ AMeteorito::AMeteorito()
 
 	PrimaryActorTick.bCanEverTick = true;
 	VelocidadMeteorito = 10.0f;
-	limiteCaida = -1000.0f;
+	limiteCaida = -1600.0f;
 }
 
 void AMeteorito::BeginPlay()
@@ -29,9 +29,16 @@ void AMeteorito::Mover(float DeltaTime)
 
 	if (NuevaPosicion.X < limiteCaida) {
 
-		SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
+		Destroy(); //SetActorLocation(FVector(1500.0f, PosicionActual.Y, PosicionActual.Z));
 
 	}
+	//else Destroy();
+}
+
+void AMeteorito::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }
 
 float AMeteorito::DanioProducido()
@@ -40,10 +47,10 @@ float AMeteorito::DanioProducido()
 	return danio;
 }
 
-void AMeteorito::estrellar()
-{
-	SetActorTickEnabled(false);
-	SetActorHiddenInGame(true);
-	SetActorEnableCollision(false);
-}
+//void AMeteorito::estrellar()
+//{
+//	SetActorTickEnabled(false);
+//	SetActorHiddenInGame(true);
+//	SetActorEnableCollision(false);
+//}
 

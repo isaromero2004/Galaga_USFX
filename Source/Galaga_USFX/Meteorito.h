@@ -16,7 +16,7 @@ class GALAGA_USFX_API AMeteorito : public AObstaculo
 public:
 	AMeteorito();
 
-	virtual void estrellar();
+	/*virtual void estrellar();*/
 
 protected:
 	float VelocidadMeteorito;
@@ -28,6 +28,7 @@ protected:
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 	virtual void Mover(float DeltaTime);
 	virtual float DanioProducido();
 

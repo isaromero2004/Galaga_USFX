@@ -31,20 +31,20 @@ protected:
 
 	float danio;
 	float tiempoGeneracion;
-	float velocidad;
+	float velocidadObstaculo;
 	float limiteCaida;
 	FVector posicionObstaculo;
 
 public:
 	FORCEINLINE float GetDanio() const { return danio; }
 	FORCEINLINE float GetTiempoGeneracion() const { return tiempoGeneracion; }
-	FORCEINLINE float GetVelocidad() const { return velocidad; }
+	FORCEINLINE float GetVelocidadObstaculo() const { return velocidadObstaculo; }
 	FORCEINLINE float GetLimiteCaida() const { return limiteCaida; }
 	FORCEINLINE FVector GetPosicionObstaculo() const { return posicionObstaculo; }
 
 	FORCEINLINE void SetDanio(float _danio) { danio = _danio; }
 	FORCEINLINE void SetTiempoGeneracion(float _tiempoGeneracion) { tiempoGeneracion = _tiempoGeneracion; }
-	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
+	FORCEINLINE void SetVelocidadObstaculo(float _velocidad) { velocidadObstaculo = _velocidad; }
 	FORCEINLINE void SetLimiteCaida(float _limiteCaida) { limiteCaida = _limiteCaida; }
 	FORCEINLINE void SetPosicionObstaculo(FVector _posicionObstaculo) { posicionObstaculo = _posicionObstaculo; }
 

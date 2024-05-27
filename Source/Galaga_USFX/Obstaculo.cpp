@@ -16,6 +16,7 @@ AObstaculo::AObstaculo()
 	danio = 10.0f;
 	tiempoGeneracion = 10.0f;
 	limiteCaida = -1600.0f;
+	velocidadObstaculo = 500.0f;
 
 
 }

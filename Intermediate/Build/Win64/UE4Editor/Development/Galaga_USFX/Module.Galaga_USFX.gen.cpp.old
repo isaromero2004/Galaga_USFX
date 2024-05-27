@@ -30,5 +30,6 @@
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/NaveEnemigaTransporteG1.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/NaveEnemigaTransporteG2.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/NaveNodriza.gen.cpp"
+#include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Obstaculo.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/SpawnFacade.gen.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Subscriptor.gen.cpp"

@@ -2,26 +2,35 @@
 
 
 #include "ParedObstaculo.h"
+#include "Galaga_USFXPawn.h"
+#include "Kismet/GameplayStatics.h"
 
 AParedObstaculo::AParedObstaculo()
 {
     // Carga el StaticMesh
     static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/TwinStick/Meshes/Pared.Pared'"));
     mallaObstaculo->SetStaticMesh(ShipMesh.Object);
-    // Crea el componente de malla estática
+
+    mallaObstaculo->SetRelativeScale3D(FVector(3.0f, 3.0f, 3.0f));
     PrimaryActorTick.bCanEverTick = true;
 
-
+    velocidadObstaculo = 1000.0f;
     ciclos = 0;
+   
 }
 void AParedObstaculo::BeginPlay()
 {
     Super::BeginPlay();
-	posicionInicial = GetActorLocation();
+    AGalaga_USFXPawn* Pawn = Cast<AGalaga_USFXPawn>(UGameplayStatics::GetPlayerPawn(this, 0));
+    if (Pawn)
+    {
+        // Establece la posición inicial a 100 unidades en frente del Pawn
+        posicionInicial = Pawn->GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
+    }
 }
 void AParedObstaculo::Tick(float DeltaTime)
 {
-    if (ciclos < 4)
+    if (ciclos < 10)
     {
 
         Mover(DeltaTime);
@@ -38,7 +47,7 @@ void AParedObstaculo::Mover(float DeltaTime)
     float LimiteIzquierdo = -1000.0f;
 
     // Definir la velocidad de movimiento horizontal
-    float VelocidadHorizontal = 300.0f;
+    float VelocidadHorizontal = GetVelocidadPared();
 
     // Calcular el desplazamiento horizontal para este fotograma
     float DesplazamientoHorizontal = VelocidadHorizontal * DeltaTime;
@@ -72,6 +81,7 @@ void AParedObstaculo::Mover(float DeltaTime)
         {
             // Si alcanza el límite de la izquierda, cambiar la dirección de movimiento a hacia la derecha
             direccion = 1;
+            ciclos++;
             SetActorLocation(FVector(NuevaPosicion.X, NuevaPosicion.Y - 100.0f, NuevaPosicion.Z));
         }
     }
