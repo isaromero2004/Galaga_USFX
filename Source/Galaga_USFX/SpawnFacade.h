@@ -37,7 +37,8 @@ public:
 	void SpawnearNaves();
 	void SpawnearObstaculos();
 	void SpawnearCapsula();
-	void SpawnComponentes();
+	void SpawnearTodo();
+	void SpawnComponentes(const FString _Componente);
 
 private:
 	

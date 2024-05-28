@@ -119,10 +119,23 @@ void ASpawnFacade::SpawnearNaves()
 
     }
 
-    void ASpawnFacade::SpawnComponentes() {
+    void ASpawnFacade::SpawnearTodo()
+    {
         SpawnearNaves();
 		SpawnearCapsula();
 		SpawnearObstaculos();
+    }
+
+
+    void ASpawnFacade::SpawnComponentes(const FString _Componente) {
+        if (_Componente == "Naves")
+            SpawnearNaves();
+        else if (_Componente == "Capsulas")
+            SpawnearCapsula();
+        else if (_Componente == "Obstaculos")
+            SpawnearObstaculos();
+        else if (_Componente == "Todo")
+            SpawnearTodo();
 
     }
 

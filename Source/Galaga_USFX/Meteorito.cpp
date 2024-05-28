@@ -8,6 +8,8 @@ AMeteorito::AMeteorito()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/TwinStick/Meshes/meteorito.meteorito'"));
 	mallaObstaculo->SetStaticMesh(ShipMesh.Object);
 
+	mallaObstaculo->SetRelativeScale3D(FVector(1.5f, 1.5f, 1.5f));
+
 	PrimaryActorTick.bCanEverTick = true;
 	velocidadObstaculo = 20.0f;
 	limiteCaida = -1600.0f;

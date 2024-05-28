@@ -25,7 +25,7 @@ void AGalaga_USFXGameMode::BeginPlay()
     Super::BeginPlay();
 
     SpawnFacade = GetWorld()->SpawnActor<ASpawnFacade>(ASpawnFacade::StaticClass());
-    SpawnFacade->SpawnComponentes();
+    SpawnFacade->SpawnComponentes("Todo");
 
 
 
