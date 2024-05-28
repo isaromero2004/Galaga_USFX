@@ -126,7 +126,6 @@ void ASpawnFacade::SpawnearNaves()
 		SpawnearObstaculos();
     }
 
-
     void ASpawnFacade::SpawnComponentes(const FString _Componente) {
         if (_Componente == "Naves")
             SpawnearNaves();
