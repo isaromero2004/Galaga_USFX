@@ -9,6 +9,7 @@ ACapsulasEnergia::ACapsulasEnergia()
 	mallaCapsulas->SetStaticMesh(ShipMesh.Object);
 
 	PrimaryActorTick.bCanEverTick = true;
+	limiteX = -1600.0f;
 }
 
 void ACapsulasEnergia::BeginPlay()

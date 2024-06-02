@@ -28,57 +28,62 @@ void UMovimiento::BeginPlay()
 void UMovimiento::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+    Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
     AActor* Parent = GetOwner();
 
-	if(Parent)
+    if (Parent)
     {
         FVector PosicionActual = Parent->GetActorLocation();
 
-        // Definir los límite DERECHO E IZQUIERDO de movimiento
-        float LimiteDerecho = 1000.0f;
-        float LimiteIzquierdo = -1000.0f;
-
         // Definir la velocidad de movimiento horizontal
-        float VelocidadHorizontal = 300.0f;
+        float Velocidad = 50.0f;
 
         // Calcular el desplazamiento horizontal para este fotograma
-        float DesplazamientoHorizontal = VelocidadHorizontal * DeltaTime;
+        float DesplazamientoX = Velocidad * DeltaTime;
+        float LimiteInferior = -1600.0f;
 
-        // Verificar si la nave está moviéndose hacia derecha o izquierda
+        FVector NuevaPosicion = FVector(PosicionActual.X + DesplazamientoX * -1, PosicionActual.Y, PosicionActual.Z);
+        Parent->SetActorLocation(NuevaPosicion);
 
-        if (DireccionMovimientoHorizontal == 1) // Movimiento hacia derecha
+        //este codigo hace que vuelva ala posicion inicial
+        if (NuevaPosicion.X < LimiteInferior)
         {
-   
-
-            // Mover la nave hacia derecha
-            FVector NuevaPosicion = PosicionActual + FVector(0.0f, DesplazamientoHorizontal-1.0f, 0.0f);
-            if (NuevaPosicion.Y <= LimiteDerecho)
-            {
-                Parent->SetActorLocation(NuevaPosicion);
-            }
-            else
-            {
-                // Si alcanza el límite superior, cambiar la dirección de movimiento a hacia izquierda
-                DireccionMovimientoHorizontal = -1;
-            }
-        }
-        else // Movimiento hacia izquierda
-        {
-            // Mover la nave hacia izquierda
-            FVector NuevaPosicion = PosicionActual - FVector(0.0f, DesplazamientoHorizontal-1.0f, 0.0f);
-            if (NuevaPosicion.Y >= LimiteIzquierdo)
-            {
-                Parent->SetActorLocation(NuevaPosicion);
-            }
-            else
-            {
-                // Si alcanza el límite de la izquierda, cambiar la dirección de movimiento a hacia la derecha
-                DireccionMovimientoHorizontal = 1;
-                Parent->SetActorLocation(FVector(NuevaPosicion.X, NuevaPosicion.Y-100.0f, NuevaPosicion.Z));
-            }
+            Parent->SetActorLocation(FVector(1800.0f, PosicionActual.Y, 160.0f));
         }
     }
 }
+//        if (DireccionMovimientoHorizontal == 1) // Movimiento hacia derecha
+//        {
+//   
+//
+//            // Mover la nave hacia derecha
+//            FVector NuevaPosicion = PosicionActual + FVector(0.0f, DesplazamientoHorizontal-1.0f, 0.0f);
+//            if (NuevaPosicion.Y <= LimiteDerecho)
+//            {
+//                Parent->SetActorLocation(NuevaPosicion);
+//            }
+//            else
+//            {
+//                // Si alcanza el límite superior, cambiar la dirección de movimiento a hacia izquierda
+//                DireccionMovimientoHorizontal = -1;
+//            }
+//        }
+//        else // Movimiento hacia izquierda
+//        {
+//            // Mover la nave hacia izquierda
+//            FVector NuevaPosicion = PosicionActual - FVector(0.0f, DesplazamientoHorizontal-1.0f, 0.0f);
+//            if (NuevaPosicion.Y >= LimiteIzquierdo)
+//            {
+//                Parent->SetActorLocation(NuevaPosicion);
+//            }
+//            else
+//            {
+//                // Si alcanza el límite de la izquierda, cambiar la dirección de movimiento a hacia la derecha
+//                DireccionMovimientoHorizontal = 1;
+//                Parent->SetActorLocation(FVector(NuevaPosicion.X, NuevaPosicion.Y-100.0f, NuevaPosicion.Z));
+//            }
+//        }
+//    }
+//}
 

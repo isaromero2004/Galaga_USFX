@@ -41,56 +41,56 @@ void ASpawnFacade::Tick(float DeltaTime)
 
 void ASpawnFacade::SpawnearNaves()
 {
-    FVector InicialSpawnNaveLocation = FVector(-100.f, -500.f, 250.f);
+    FVector InicialSpawnNaveLocation = FVector(800.f, 0.f, 250.f);
     FRotator RotacionNave = FRotator::ZeroRotator;
 
     UWorld* const World = GetWorld();
     if (World != nullptr)
     {
-
-        for (int i = 0; i < 6; i++)
-        {
-            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
-            ANaveEnemiga* NuevaNaveEnemigaCaza = AFabricaNaves::FabricarNaveEnemiga("Caza", World, PosicionNaveActual, RotacionNave);
-            if (NuevaNaveEnemigaCaza)
-            {
-                NuevaNaveEnemigaCaza->suscribe(this);
-            }
-            TANavesEnemigas.Push(NuevaNaveEnemigaCaza);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + 200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
-            ANaveEnemiga* NuevaNaveEnemigaEspia = AFabricaNaves::FabricarNaveEnemiga("Espia", World, PosicionNaveActual, RotacionNave);
-            if (NuevaNaveEnemigaEspia)
-			{
-				NuevaNaveEnemigaEspia->suscribe(this);
-			}
-            TANavesEnemigas.Push(NuevaNaveEnemigaEspia);
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
-            ANaveEnemiga* NuevaNaveEnemigaReabastecimiento = AFabricaNaves::FabricarNaveEnemiga("Reabastecimiento", World, PosicionNaveActual, RotacionNave);
-            if (NuevaNaveEnemigaReabastecimiento)
+                for (int i = 0; i < 4; i++)
                 {
-                NuevaNaveEnemigaReabastecimiento->suscribe(this);
-				}
-            TANavesEnemigas.Push(NuevaNaveEnemigaReabastecimiento);
-        }
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + i * 100.f, InicialSpawnNaveLocation.Y +i* 400.f, InicialSpawnNaveLocation.Z);
+                    ANaveEnemiga* NuevaNaveEnemigaCaza = AFabricaNaves::FabricarNaveEnemiga("Caza", World, PosicionNaveActual, RotacionNave);
+                    if (NuevaNaveEnemigaCaza)
+                    {
+                        NuevaNaveEnemigaCaza->suscribe(this);
+                    }
+                    TANavesEnemigas.Push(NuevaNaveEnemigaCaza);
+                }
 
-        for (int i = 0; i < 6; i++)
-        {
-            FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 400, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
-            ANaveEnemiga* NuevaNaveEnemigaTransporte = AFabricaNaves::FabricarNaveEnemiga("Transporte", World, PosicionNaveActual, RotacionNave);
-            if (NuevaNaveEnemigaTransporte)
-			{
-				NuevaNaveEnemigaTransporte->suscribe(this);
-			}
-            TANavesEnemigas.Push(NuevaNaveEnemigaTransporte);
-        }
+                for (int i = 0; i < 4; i++)
+                {
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - i * 100.f, InicialSpawnNaveLocation.Y +200-i* 400.f, InicialSpawnNaveLocation.Z);
+                    ANaveEnemiga* NuevaNaveEnemigaEspia = AFabricaNaves::FabricarNaveEnemiga("Espia", World, PosicionNaveActual, RotacionNave);
+                    if (NuevaNaveEnemigaEspia)
+                    {
+                        NuevaNaveEnemigaEspia->suscribe(this);
+                    }
+                    TANavesEnemigas.Push(NuevaNaveEnemigaEspia);
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - i * 200, InicialSpawnNaveLocation.Y +i*400, InicialSpawnNaveLocation.Z);
+                    ANaveEnemiga* NuevaNaveEnemigaReabastecimiento = AFabricaNaves::FabricarNaveEnemiga("Reabastecimiento", World, PosicionNaveActual, RotacionNave);
+                    if (NuevaNaveEnemigaReabastecimiento)
+                    {
+                        NuevaNaveEnemigaReabastecimiento->suscribe(this);
+                    }
+                    TANavesEnemigas.Push(NuevaNaveEnemigaReabastecimiento);
+                }
+
+                for (int i = 0; i < 4; i++)
+                {
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - i * 200, InicialSpawnNaveLocation.Y +200- i*400, InicialSpawnNaveLocation.Z);
+                    ANaveEnemiga* NuevaNaveEnemigaTransporte = AFabricaNaves::FabricarNaveEnemiga("Transporte", World, PosicionNaveActual, RotacionNave);
+                    if (NuevaNaveEnemigaTransporte)
+                    {
+                        NuevaNaveEnemigaTransporte->suscribe(this);
+                    }
+                    TANavesEnemigas.Push(NuevaNaveEnemigaTransporte);
+                }
+      
     }
 }
 
@@ -140,10 +140,15 @@ void ASpawnFacade::SpawnearNaves()
     void ASpawnFacade::Update(FVector PosicionNave)
     {
         UltimaPosicionNave = PosicionNave;
-
+        //GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Update llamado con la posición: " + PosicionNave.ToString()));
         NavesDestruidas++;
         if (NavesDestruidas == 3)
         {
+          
+                
+                // Resto del código...
+          
+
             SpawnearCapsulas(PosicionNave);
             NavesDestruidas = 0;
         }
@@ -152,7 +157,7 @@ void ASpawnFacade::SpawnearNaves()
     void ASpawnFacade::SpawnearTodo()
     {
         SpawnearNaves();
-        SpawnearCapsulas(UltimaPosicionNave);
+        Update(UltimaPosicionNave);
 		SpawnearObstaculos();
     }
 

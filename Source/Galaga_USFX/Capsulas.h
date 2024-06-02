@@ -24,6 +24,8 @@ protected:
 	float duracion;
 	float limiteX;
 
+	//UMovimiento* MovimientoCapsulas;
+
 public:
 	
 	FORCEINLINE float GetVelocidadCapsulas() const { return velocidadCapsulas; }

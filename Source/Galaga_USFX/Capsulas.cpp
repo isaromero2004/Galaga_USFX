@@ -30,6 +30,8 @@ void ACapsulas::BeginPlay()
 void ACapsulas::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	//MovimientoCapsulas->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
+	
 
 }
 

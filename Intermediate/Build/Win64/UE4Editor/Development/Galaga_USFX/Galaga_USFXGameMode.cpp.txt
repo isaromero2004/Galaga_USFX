@@ -19,6 +19,11 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Bui
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Inventario.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXPawn.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveNodriza.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ConcretoBuilderNodriza.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasArmas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasArmas.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasEnergia.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasEnergia.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\DirectorBuilderNodriza.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\BuilderNodriza.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveNodriza.h

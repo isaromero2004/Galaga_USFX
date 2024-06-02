@@ -4,6 +4,10 @@
 #include "Galaga_USFXPawn.h"
 #include "TimerManager.h"
 #include "NaveNodriza.h"
+#include "ConcretoBuilderNodriza.h"
+#include "Capsulas.h"
+#include "CapsulasArmas.h"
+#include "CapsulasEnergia.h"
 #include "DirectorBuilderNodriza.h"
 #include "BuilderNodriza.h"
 #include "ConcretoBuilderNodriza.h"
@@ -37,6 +41,7 @@ void AGalaga_USFXGameMode::BeginPlay()
     //director->ConstruirNaveNodriza();
 
     /*ANaveNodriza* NaveNodriza = director->GetNaveNodriza();*/
+
 }
 
 

@@ -28,7 +28,7 @@ protected:
 	virtual void Escapar();
 	virtual void Atacar();
 
-	void Destruirse();
+	virtual void Destruirse();
 
 
 public:
