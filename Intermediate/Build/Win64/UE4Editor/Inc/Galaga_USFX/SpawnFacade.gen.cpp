@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeSpawnFacade() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	GALAGA_USFX_API UClass* Z_Construct_UClass_USubscriptor_NoRegister();
 // End Cross Module References
 	void ASpawnFacade::StaticRegisterNativesASpawnFacade()
 	{
@@ -38,6 +39,7 @@ void EmptyLinkFunctionForGeneratedCodeSpawnFacade() {}
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_SpawnObjects;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -63,6 +65,9 @@ void EmptyLinkFunctionForGeneratedCodeSpawnFacade() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawnFacade_Statics::NewProp_SpawnObjects_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpawnFacade_Statics::NewProp_SpawnObjects,
 	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ASpawnFacade_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_USubscriptor_NoRegister, (int32)VTABLE_OFFSET(ASpawnFacade, ISubscriptor), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASpawnFacade_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASpawnFacade>::IsAbstract,
 	};
@@ -73,11 +78,11 @@ void EmptyLinkFunctionForGeneratedCodeSpawnFacade() {}
 		DependentSingletons,
 		nullptr,
 		Z_Construct_UClass_ASpawnFacade_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ASpawnFacade_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ASpawnFacade_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASpawnFacade_Statics::Class_MetaDataParams))
 	};
@@ -90,7 +95,7 @@ void EmptyLinkFunctionForGeneratedCodeSpawnFacade() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASpawnFacade, 2364449998);
+	IMPLEMENT_CLASS(ASpawnFacade, 1804977019);
 	template<> GALAGA_USFX_API UClass* StaticClass<ASpawnFacade>()
 	{
 		return ASpawnFacade::StaticClass();

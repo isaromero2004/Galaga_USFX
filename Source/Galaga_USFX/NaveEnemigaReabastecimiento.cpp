@@ -8,6 +8,7 @@ ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Torus.Shape_Torus'"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
 
+	resistencia = 10;
 }
 
 

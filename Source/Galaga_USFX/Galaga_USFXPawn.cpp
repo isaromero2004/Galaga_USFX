@@ -237,7 +237,7 @@ void AGalaga_USFXPawn::Tick(float DeltaSeconds)
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
-	if (bCanFire == true) //&& NumProyectilesDisparados < MaxProyectilesDisparados)
+	if (bCanFire == true )//NumProyectilesDisparados < ProyectilesPorDisparar)
 	{
 		// If we are pressing fire stick in a direction
 		if (FireDirection.SizeSquared() > 0.0f)
@@ -288,7 +288,7 @@ void AGalaga_USFXPawn::ShotTimerExpired()
 
 	if (NumProyectilesDisparados >= ProyectilesPorDisparar)
 	{
-		//NumProyectilesDisparados = 0;
+		ProyectilesPorDisparar = 0;
 		if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municiones");
@@ -400,7 +400,7 @@ void AGalaga_USFXPawn::ReloadAmmo()
 
 			if (GEngine)
 			{
-				FString Message = FString::Printf(TEXT("Se recargaron +%d de municion"), ProyectilesPorDisparar);
+				FString Message = FString::Printf(TEXT("Se recargaron +20 de munición, tienes %d municiones"), ProyectilesPorDisparar);
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, Message);
 			}
 

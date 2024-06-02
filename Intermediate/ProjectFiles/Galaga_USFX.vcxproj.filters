@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Galaga_USFX.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{BE9EAA37-9EBD-4C84-AFFB-CE6992EF1EBB}</UniqueIdentifier>
+      <UniqueIdentifier>{34C28A57-BFB1-468F-B914-9834E0ACE46C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Galaga_USFX.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{5E5D60EB-52F2-4DCB-8412-04E3371C4C25}</UniqueIdentifier>
+      <UniqueIdentifier>{595B8EA7-F6B0-4A98-903D-EBE372EFE724}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -32,7 +32,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Galaga_USFX">
-      <UniqueIdentifier>{9329E7C3-B975-4620-9B5D-D5EC23B68D6E}</UniqueIdentifier>
+      <UniqueIdentifier>{C2AB23AA-059C-4D08-9E75-83C9976C7AE7}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Galaga_USFX\ArmamentoNodriza.cpp">
       <Filter>Source\Galaga_USFX</Filter>
@@ -233,6 +233,12 @@
       <Filter>Source\Galaga_USFX</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Galaga_USFX\NaveNodriza.h">
+      <Filter>Source\Galaga_USFX</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Galaga_USFX\ObserverDestruccion.cpp">
+      <Filter>Source\Galaga_USFX</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Galaga_USFX\ObserverDestruccion.h">
       <Filter>Source\Galaga_USFX</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Galaga_USFX\Obstaculo.cpp">

@@ -24,9 +24,12 @@ public:
 
 protected:
 	
-	virtual void Destruirse();
+	
 	virtual void Escapar();
 	virtual void Atacar();
+
+	void Destruirse();
+
 
 public:
 	// Called every frame

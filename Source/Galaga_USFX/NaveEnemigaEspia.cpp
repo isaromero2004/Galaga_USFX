@@ -8,6 +8,8 @@ ANaveEnemigaEspia::ANaveEnemigaEspia()
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
 
+	resistencia = 5;
+
 }
 
 void ANaveEnemigaEspia::Tick(float DeltaTime)

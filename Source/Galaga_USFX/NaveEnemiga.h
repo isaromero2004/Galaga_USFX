@@ -5,12 +5,13 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Movimiento.h"
-#include "Subscriptor.h"
+#include "Publisher.h"
 #include "NaveEnemiga.generated.h"
 
 
+
 UCLASS(abstract)
-class GALAGA_USFX_API ANaveEnemiga : public AActor//, public ISubscriptor
+class GALAGA_USFX_API ANaveEnemiga : public APublisher
 {
 	GENERATED_BODY()
 
@@ -19,7 +20,7 @@ public:
 	UStaticMeshComponent* NaveEnemigaMesh; //malla nave enemigo
 
 protected:
-	float resistencia; //Numero de disparos que puede recibir antes de ser destruido
+	int resistencia; //Numero de disparos que puede recibir antes de ser destruido
 	float velocidad;
 	float danoProducido; //potencia de cada proyectil que dispsra la nave
 	FString nombre;
@@ -47,7 +48,7 @@ protected:
 
 
 public:
-	FORCEINLINE float GetResistencia() const { return resistencia; }
+	FORCEINLINE int GetResistencia() const { return resistencia; }
 	FORCEINLINE float GetVelocidad() const { return velocidad; }
 	FORCEINLINE float GetDanoProducido() const { return danoProducido; }
 	FORCEINLINE FString GetNombre() const { return nombre; }
@@ -65,7 +66,7 @@ public:
 	
 	
 
-	FORCEINLINE void SetResistencia(float _resistencia) { resistencia = _resistencia; }
+	FORCEINLINE void SetResistencia(int _resistencia) { resistencia = _resistencia; }
 	FORCEINLINE void SetVelocidad(float _velocidad) { velocidad = _velocidad; }
 	FORCEINLINE void SetDanoProducido(float _danoProducido) { danoProducido = _danoProducido; }
 	FORCEINLINE void SetNombre(FString _nombre) { nombre = _nombre; }
@@ -88,6 +89,7 @@ public:
 public:	
 	// Sets default values for this actor's properties
 	ANaveEnemiga();
+	
 
 protected:
 	FString NombreNave;
@@ -98,21 +100,22 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION()
+	virtual void NotifyHit(class UPrimitiveComponent* MyComp,
+		AActor* Other, class UPrimitiveComponent* OtherComp,
+		bool bSelfMoved, FVector HitLocation, FVector
+		HitNormal, FVector NormalImpulse, const FHitResult&
+		Hit) override;
+	UFUNCTION()
+	
+	void Destruirse();
 	//virtual void Update ();
 
 protected:
 	//virtual void Mover() = 0;
 	FString GetNombreNave();
-	void Destruirse() PURE_VIRTUAL(ANaveEnemiga::Destruirse, );
+	
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
 	void Atacar() PURE_VIRTUAL(ANaveEnemiga::Atacar, );
 
-//private:
-//	UPROPERTY()
-//	//ARadarEnemigo*  Radar;
-
-//public:
-	//void setRadar(ARadarEnemigo* _radar);
-
-	//virtual void Destroyed() override;
 };

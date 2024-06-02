@@ -1,8 +1,7 @@
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Development\Galaga_USFX\Definitions.Galaga_USFX.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/ArmamentoNodriza.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ArmamentoNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Movimiento.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Movimiento.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveNodriza.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ArmamentoNodriza.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Galaga_USFXProjectile.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXProjectile.generated.h
@@ -22,19 +21,11 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/BuilderNodriza.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\BuilderNodriza.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CascosNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CascosNodriza.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\MotorNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\MotorNodriza.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\EscudosNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\EscudosNodriza.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveNodriza.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\BuilderNodriza.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Capsulas.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Capsulas.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Capsulas.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CapsulasArmas.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasArmas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Capsulas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Capsulas.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasArmas.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CapsulasEnergia.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasEnergia.h
@@ -43,18 +34,18 @@ C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CapsulasVelocidad.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CapsulasVelocidad.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/CascosNodriza.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/ConcretoBuilderNodriza.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ConcretoBuilderNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ConcretoBuilderNodriza.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/DirectorBuilderNodriza.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\DirectorBuilderNodriza.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\DirectorBuilderNodriza.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\CascosNodriza.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Movimiento.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Movimiento.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\CascosNodriza.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/EscudosNodriza.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\EscudosNodriza.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\EscudosNodriza.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/FabricaNaves.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\FabricaNaves.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemiga.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Subscriptor.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Subscriptor.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Publisher.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Publisher.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemiga.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\FabricaNaves.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaCaza.h
@@ -67,7 +58,46 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporte.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFX.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Galaga_USFX.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXPawn.cpp
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Inventario.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Inventario.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Inventario.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Meteorito.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Meteorito.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Obstaculo.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Obstaculo.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Meteorito.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/MotorNodriza.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\MotorNodriza.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\MotorNodriza.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Movimiento.cpp
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaCazaG1.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaCazaG1.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaCazaG1.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaCazaG2.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaCazaG2.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaCazaG2.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaEspiaG1.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaEspiaG1.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaEspiaG1.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaEspiaG2.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaEspiaG2.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaEspiaG2.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaReabastecimientoG1.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaReabastecimientoG1.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaReabastecimientoG1.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaReabastecimientoG2.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaReabastecimientoG2.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaReabastecimientoG2.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaTransporteG1.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaTransporteG1.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporteG1.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaTransporteG2.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaTransporteG2.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporteG2.generated.h
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Obstaculo.cpp
+C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/ParedObstaculo.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ParedObstaculo.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ParedObstaculo.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Galaga_USFXPawn.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
@@ -75,71 +105,8 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\In
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Inventario.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Inventario.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXPawn.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerInput.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\GestureRecognizer.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\KeyState.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerInput.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementComponent.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\AI/Navigation/NavigationAvoidanceTypes.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavigationAvoidanceTypes.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Public\AI/RVOAvoidanceInterface.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RVOAvoidanceInterface.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/PawnMovementComponent.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/NavMovementComponent.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\AI/Navigation/PathFollowingAgentInterface.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PathFollowingAgentInterface.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NavMovementComponent.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PawnMovementComponent.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Interfaces/NetworkPredictionInterface.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\NetworkPredictionInterface.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementComponent.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXProjectile.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Inventario.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/MotorNodriza.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Movimiento.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemiga.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaCaza.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaCazaG1.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaCazaG1.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaCazaG1.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaCazaG2.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaCazaG2.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaCazaG2.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaEspia.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaEspiaG1.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaEspiaG1.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaEspiaG1.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaEspiaG2.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaEspiaG2.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaEspiaG2.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaReabastecimiento.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaReabastecimientoG1.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaReabastecimientoG1.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaReabastecimientoG1.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaReabastecimientoG2.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaReabastecimientoG2.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaReabastecimientoG2.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaTransporte.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaTransporteG1.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaTransporteG1.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporteG1.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveEnemigaTransporteG2.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\NaveEnemigaTransporteG2.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemigaTransporteG2.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/NaveNodriza.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Obstaculo.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Obstaculo.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Obstaculo.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/ParedObstaculo.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ParedObstaculo.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ParedObstaculo.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Publisher.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/RadarEnemigo.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Subscriptor.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Subscriptor.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Subscriptor.generated.h

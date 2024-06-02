@@ -26,16 +26,17 @@ void AGalaga_USFXGameMode::BeginPlay()
 
     SpawnFacade = GetWorld()->SpawnActor<ASpawnFacade>(ASpawnFacade::StaticClass());
     SpawnFacade->SpawnComponentes("Todo");
+   //SpawnFacade->SpawnComponentes("Naves");
 
 
 
-    BuilderNaveNodriza= GetWorld()->SpawnActor<AConcretoBuilderNodriza>(AConcretoBuilderNodriza::StaticClass());
-    director = GetWorld()->SpawnActor<ADirectorBuilderNodriza>(ADirectorBuilderNodriza::StaticClass());
-    
-    director->SetBuilder(BuilderNaveNodriza);
-    director->ConstruirNaveNodriza();
+    //BuilderNaveNodriza= GetWorld()->SpawnActor<AConcretoBuilderNodriza>(AConcretoBuilderNodriza::StaticClass());
+    //director = GetWorld()->SpawnActor<ADirectorBuilderNodriza>(ADirectorBuilderNodriza::StaticClass());
+    //
+    //director->SetBuilder(BuilderNaveNodriza);
+    //director->ConstruirNaveNodriza();
 
-    ANaveNodriza* NaveNodriza = director->GetNaveNodriza();
+    /*ANaveNodriza* NaveNodriza = director->GetNaveNodriza();*/
 }
 
 

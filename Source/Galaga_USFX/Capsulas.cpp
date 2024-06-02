@@ -2,6 +2,9 @@
 
 
 #include "Capsulas.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/SceneComponent.h"
+#include "Movimiento.h"
 
 
 // Sets default values
@@ -14,7 +17,8 @@ ACapsulas::ACapsulas()
 	mallaCapsulas->SetupAttachment(RootComponent);
 	RootComponent=mallaCapsulas;
 	SetActorEnableCollision(true);
-	limiteX= -1600.0f;
+
+	
 }
 void ACapsulas::BeginPlay()
 {

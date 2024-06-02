@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeNaveEnemigaEspiaG1() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ANaveEnemigaEspiaG1, 1489165435);
+	IMPLEMENT_CLASS(ANaveEnemigaEspiaG1, 2854400679);
 	template<> GALAGA_USFX_API UClass* StaticClass<ANaveEnemigaEspiaG1>()
 	{
 		return ANaveEnemigaEspiaG1::StaticClass();

@@ -18,7 +18,8 @@ ASpawnFacade::ASpawnFacade()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
+    NavesDestruidas = 0;
+    UltimaPosicionNave = FVector(0, 0, 0);
 }
 
 // Called when the game starts or when spawned
@@ -27,7 +28,6 @@ void ASpawnFacade::BeginPlay()
     Super::BeginPlay();
     UWorld* const World = GetWorld();
     if (World != nullptr) {
-        GetWorldTimerManager().SetTimer(AparicionCapsula, this, &ASpawnFacade::SpawnearCapsula, 5.0f, true);
         GetWorldTimerManager().SetTimer(AparicionObstaculo, this, &ASpawnFacade::SpawnearObstaculos, 5.0f, true);
     }
 }
@@ -41,7 +41,7 @@ void ASpawnFacade::Tick(float DeltaTime)
 
 void ASpawnFacade::SpawnearNaves()
 {
-    FVector InicialSpawnNaveLocation = FVector(-100.f, -500.f, 200.f);
+    FVector InicialSpawnNaveLocation = FVector(-100.f, -500.f, 250.f);
     FRotator RotacionNave = FRotator::ZeroRotator;
 
     UWorld* const World = GetWorld();
@@ -52,6 +52,10 @@ void ASpawnFacade::SpawnearNaves()
         {
             FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
             ANaveEnemiga* NuevaNaveEnemigaCaza = AFabricaNaves::FabricarNaveEnemiga("Caza", World, PosicionNaveActual, RotacionNave);
+            if (NuevaNaveEnemigaCaza)
+            {
+                NuevaNaveEnemigaCaza->suscribe(this);
+            }
             TANavesEnemigas.Push(NuevaNaveEnemigaCaza);
         }
 
@@ -59,6 +63,10 @@ void ASpawnFacade::SpawnearNaves()
         {
             FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + 200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
             ANaveEnemiga* NuevaNaveEnemigaEspia = AFabricaNaves::FabricarNaveEnemiga("Espia", World, PosicionNaveActual, RotacionNave);
+            if (NuevaNaveEnemigaEspia)
+			{
+				NuevaNaveEnemigaEspia->suscribe(this);
+			}
             TANavesEnemigas.Push(NuevaNaveEnemigaEspia);
         }
 
@@ -66,6 +74,10 @@ void ASpawnFacade::SpawnearNaves()
         {
             FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 200, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
             ANaveEnemiga* NuevaNaveEnemigaReabastecimiento = AFabricaNaves::FabricarNaveEnemiga("Reabastecimiento", World, PosicionNaveActual, RotacionNave);
+            if (NuevaNaveEnemigaReabastecimiento)
+                {
+                NuevaNaveEnemigaReabastecimiento->suscribe(this);
+				}
             TANavesEnemigas.Push(NuevaNaveEnemigaReabastecimiento);
         }
 
@@ -73,6 +85,10 @@ void ASpawnFacade::SpawnearNaves()
         {
             FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - 400, InicialSpawnNaveLocation.Y + i * 200, InicialSpawnNaveLocation.Z);
             ANaveEnemiga* NuevaNaveEnemigaTransporte = AFabricaNaves::FabricarNaveEnemiga("Transporte", World, PosicionNaveActual, RotacionNave);
+            if (NuevaNaveEnemigaTransporte)
+			{
+				NuevaNaveEnemigaTransporte->suscribe(this);
+			}
             TANavesEnemigas.Push(NuevaNaveEnemigaTransporte);
         }
     }
@@ -99,44 +115,62 @@ void ASpawnFacade::SpawnearNaves()
         {
             // Establece SpawnParedObstaculosLocation a 100 unidades en frente del Pawn
             FVector SpawnParedObstaculosLocation = Pawn->GetActorLocation() + FVector(100.0f, 0.0f, 0.0f);
-            GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnParedObstaculosLocation, FRotator(0, 0, 0));
+            FRotator SpawnParedRotation= Pawn->GetActorRotation();
+            GetWorld()->SpawnActor<AObstaculo>(ObstaculosRandom, SpawnParedObstaculosLocation, SpawnParedRotation);
         }
     }
     
  }
 
-    void ASpawnFacade::SpawnearCapsula()
+    void ASpawnFacade::SpawnearCapsulas(FVector Posicion)
     {
-        FVector SpawnCapsulasLocation = FVector(100.f, -500.f, 200.f);
         FRotator rotacionCapsulas = FRotator(0.0f, 0.0f, 0.0f);
 
         TArray<TSubclassOf<ACapsulas>> ClasesCapsulas = { ACapsulasArmas::StaticClass(), ACapsulasEnergia::StaticClass() };
 
         TSubclassOf<ACapsulas> RandomCapsulas = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
+        
+        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, Posicion, rotacionCapsulas);
 
-        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, FVector(800.0f, FMath::RandRange(-1000.f, 1000.f), 200.f), FRotator(0, 0, 0));
+        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Capsula de arma o energia spawnenado en la posición: " + Posicion.ToString()));
 
+    }
+
+    void ASpawnFacade::Update(FVector PosicionNave)
+    {
+        UltimaPosicionNave = PosicionNave;
+
+        NavesDestruidas++;
+        if (NavesDestruidas == 3)
+        {
+            SpawnearCapsulas(PosicionNave);
+            NavesDestruidas = 0;
+        }
     }
 
     void ASpawnFacade::SpawnearTodo()
     {
         SpawnearNaves();
-		SpawnearCapsula();
+        SpawnearCapsulas(UltimaPosicionNave);
 		SpawnearObstaculos();
     }
 
     void ASpawnFacade::SpawnComponentes(const FString _Componente) {
         if (_Componente == "Naves")
             SpawnearNaves();
-        else if (_Componente == "Capsulas")
-            SpawnearCapsula();
+/*        else if (_Componente == "Capsulas")
+        
+        SpawnearCapsulas(
+            FVector(100.0f, 100.0f, 100.0f))<;*/
         else if (_Componente == "Obstaculos")
             SpawnearObstaculos();
         else if (_Componente == "Todo")
             SpawnearTodo();
 
     }
+
+ 	
 
     
 

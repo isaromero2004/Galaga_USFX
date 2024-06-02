@@ -9,7 +9,7 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 	//// Create the mesh component
 	//NaveEnemigaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
-
+	resistencia= 15;
 }
 
 //Called every frame
@@ -20,9 +20,7 @@ void ANaveEnemigaCaza::Tick(float DeltaTime)
 
 }
 
-void ANaveEnemigaCaza::Destruirse()
-{
-}
+
 void ANaveEnemigaCaza::Escapar()
 {
 
@@ -32,3 +30,6 @@ void ANaveEnemigaCaza::Atacar()
 
 }
 
+void ANaveEnemigaCaza::Destruirse()
+{	
+}

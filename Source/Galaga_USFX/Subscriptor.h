@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "NaveEnemiga.h"
 #include "Subscriptor.generated.h"
 
 // This class does not need to be modified.
@@ -26,5 +27,5 @@ class GALAGA_USFX_API ISubscriptor
 
 
 public:
-	virtual void Update() = 0;
+	virtual void Update(FVector PosicionNave) = 0;
 };

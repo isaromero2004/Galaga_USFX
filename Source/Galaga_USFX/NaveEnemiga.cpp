@@ -2,6 +2,10 @@
 
 
 #include "NaveEnemiga.h"
+#include "Movimiento.h"
+#include "Subscriptor.h"
+#include "Galaga_USFXProjectile.h"
+#include "Engine/CollisionProfile.h"
 
 
 
@@ -24,8 +28,8 @@ ANaveEnemiga::ANaveEnemiga()
 
 	//velocidad = 1;
 	//energia=100;
+	resistencia = 5;
 
-	
 }
 
 
@@ -45,45 +49,40 @@ void ANaveEnemiga::Tick(float DeltaTime)
 	MovimientoNaves->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
 }
 
-FString ANaveEnemiga::GetNombreNave()
+void ANaveEnemiga::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
-	return NombreNave;
+	AGalaga_USFXProjectile* proyectil = Cast<AGalaga_USFXProjectile>(Other);
+	if (proyectil)
+	{
+
+		Destruirse();
+		/*proyectil->Destroy();*/
+
+	}
+	
 }
 
-//void ANaveEnemiga::setRadar(ARadarEnemigo* _radar)
+void ANaveEnemiga::Destruirse()
+{
+
+	/*proyectil->ColisionarNave();*/
+	resistencia--;
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Nave colisiona con proyectil, resistencia sobrante: %d"), resistencia);
+	if (resistencia <= 0)
+	{
+		FVector PosicionNave = GetActorLocation();
+		notifySuscribers(PosicionNave);
+
+		Destroy();
+
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Nave destruida en la posición: " + PosicionNave.ToString()));
+	}
+}
+//
+//FString ANaveEnemiga::GetNombreNave()
 //{
-//	if (!_radar) {
-//		UE_LOG(LogTemp, Warning, TEXT("No se ha encontrado el radar"));
-//		return;
-//	}
-//	Radar = _radar;
-//	Radar -> suscribe(this);
+//	return NombreNave;
 //}
-//
-//void ANaveEnemiga::Update()
-//{
-//	if (!Radar) {
-//		UE_LOG(LogTemp, Error, TEXT("No hay radar."));
-//		return;
-//	}
-//
-//	//Get the current time of the Clock Tower
-//	float promedioEnergiaNavesEnemigas = Radar->getPromedioEnergiaNavesEnemigas();
-//	if (!promedioEnergiaNavesEnemigas < 10.0f)
-//	{
-//		moverA(Radar->posicionReabastecimiento);
-//	}
-//}
-//
-//void ANaveEnemiga::Destroyed()
-//{
-//	Super::Destroyed();
-//	if (!Radar) {
-//		UE_LOG(LogTemp, Error, TEXT("No hay radar enemigo."));
-//		return;
-//	}
-//
-//	Radar->unsuscribe(this);
-//}
+
 
 

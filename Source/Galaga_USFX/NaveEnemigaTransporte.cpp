@@ -7,6 +7,7 @@ ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_NarrowCapsule.Shape_NarrowCapsule'"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
+	resistencia = 10;
 
 }
 void ANaveEnemigaTransporte::Tick(float DeltaTime)

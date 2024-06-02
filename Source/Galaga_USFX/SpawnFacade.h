@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Subscriptor.h"
 #include "GameFramework/Actor.h"
 #include "SpawnFacade.generated.h"
 
 UCLASS()
-class GALAGA_USFX_API ASpawnFacade : public AActor
+class GALAGA_USFX_API ASpawnFacade : public AActor, public ISubscriptor
 {
 	GENERATED_BODY()
 	
@@ -22,6 +23,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	virtual void Update(FVector PosicionNave);
 
 protected:
 	//Lista de naves
@@ -33,15 +35,16 @@ protected:
 	TArray<AActor*> SpawnObjects;
 
 public:
-	
+//irtual void TransformacionNave(FVector Ubicacion);
 	void SpawnearNaves();
 	void SpawnearObstaculos();
-	void SpawnearCapsula();
+	void SpawnearCapsulas(FVector Posicion);
 	void SpawnearTodo();
 	void SpawnComponentes(const FString _Componente);
 
 private:
-	
-	FTimerHandle  AparicionCapsula;
+	int NavesDestruidas;
+	FVector UltimaPosicionNave;
 	FTimerHandle  AparicionObstaculo;
+
 };

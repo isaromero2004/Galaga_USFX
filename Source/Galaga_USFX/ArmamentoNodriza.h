@@ -1,14 +1,13 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Fill out your copyright notice in the Description page of Project Settingngs
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Movimiento.h"
+#include "NaveNodriza.h"
 #include "ArmamentoNodriza.generated.h"
 
 UCLASS()
-class GALAGA_USFX_API AArmamentoNodriza : public AActor
+class GALAGA_USFX_API AArmamentoNodriza :  public AActor
 {
 	GENERATED_BODY()
 	
