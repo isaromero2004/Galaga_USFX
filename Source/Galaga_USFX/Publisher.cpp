@@ -47,6 +47,7 @@ void APublisher::notifySuscribers(FVector PosicionNave)
 		ISubscriptor* Sub = Cast<ISubscriptor>(actor);
 		if (Sub)
 		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Notificando a suscriptores"));
 			Sub->Update(PosicionNave);
 		}
 	}
