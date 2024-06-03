@@ -16,6 +16,8 @@ class GALAGA_USFX_API AMeteorito : public AObstaculo
 public:
 	AMeteorito();
 
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 	//virtual void estrellar();
 
 protected:
@@ -30,7 +32,12 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 	virtual void Mover(float DeltaTime);
-	virtual float DanioProducido();
+	float Dano;
+
+public:
+	FORCEINLINE float GetDano() const { return Dano; }
+	FORCEINLINE void SetDanio(float _danio) { Dano = _danio; }
+	
 
 
 

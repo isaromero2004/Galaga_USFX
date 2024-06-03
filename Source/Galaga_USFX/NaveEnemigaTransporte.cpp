@@ -2,6 +2,7 @@
 
 
 #include "NaveEnemigaTransporte.h"
+#include "ProyectilEnemigo.h"
 
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
@@ -9,9 +10,18 @@ ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
 	resistencia = 10;
 
-	NaveEnemigaMesh->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
+	NaveEnemigaMesh->SetRelativeScale3D(FVector(1.0f, 1.0f, 1.0f));
+
+	
 
 }
+
+void ANaveEnemigaTransporte::BeginPlay()
+{
+	Super::BeginPlay();
+	GetWorld()->GetTimerManager().SetTimer(TiempoDisparo, this, &ANaveEnemigaTransporte::Disparar, 2.0f, true);
+}
+
 void ANaveEnemigaTransporte::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -23,6 +33,17 @@ void ANaveEnemigaTransporte::Destruirse()
 void ANaveEnemigaTransporte::Escapar()
 {
 }
-void ANaveEnemigaTransporte::Atacar()
+void ANaveEnemigaTransporte::Disparar()
 {
+	FVector PosicionNave = GetActorLocation();
+	FVector Offset = FVector(0.0f, 90.0f, 0.0f);
+	FRotator Rotacion = FRotator(180, 0, 0);
+
+	UWorld* const World = GetWorld();
+	if (World != nullptr)
+	{
+		// spawn the projectile
+		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+	}
 }
+

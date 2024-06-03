@@ -2,6 +2,7 @@
 
 
 #include "NaveEnemigaCaza.h"
+#include "ProyectilEnemigo.h"
 
 ANaveEnemigaCaza::ANaveEnemigaCaza()
 {
@@ -9,7 +10,13 @@ ANaveEnemigaCaza::ANaveEnemigaCaza()
 	//// Create the mesh component
 	//NaveEnemigaMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ShipMesh"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
-	resistencia= 15;
+	//resistencia= 15;
+	
+}
+void ANaveEnemigaCaza::BeginPlay()
+{
+	Super::BeginPlay();
+	GetWorld()->GetTimerManager().SetTimer(TiempoDisparo, this, &ANaveEnemigaCaza::Disparar, 1.0f, true);
 }
 
 //Called every frame
@@ -32,4 +39,21 @@ void ANaveEnemigaCaza::Atacar()
 
 void ANaveEnemigaCaza::Destruirse()
 {	
+}
+
+void ANaveEnemigaCaza::Disparar()
+{
+	const FRotator FireRotation = FRotator(180, 0, 0);
+	const FVector SpawnLocation = GetActorLocation() + FireRotation.RotateVector(GunOffset);
+
+	FVector PosicionNave = GetActorLocation();
+	FVector Offset = FVector(0.0f, 90.0f, 0.0f);
+	FRotator Rotacion = FRotator(180, 0, 0);
+
+	UWorld* const World = GetWorld();
+	if (World != nullptr)
+	{
+		// spawn the projectile
+		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+	}
 }

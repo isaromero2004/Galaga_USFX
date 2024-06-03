@@ -2,6 +2,7 @@
 
 
 #include "Obstaculo.h"
+#include "Galaga_USFXPawn.h"
 
 // Sets default values
 AObstaculo::AObstaculo()
@@ -13,9 +14,10 @@ AObstaculo::AObstaculo()
 	mallaObstaculo->SetupAttachment(RootComponent);
 	RootComponent = mallaObstaculo;
 	SetActorEnableCollision(true);
-	danio = 10.0f;
+	//danio = 10.0f;
 	tiempoGeneracion = 10.0f;
 	limiteCaida = -1600.0f;
+	
 
 
 }

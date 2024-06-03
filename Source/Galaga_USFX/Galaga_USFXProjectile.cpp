@@ -1,8 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserve
 
 #include "Galaga_USFXProjectile.h"
-#include "NaveEnemiga.h"
-#include "NaveNodriza.h"
+
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Components/StaticMeshComponent.h"

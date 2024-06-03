@@ -2,6 +2,7 @@
 
 
 #include "Meteorito.h"
+#include "Galaga_USFXPawn.h"
 
 AMeteorito::AMeteorito()
 {
@@ -13,6 +14,7 @@ AMeteorito::AMeteorito()
 	PrimaryActorTick.bCanEverTick = true;
 	velocidadObstaculo = 20.0f;
 	limiteCaida = -1600.0f;
+	Dano = 40.0f;
 }
 
 void AMeteorito::BeginPlay()
@@ -43,11 +45,27 @@ void AMeteorito::Tick(float DeltaTime)
 	Mover(DeltaTime);
 }
 
-float AMeteorito::DanioProducido()
+void AMeteorito::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	danio = 10.0f;
-	return danio;
+
+	if (OtherActor != nullptr && OtherActor != this && OtherComp != nullptr)
+	{
+		AGalaga_USFXPawn* HitPawn = Cast<AGalaga_USFXPawn>(OtherActor);
+		if (HitPawn)
+		{
+			HitPawn->RecibirDano(Dano);
+			//Destroy(); // Destroy the projectile after impact
+		}
+	}
+	Destroy();
+
 }
+
+//float AMeteorito::DanoProducido()
+//{
+//	Dano = 10.0f;
+//	return Dano;
+//}
 
 //void AMeteorito::estrellar()
 //{

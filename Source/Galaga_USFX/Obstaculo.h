@@ -19,6 +19,8 @@ public:
 	// Sets default values for this actor's properties
 	AObstaculo();
 
+
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -29,20 +31,20 @@ public:
 
 protected:
 
-	float danio;
+	
 	float tiempoGeneracion;
 	float limiteCaida;
 	FVector posicionObstaculo;
 	float velocidadObstaculo;
 
 public:
-	FORCEINLINE float GetDanio() const { return danio; }
+	
 	FORCEINLINE float GetTiempoGeneracion() const { return tiempoGeneracion; }
 	FORCEINLINE float GetLimiteCaida() const { return limiteCaida; }
 	FORCEINLINE FVector GetPosicionObstaculo() const { return posicionObstaculo; }
 	FORCEINLINE float GetVelocidadObstaculo() const { return velocidadObstaculo; }
 
-	FORCEINLINE void SetDanio(float _danio) { danio = _danio; }
+	
 	FORCEINLINE void SetTiempoGeneracion(float _tiempoGeneracion) { tiempoGeneracion = _tiempoGeneracion; }
 	FORCEINLINE void SetLimiteCaida(float _limiteCaida) { limiteCaida = _limiteCaida; }
 	FORCEINLINE void SetPosicionObstaculo(FVector _posicionObstaculo) { posicionObstaculo = _posicionObstaculo; }

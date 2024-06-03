@@ -26,10 +26,12 @@ protected:
 	
 	virtual void Destruirse();
 	virtual void Escapar();
-	virtual void Atacar();
+	virtual void Disparar();
+	virtual void BeginPlay() override;
 	
 
 public:
 
 	virtual void Tick(float DeltaTime) override;
+
 };

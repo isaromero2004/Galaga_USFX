@@ -42,14 +42,14 @@ void ASpawnFacade::Tick(float DeltaTime)
 void ASpawnFacade::SpawnearNaves()
 {
     FVector InicialSpawnNaveLocation = FVector(800.f, 0.f, 250.f);
-    FRotator RotacionNave = FRotator::ZeroRotator;
+    FRotator RotacionNave = FRotator(0,180,0);
 
     UWorld* const World = GetWorld();
     if (World != nullptr)
     {
                 for (int i = 0; i < 4; i++)
                 {
-                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + i * 100.f, InicialSpawnNaveLocation.Y +i* 400.f, InicialSpawnNaveLocation.Z);
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + i * 100.f, InicialSpawnNaveLocation.Y +100+i* 400.f, InicialSpawnNaveLocation.Z);
                     ANaveEnemiga* NuevaNaveEnemigaCaza = AFabricaNaves::FabricarNaveEnemiga("Caza", World, PosicionNaveActual, RotacionNave);
                     if (NuevaNaveEnemigaCaza)
                     {
@@ -60,7 +60,7 @@ void ASpawnFacade::SpawnearNaves()
 
                 for (int i = 0; i < 4; i++)
                 {
-                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X - i * 100.f, InicialSpawnNaveLocation.Y +200-i* 400.f, InicialSpawnNaveLocation.Z);
+                    FVector PosicionNaveActual = FVector(InicialSpawnNaveLocation.X + i * 100.f, InicialSpawnNaveLocation.Y +300-i* 400.f, InicialSpawnNaveLocation.Z);
                     ANaveEnemiga* NuevaNaveEnemigaEspia = AFabricaNaves::FabricarNaveEnemiga("Espia", World, PosicionNaveActual, RotacionNave);
                     if (NuevaNaveEnemigaEspia)
                     {
@@ -145,9 +145,6 @@ void ASpawnFacade::SpawnearNaves()
         if (NavesDestruidas == 3)
         {
           
-                
-                // Resto del código...
-          
 
             SpawnearCapsulas(PosicionNave);
             NavesDestruidas = 0;
@@ -157,17 +154,16 @@ void ASpawnFacade::SpawnearNaves()
     void ASpawnFacade::SpawnearTodo()
     {
         SpawnearNaves();
-        Update(UltimaPosicionNave);
+        //Update(UltimaPosicionNave);
 		SpawnearObstaculos();
     }
 
     void ASpawnFacade::SpawnComponentes(const FString _Componente) {
         if (_Componente == "Naves")
             SpawnearNaves();
-/*        else if (_Componente == "Capsulas")
-        
-        SpawnearCapsulas(
-            FVector(100.0f, 100.0f, 100.0f))<;*/
+        /*else if (_Componente == "Naves y Capsulas")
+            SpawnearNaves();
+            Update(UltimaPosicionNave);*/
         else if (_Componente == "Obstaculos")
             SpawnearObstaculos();
         else if (_Componente == "Todo")

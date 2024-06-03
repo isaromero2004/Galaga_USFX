@@ -12,6 +12,8 @@
 #include "CapsulasArmas.h"
 #include "CapsulasEnergia.h"
 #include "Inventario.h"
+#include "ProyectilEnemigo.h"
+#include "Obstaculo.h"
 #include "GameFramework/PlayerInput.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/Engine.h"
@@ -61,6 +63,13 @@ AGalaga_USFXPawn::AGalaga_USFXPawn()
 
 	MyInventory = CreateDefaultSubobject<UInventario>("MyInventory");
 	NumItems = 0;
+	energia = 1000;
+	vidas = 5;
+	PosicionPawn= FVector(-700.0f, -400.0f, 250.0f);
+	
+	//NumProyectilesDisparados = 0;
+	//ProyectilesPorDisparar = 100;
+
 }
 void AGalaga_USFXPawn::MoveForward(float Value)
 {
@@ -120,6 +129,34 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 
 
+}
+
+void AGalaga_USFXPawn::RecibirDano(float dano)
+{
+	energia -= dano;
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Nave colisiona con proyectil, porcentaje de vida: %d"), vida);
+		if (energia <= 0.0f)
+		{
+			vidas--;
+			if (vidas > 0)
+			{
+				Respawn();
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Lives: %d"), vidas));
+			}
+			else
+			{
+				Destroy();
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Game Over")));
+			}
+		}
+		//CambiarEstados();
+
+}
+
+void AGalaga_USFXPawn::Respawn()
+{
+	SetActorLocation(PosicionPawn);
+	energia = 1000.0f;
 }
 
 void AGalaga_USFXPawn::noroeste(float Value)
@@ -237,7 +274,7 @@ void AGalaga_USFXPawn::Tick(float DeltaSeconds)
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
-	if (bCanFire == true )//NumProyectilesDisparados < ProyectilesPorDisparar)
+	if (bCanFire == true )// NumProyectilesDisparados < ProyectilesPorDisparar)
 	{
 		// If we are pressing fire stick in a direction
 		if (FireDirection.SizeSquared() > 0.0f)
@@ -344,7 +381,10 @@ void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
 	{
 		TakeItem(InventoryItem);
 	}
+
+
 }
+
 void AGalaga_USFXPawn::TakeItem(ACapsulas*
 	InventoryItem)
 {

@@ -29,6 +29,9 @@ protected:
 	virtual void Atacar();
 
 	virtual void Destruirse();
+	virtual void Disparar();
+	virtual void BeginPlay() override;
+	//virtual void Disparar();
 
 
 public:

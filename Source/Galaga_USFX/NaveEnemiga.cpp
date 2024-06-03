@@ -5,6 +5,7 @@
 #include "Movimiento.h"
 #include "Subscriptor.h"
 #include "Galaga_USFXProjectile.h"
+#include "ProyectilEnemigo.h"
 #include "Engine/CollisionProfile.h"
 
 
@@ -29,6 +30,7 @@ ANaveEnemiga::ANaveEnemiga()
 	//velocidad = 1;
 	//energia=100;
 	resistencia = 5;
+	GunOffset = FVector(90.f, 0.f, 0.f);
 
 }
 
@@ -78,11 +80,26 @@ void ANaveEnemiga::Destruirse()
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Nave destruida en la posición: " + PosicionNave.ToString()));
 	}
 }
-//
-//FString ANaveEnemiga::GetNombreNave()
+
+//void ANaveEnemiga::Disparar()
 //{
-//	return NombreNave;
+//
+//	FVector PosicionNave = GetActorLocation();
+//	FVector Offset = FVector(0.0f, 90.0f, 0.0f);
+//	FRotator Rotacion = FRotator(180, 0, 0);
+//
+//	UWorld* const World = GetWorld();
+//	if (World != nullptr)
+//	{
+//		// spawn the projectile
+//		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+//	}
 //}
+
+FString ANaveEnemiga::GetNombreNave()
+{
+	return NombreNave;
+}
 
 
 

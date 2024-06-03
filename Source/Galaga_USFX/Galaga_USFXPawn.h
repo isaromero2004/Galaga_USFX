@@ -5,10 +5,12 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Inventario.h"
+#include "Capsulas.h"
+#include "State.h"
 #include "Galaga_USFXPawn.generated.h"
 
 UCLASS(Blueprintable)
-class AGalaga_USFXPawn : public APawn 
+class AGalaga_USFXPawn : public APawn
 {
 	GENERATED_BODY()
 
@@ -24,11 +26,12 @@ class AGalaga_USFXPawn : public APawn
 	UPROPERTY(Category = Camera, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+
 public:
 	AGalaga_USFXPawn();
 
 	UPROPERTY()
-	UInventario *MyInventory;
+	UInventario* MyInventory;
 	UFUNCTION()
 	void DropItem();
 	UFUNCTION()
@@ -39,6 +42,7 @@ public:
 		bool bSelfMoved, FVector HitLocation, FVector
 		HitNormal, FVector NormalImpulse, const FHitResult&
 		Hit) override;
+
 	UFUNCTION()
 	void MoveForward(float Value);
 	void MoveRight(float AxisValue);
@@ -48,11 +52,11 @@ public:
 	void ReloadAmmo();
 
 	/** Offset from the ships location to spawn projectiles */
-	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite )
+	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 	FVector GunOffset;
 	FVector GunOffset2;
 	FVector PosicionInicial;
-	
+
 	/* How fast the weapon will fire */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
 	float FireRate;
@@ -94,8 +98,8 @@ private:
 	/** Handle for efficient management of ShotTimerExpired timer */
 	FTimerHandle TimerHandle_ShotTimerExpired;
 
-	int32 NumProyectilesDisparados=0;
-	int32 ProyectilesPorDisparar=20;
+	int32 NumProyectilesDisparados;
+	int32 ProyectilesPorDisparar;
 	int32 NumItems;
 	bool Saltar;
 
@@ -108,15 +112,23 @@ public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 
+	int vidas;
+	float energia;
+	void RecibirDano(float dano);
+	void Respawn();
+	FVector PosicionPawn;
+
+
+
 private:
 	FVector MovementInput;
 	FVector CameraInput;
 
 protected:
 
-	
+
 	FTimerHandle TimerHandle_Salto;
-	
+
 	virtual void noroeste(float Value);
 	virtual void noreste(float Value);
 	virtual void suroeste(float Value);
@@ -124,7 +136,26 @@ protected:
 	virtual void Salto();
 	virtual void descender();
 
-	public:
-		FVector posicionPawn = GetActorLocation();
+public:
+	FVector posicionPawn = GetActorLocation();
+	FORCEINLINE void Setvidas(int _vida) { vidas = _vida; }
+	FORCEINLINE void Setenergia(float _energia) { energia = _energia; }
+	FORCEINLINE int Getvidas() const { return vidas; }
+	FORCEINLINE float Getenergia() const { return energia; }
+
+//private:
+//	IState* State;
+//	IState* SigilosoState;
+//	IState* ProtegidoState;
+//	IState* PotenciadoState;
+//	
+//public:
+//	IState* GetState();
+//	IState* GetSigilosoState();
+//	IState* GetProtegidoState();
+//	IState* GetPotenciadoState();
+//
+//	void SetState(IState* _state);
+//	
 };
 

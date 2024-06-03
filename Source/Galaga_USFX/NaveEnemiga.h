@@ -109,13 +109,15 @@ public:
 	UFUNCTION()
 	
 	void Destruirse();
-	//virtual void Update ();
+
+	FVector GunOffset;
+	FTimerHandle TiempoDisparo;
 
 protected:
 	//virtual void Mover() = 0;
 	FString GetNombreNave();
 	
 	void Escapar() PURE_VIRTUAL(ANaveEnemiga::Escapar, );
-	void Atacar() PURE_VIRTUAL(ANaveEnemiga::Atacar, );
+	void Disparar() PURE_VIRTUAL(ANaveEnemiga::Disparar, );
 
 };

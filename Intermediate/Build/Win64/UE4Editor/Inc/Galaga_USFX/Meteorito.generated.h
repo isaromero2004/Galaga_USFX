@@ -8,14 +8,26 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FVector;
+struct FHitResult;
 #ifdef GALAGA_USFX_Meteorito_generated_h
 #error "Meteorito.generated.h already included, missing '#pragma once' in Meteorito.h"
 #endif
 #define GALAGA_USFX_Meteorito_generated_h
 
 #define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_SPARSE_DATA
-#define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_RPC_WRAPPERS
-#define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnHit);
+
+
+#define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnHit);
+
+
 #define Galaga_USFX_Source_Galaga_USFX_Meteorito_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMeteorito(); \

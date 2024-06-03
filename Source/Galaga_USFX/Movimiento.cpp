@@ -49,7 +49,7 @@ void UMovimiento::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
         //este codigo hace que vuelva ala posicion inicial
         if (NuevaPosicion.X < LimiteInferior)
         {
-            Parent->SetActorLocation(FVector(1800.0f, PosicionActual.Y, 160.0f));
+            Parent->SetActorLocation(FVector(1800.0f, PosicionActual.Y, 250.0f));
         }
     }
 }
