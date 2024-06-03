@@ -3,6 +3,7 @@
 
 #include "NaveEnemigaCaza.h"
 #include "ProyectilEnemigo.h"
+	#include "StrategyMovimientoRecto.h"
 
 ANaveEnemigaCaza::ANaveEnemigaCaza()
 {
@@ -17,6 +18,7 @@ void ANaveEnemigaCaza::BeginPlay()
 {
 	Super::BeginPlay();
 	GetWorld()->GetTimerManager().SetTimer(TiempoDisparo, this, &ANaveEnemigaCaza::Disparar, 1.0f, true);
+	Strategy = NewObject <AStrategyMovimientoRecto>();
 }
 
 //Called every frame
@@ -54,6 +56,7 @@ void ANaveEnemigaCaza::Disparar()
 	if (World != nullptr)
 	{
 		// spawn the projectile
-		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo=World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo->CambiarMovimiento(Strategy);
 	}
 }

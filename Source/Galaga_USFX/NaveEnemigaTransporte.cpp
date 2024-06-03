@@ -3,6 +3,7 @@
 
 #include "NaveEnemigaTransporte.h"
 #include "ProyectilEnemigo.h"
+#include "StrategyMovimientoZigZag.h"
 
 ANaveEnemigaTransporte::ANaveEnemigaTransporte()
 {
@@ -20,6 +21,7 @@ void ANaveEnemigaTransporte::BeginPlay()
 {
 	Super::BeginPlay();
 	GetWorld()->GetTimerManager().SetTimer(TiempoDisparo, this, &ANaveEnemigaTransporte::Disparar, 2.0f, true);
+	Strategy = NewObject <AStrategyMovimientoZigZag>();
 }
 
 void ANaveEnemigaTransporte::Tick(float DeltaTime)
@@ -43,7 +45,8 @@ void ANaveEnemigaTransporte::Disparar()
 	if (World != nullptr)
 	{
 		// spawn the projectile
-		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo=World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo->CambiarMovimiento(Strategy);
 	}
 }
 

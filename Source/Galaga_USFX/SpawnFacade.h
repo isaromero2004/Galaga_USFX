@@ -23,7 +23,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual void Update(FVector PosicionNave);
+	virtual void Update(FVector PosicionNave) ;
 
 protected:
 	//Lista de naves

@@ -3,13 +3,14 @@
 
 #include "NaveEnemigaEspia.h"
 #include "ProyectilEnemigo.h"
+#include "StrategyMovimientoZigZag.h"
 
 ANaveEnemigaEspia::ANaveEnemigaEspia()
 {
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ShipMesh(TEXT("StaticMesh'/Game/StarterContent/Shapes/Shape_Cylinder.Shape_Cylinder'"));
 	NaveEnemigaMesh->SetStaticMesh(ShipMesh.Object);
 
-	
+	Strategy = NewObject <AStrategyMovimientoZigZag>();
 
 }
 
@@ -27,16 +28,7 @@ void ANaveEnemigaEspia::Tick(float DeltaTime)
 
 void ANaveEnemigaEspia::Destruirse()
 {
-	FVector PosicionNave = GetActorLocation();
-	FVector Offset = FVector(0.0f, 90.0f, 0.0f);
-	FRotator Rotacion = FRotator(180, 0, 0);
-
-	UWorld* const World = GetWorld();
-	if (World != nullptr)
-	{
-		// spawn the projectile
-		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
-	}
+	
 }
 void ANaveEnemigaEspia::Escapar()
 {
@@ -51,6 +43,7 @@ void ANaveEnemigaEspia::Disparar()
 	if (World != nullptr)
 	{
 		// spawn the projectile
-		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo= World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo->CambiarMovimiento(Strategy);
 	}
 }

@@ -7,6 +7,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Galaga_USFXPawn.h"
 #include "Engine/StaticMesh.h"
+#include "Strategy.h"
 
 AProyectilEnemigo::AProyectilEnemigo()
 {
@@ -23,16 +24,16 @@ AProyectilEnemigo::AProyectilEnemigo()
 	RootComponent = ProjectileMesh;
 
 	// Use a ProjectileMovementComponent to govern this projectile's movement
-	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
-	ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	ProjectileMovement->InitialSpeed = 3000.f;
-	ProjectileMovement->MaxSpeed = 3000.f;
-	ProjectileMovement->bRotationFollowsVelocity = true;
-	ProjectileMovement->bShouldBounce = false;
-	ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
+	//ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
+	//ProjectileMovement->UpdatedComponent = ProjectileMesh;
+	//ProjectileMovement->InitialSpeed = 3000.f;
+	//ProjectileMovement->MaxSpeed = 3000.f;
+	//ProjectileMovement->bRotationFollowsVelocity = true;
+	//ProjectileMovement->bShouldBounce = false;
+	//ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
 
-	// Die after 3 seconds by default
-	InitialLifeSpan = 3.0f;
+	//// Die after 3 seconds by default
+	//InitialLifeSpan = 3.0f;
 	Dano = 100;
 
 }
@@ -51,6 +52,25 @@ void AProyectilEnemigo::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, 
 	}
 	Destroy();
 
+}
+
+void AProyectilEnemigo::CambiarMovimiento(IStrategy* NuevoMovimiento)
+{
+	Movimiento = NuevoMovimiento;
+}
+
+void AProyectilEnemigo::Mover(float DeltaTime)
+{
+	if (Movimiento)
+	{
+		Movimiento->Mover(this, DeltaTime);
+	}
+}
+
+void AProyectilEnemigo::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	Mover(DeltaTime);
 }
 
 //

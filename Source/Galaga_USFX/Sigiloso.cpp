@@ -87,7 +87,7 @@ void ASigiloso::ActivarProteccion()
 }
 
 
-FString ASigiloso::ToString()
+FString ASigiloso::EscribirEstado()
 {
 	return "Nave jugador en estado sigiloso";
 }
@@ -95,7 +95,7 @@ FString ASigiloso::ToString()
 void ASigiloso::SetPawn(AGalaga_USFXPawn* pawn)
 {
 
-	naveJugador = Cast<AGalaga_USFXPawn>(naveJugador);
+	naveJugador = Cast<AGalaga_USFXPawn>(pawn);
 	//NavePawn = NaveJugador;
 
 	naveJugador->EstablecerState(naveJugador->GetSigilosoState());

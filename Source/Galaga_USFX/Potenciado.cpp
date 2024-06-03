@@ -40,14 +40,17 @@ void APotenciado::ActivarProteccion()
 
 
 
-FString APotenciado::ToString()
+FString APotenciado::EscribirEstado()
 {
 	return "Nave jugador Potenciada";
 }
 
 void APotenciado::SetPawn(AGalaga_USFXPawn* pawn)
 {
-	naveJugador = pawn;
+	naveJugador = Cast<AGalaga_USFXPawn>(pawn);
+	//NavePawn = NaveJugador;
+
+	naveJugador->EstablecerState(naveJugador->GetPotenciadoState());
 }
 // Called every frame
 void APotenciado::Tick(float DeltaTime)

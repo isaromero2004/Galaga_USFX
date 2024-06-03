@@ -20,6 +20,7 @@
 #include "Containers/Queue.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
+#include "State.h"
 #include "Sigiloso.h"
 #include "Protegido.h"
 #include "Potenciado.h"
@@ -33,17 +34,17 @@ const FName AGalaga_USFXPawn::FireForwardBinding("FireForward");
 const FName AGalaga_USFXPawn::FireRightBinding("FireRight");
 
 
-void AGalaga_USFXPawn::PawnSigilioActivado()
+void AGalaga_USFXPawn::AspectoInvisible()
 {
 	State->ActivarSigilio();
 }
 
-void AGalaga_USFXPawn::PawnProteccionActivado()
+void AGalaga_USFXPawn::ConEscudo()
 {
 	State->ActivarProteccion();
 }
 
-void AGalaga_USFXPawn::PawnPotenciaActivado()
+void AGalaga_USFXPawn::DisparoVelocidadPlus()
 {
 	State->ActivarPotencia();
 }
@@ -56,46 +57,28 @@ void AGalaga_USFXPawn::EstablecerState(IState* _state)
 
 void AGalaga_USFXPawn::inicializarStates()
 {
-	if (vidas >= 4)
-	{
-		/*BasicoState->SetPawn(this);
-		SetState(BasicoState);*/
-	}
-	else if (vidas<4 && vidas>=3 )
+	
+	if (vidas<4 && vidas>=3 )
 	{
 		SigilosoState->SetPawn(this);
-		PawnSigilioActivado();
+		AspectoInvisible();
 		EstablecerState(SigilosoState);
 	}
 
 	else if (vidas < 3 && vidas >= 2)
-	{
-	
+	{		//PotenciadoState = GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
 		PotenciadoState->SetPawn(this);
-		PawnPotenciaActivado();
+		DisparoVelocidadPlus();
 		EstablecerState(PotenciadoState);
+		
 	}
 	else if (vidas < 2 && vidas >= 0)
 	{
 		
 		ProtegidoState->SetPawn(this);
-		PawnProteccionActivado();
+		ConEscudo();
 		EstablecerState(ProtegidoState);
 	}
-
-	//SigilosoState = GetWorld()->SpawnActor<ASigiloso>(ASigiloso::StaticClass());
-	//SigilosoState->SetPawn(this);
-
-	//ProtegidoState = GetWorld()->SpawnActor<AProtegido>(AProtegido::StaticClass());
-	//ProtegidoState->SetPawn(this);
-
-	//PotenciadoState = GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
-	//PotenciadoState->SetPawn(this);
-
-	//basica = GetWorld()->SpawnActor<ABasica>(ABasica::StaticClass());
-	//basica->SetPawn(this);
-
-	//State = basica;
 }
 
 
@@ -368,7 +351,6 @@ void AGalaga_USFXPawn::BeginPlay()
 
 	ProtegidoState = GetWorld()->SpawnActor<AProtegido>(AProtegido::StaticClass());
 	SigilosoState = GetWorld()->SpawnActor<ASigiloso>(ASigiloso::StaticClass());
-	PotenciadoState = GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
 
 	inicializarStates();
 }

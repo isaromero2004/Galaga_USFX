@@ -35,9 +35,14 @@ public:
 	FORCEINLINE UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 protected:
 	float Dano;
+	class IStrategy* Movimiento;
 
 public:
 		FORCEINLINE float GetDano() const { return Dano; }
 		FORCEINLINE void SetDano(float NewDano) { Dano = NewDano; }
+
+		void CambiarMovimiento(class IStrategy* NuevoMovimiento);
+		void Mover(float DeltaTime);
+		virtual void Tick(float DeltaTime) override;
 };
 

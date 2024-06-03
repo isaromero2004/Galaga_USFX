@@ -71,14 +71,17 @@ void AProtegido::ActivarProteccion()
 }
 
 
-FString AProtegido::ToString()
+FString AProtegido::EscribirEstado()
 {
 	return "Nave Jugador Protegida";
 }
 
 void AProtegido::SetPawn(AGalaga_USFXPawn* pawn)
 {
-	naveJugador = pawn;
+	naveJugador = Cast<AGalaga_USFXPawn>(pawn);
+	//NavePawn = NaveJugador;
+
+	naveJugador->EstablecerState(naveJugador->GetProtegidoState());
 
 }
 

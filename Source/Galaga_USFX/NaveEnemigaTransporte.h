@@ -34,5 +34,7 @@ protected:
 	virtual void Escapar();
 	virtual void BeginPlay() override;
 	virtual void Disparar();
+	class AProyectilEnemigo* ProyectilEnemigo;
+	class IStrategy* Strategy;
 
 };

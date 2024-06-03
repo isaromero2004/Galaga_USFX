@@ -33,7 +33,7 @@ public:
 	virtual void ActivarProteccion() override;
 	
 
-	virtual FString ToString() override;
+	virtual FString EscribirEstado() override;
 	virtual void SetPawn(class AGalaga_USFXPawn* pawn) override;
 
 

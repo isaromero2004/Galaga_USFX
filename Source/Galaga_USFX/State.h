@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+//#include "Galaga_USFXPawn.h"
 #include "State.generated.h"
 
 // This class does not need to be modified.
@@ -26,8 +27,7 @@ public:
 	virtual void ActivarProteccion() = 0;
 	virtual void ActivarPotencia() = 0;
 
-
-	virtual FString ToString() = 0;
+	virtual FString EscribirEstado() = 0;
 
 	virtual void SetPawn(class AGalaga_USFXPawn* Pawn) = 0;
 };

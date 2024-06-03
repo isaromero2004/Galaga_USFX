@@ -3,6 +3,7 @@
 
 #include "NaveEnemigaReabastecimiento.h"
 #include "ProyectilEnemigo.h"
+#include "StrategyMovimientoEspiral.h"
 
 
 ANaveEnemigaReabastecimiento::ANaveEnemigaReabastecimiento()
@@ -17,6 +18,7 @@ void ANaveEnemigaReabastecimiento::BeginPlay()
 {
 	Super::BeginPlay();
 	GetWorld()->GetTimerManager().SetTimer(TiempoDisparo, this, &ANaveEnemigaReabastecimiento::Disparar, 2.0f, true);
+	Strategy = NewObject<AStrategyMovimientoEspiral>();
 }
 
 
@@ -37,7 +39,8 @@ void ANaveEnemigaReabastecimiento::Disparar()
 	if (World != nullptr)
 	{
 		// spawn the projectile
-		World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo=World->SpawnActor<AProyectilEnemigo>(PosicionNave + Offset, Rotacion);
+		ProyectilEnemigo->CambiarMovimiento(Strategy);
 	}
 }
 

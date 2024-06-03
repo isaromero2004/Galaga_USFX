@@ -31,6 +31,8 @@ protected:
 	virtual void Destruirse();
 	virtual void Disparar();
 	virtual void BeginPlay() override;
+	class AProyectilEnemigo* ProyectilEnemigo;
+	class IStrategy* Strategy;
 	//virtual void Disparar();
 
 
