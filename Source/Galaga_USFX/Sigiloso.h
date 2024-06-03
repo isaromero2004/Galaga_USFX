@@ -4,16 +4,39 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "Galaga_USFXPawn.h"
+#include "State.h"
 #include "Sigiloso.generated.h"
 
 UCLASS()
-class GALAGA_USFX_API ASigiloso : public APawn
+class GALAGA_USFX_API ASigiloso : public APawn,public IState
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this pawn's properties
 	ASigiloso();
+
+private:
+	UPROPERTY()
+	class AGalaga_USFXPawn* naveJugador;
+
+public:
+
+	class UStaticMesh* StealthMesh;
+	class UStaticMesh* OriginalMesh1;
+
+
+	virtual void ActivarSigilio() override;
+
+	virtual void ActivarPotencia() override;
+
+	virtual void ActivarProteccion() override;
+
+
+	virtual FString ToString() override;
+	virtual void SetPawn(class AGalaga_USFXPawn* pawn) override;
+
 
 protected:
 	// Called when the game starts or when spawned

@@ -20,6 +20,10 @@
 #include "Containers/Queue.h"
 #include "Engine/CollisionProfile.h"
 #include "Engine/StaticMesh.h"
+#include "Sigiloso.h"
+#include "Protegido.h"
+#include "Potenciado.h"
+//#include "Basica.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundBase.h"
 
@@ -27,6 +31,74 @@ const FName AGalaga_USFXPawn::MoveForwardBinding("MoveForward");
 const FName AGalaga_USFXPawn::MoveRightBinding("MoveRight");
 const FName AGalaga_USFXPawn::FireForwardBinding("FireForward");
 const FName AGalaga_USFXPawn::FireRightBinding("FireRight");
+
+
+void AGalaga_USFXPawn::PawnSigilioActivado()
+{
+	State->ActivarSigilio();
+}
+
+void AGalaga_USFXPawn::PawnProteccionActivado()
+{
+	State->ActivarProteccion();
+}
+
+void AGalaga_USFXPawn::PawnPotenciaActivado()
+{
+	State->ActivarPotencia();
+}
+
+
+void AGalaga_USFXPawn::EstablecerState(IState* _state)
+{
+	State = _state;
+}
+
+void AGalaga_USFXPawn::inicializarStates()
+{
+	if (vidas >= 4)
+	{
+		/*BasicoState->SetPawn(this);
+		SetState(BasicoState);*/
+	}
+	else if (vidas<4 && vidas>=3 )
+	{
+		SigilosoState->SetPawn(this);
+		PawnSigilioActivado();
+		EstablecerState(SigilosoState);
+	}
+
+	else if (vidas < 3 && vidas >= 2)
+	{
+	
+		PotenciadoState->SetPawn(this);
+		PawnPotenciaActivado();
+		EstablecerState(PotenciadoState);
+	}
+	else if (vidas < 2 && vidas >= 0)
+	{
+		
+		ProtegidoState->SetPawn(this);
+		PawnProteccionActivado();
+		EstablecerState(ProtegidoState);
+	}
+
+	//SigilosoState = GetWorld()->SpawnActor<ASigiloso>(ASigiloso::StaticClass());
+	//SigilosoState->SetPawn(this);
+
+	//ProtegidoState = GetWorld()->SpawnActor<AProtegido>(AProtegido::StaticClass());
+	//ProtegidoState->SetPawn(this);
+
+	//PotenciadoState = GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
+	//PotenciadoState->SetPawn(this);
+
+	//basica = GetWorld()->SpawnActor<ABasica>(ABasica::StaticClass());
+	//basica->SetPawn(this);
+
+	//State = basica;
+}
+
+
 
 AGalaga_USFXPawn::AGalaga_USFXPawn()
 {	
@@ -60,6 +132,7 @@ AGalaga_USFXPawn::AGalaga_USFXPawn()
 	GunOffset = FVector(90.f, 0.f, 0.f);
 	FireRate = 0.1f;
 	bCanFire = true;
+	bDoubleFireEnabled = false;
 
 	MyInventory = CreateDefaultSubobject<UInventario>("MyInventory");
 	NumItems = 0;
@@ -71,11 +144,27 @@ AGalaga_USFXPawn::AGalaga_USFXPawn()
 	//ProyectilesPorDisparar = 100;
 
 }
+
 void AGalaga_USFXPawn::MoveForward(float Value)
 {
 	// Implementa la lógica de movimiento aquí
 }
 
+void AGalaga_USFXPawn::MoveRight(float AxisValue)
+{
+}
+
+void AGalaga_USFXPawn::MovNoroeste(float AxisValue)
+{
+}
+
+void AGalaga_USFXPawn::PitchCamera(float AxisValue)
+{
+}
+
+void AGalaga_USFXPawn::YawCamera(float AxisValue)
+{
+}
 
 void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
@@ -125,9 +214,6 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
 
 
-	
-
-
 
 }
 
@@ -149,7 +235,7 @@ void AGalaga_USFXPawn::RecibirDano(float dano)
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Game Over")));
 			}
 		}
-		//CambiarEstados();
+		inicializarStates();
 
 }
 
@@ -157,6 +243,11 @@ void AGalaga_USFXPawn::Respawn()
 {
 	SetActorLocation(PosicionPawn);
 	energia = 1000.0f;
+}
+
+void AGalaga_USFXPawn::EstablecerVelocidad(float Velocidad)
+{
+	MoveSpeed = Velocidad;
 }
 
 void AGalaga_USFXPawn::noroeste(float Value)
@@ -271,6 +362,17 @@ void AGalaga_USFXPawn::Tick(float DeltaSeconds)
 	FireShot(FireDirection);
 }
 
+void AGalaga_USFXPawn::BeginPlay()
+{
+	Super::BeginPlay();
+
+	ProtegidoState = GetWorld()->SpawnActor<AProtegido>(AProtegido::StaticClass());
+	SigilosoState = GetWorld()->SpawnActor<ASigiloso>(ASigiloso::StaticClass());
+	PotenciadoState = GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
+
+	inicializarStates();
+}
+
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 {
 	// If it's ok to fire again
@@ -294,6 +396,12 @@ void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 
 				// Spawn the projectile
 				World->SpawnActor<AGalaga_USFXProjectile>(ModifiedSpawnLocation, ModifiedRotation);
+
+				if(bDoubleFireEnabled==true)
+				{
+					const FVector SecondSpawnLocation = SpawnLocation + FireRotation.RotateVector(FVector(0.0f, 50.0f, 0.0f)); // Ajusta el valor 50.0f según sea necesario
+					World->SpawnActor<AGalaga_USFXProjectile>(SecondSpawnLocation, FireRotation);
+				}
 				
 			}
 
@@ -434,15 +542,15 @@ void AGalaga_USFXPawn::ReloadAmmo()
 		{
 			// Se encontró un objeto de munición en el inventario
 			bFoundAmmo = true;
-			NumProyectilesDisparados = 0; // Restablece el contador de proyectiles disparados.
-			ProyectilesPorDisparar += 20; 
 			bCanFire = true; // Permite al jugador disparar nuevamente.
+			bDoubleFireEnabled = true; // Habilita el disparo de doble munición
+			GetWorld()->GetTimerManager().SetTimer(DoubleShotTimer, this, &AGalaga_USFXPawn::DesactivarDoubleShot, 5.0f, false);
 
-			if (GEngine)
+			/*if (GEngine)
 			{
-				FString Message = FString::Printf(TEXT("Se recargaron +20 de munición, tienes %d municiones"), ProyectilesPorDisparar);
+				FString Message = FString::Printf(TEXT("Se habilitó disparo de doble munición"));
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, Message);
-			}
+			}*/
 
 			NumItems -= 1; // Disminuye el contador de objetos en el inventario
 			CheckInventory();
@@ -451,17 +559,27 @@ void AGalaga_USFXPawn::ReloadAmmo()
 			break;
 		}
 	}
-
-	// Verifica si no se encontró ningún objeto de munición
-	if (!bFoundAmmo)
-	{
-		// Muestra un mensaje indicando que no se encontró ningún objeto de munición
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municion para recargar");
-		}
-	}
+	//if (!bFoundAmmo)
+	//{
+	//	// Muestra un mensaje indicando que no se encontró ningún objeto de munición
+	//	if (GEngine)
+	//	{
+	//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municion para recargar");
+	//	}
+	//}
 }
+
+	void AGalaga_USFXPawn::ActivarDoubleShot()
+	{
+		// Activa el doble disparo
+		bDoubleFireEnabled = true;
+	}
+	void AGalaga_USFXPawn::DesactivarDoubleShot()
+	{
+		// Desactiva el doble disparo
+		bDoubleFireEnabled = false;
+	}
+	// Verifica si no se encontró ningún objeto de munición
 
 void AGalaga_USFXPawn::CheckInventory()
 {

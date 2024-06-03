@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeSigiloso() {}
 	GALAGA_USFX_API UClass* Z_Construct_UClass_ASigiloso();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
+	GALAGA_USFX_API UClass* Z_Construct_UClass_AGalaga_USFXPawn_NoRegister();
+	GALAGA_USFX_API UClass* Z_Construct_UClass_UState_NoRegister();
 // End Cross Module References
 	void ASigiloso::StaticRegisterNativesASigiloso()
 	{
@@ -31,6 +33,12 @@ void EmptyLinkFunctionForGeneratedCodeSigiloso() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_naveJugador_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_naveJugador;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +53,18 @@ void EmptyLinkFunctionForGeneratedCodeSigiloso() {}
 		{ "ModuleRelativePath", "Sigiloso.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASigiloso_Statics::NewProp_naveJugador_MetaData[] = {
+		{ "ModuleRelativePath", "Sigiloso.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASigiloso_Statics::NewProp_naveJugador = { "naveJugador", nullptr, (EPropertyFlags)0x0040000000000000, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASigiloso, naveJugador), Z_Construct_UClass_AGalaga_USFXPawn_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASigiloso_Statics::NewProp_naveJugador_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASigiloso_Statics::NewProp_naveJugador_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASigiloso_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASigiloso_Statics::NewProp_naveJugador,
+	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ASigiloso_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UState_NoRegister, (int32)VTABLE_OFFSET(ASigiloso, IState), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ASigiloso_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ASigiloso>::IsAbstract,
 	};
@@ -54,12 +74,12 @@ void EmptyLinkFunctionForGeneratedCodeSigiloso() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
-		nullptr,
+		Z_Construct_UClass_ASigiloso_Statics::PropPointers,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ASigiloso_Statics::PropPointers),
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ASigiloso_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ASigiloso_Statics::Class_MetaDataParams))
 	};
@@ -72,7 +92,7 @@ void EmptyLinkFunctionForGeneratedCodeSigiloso() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASigiloso, 2013525938);
+	IMPLEMENT_CLASS(ASigiloso, 2100986854);
 	template<> GALAGA_USFX_API UClass* StaticClass<ASigiloso>()
 	{
 		return ASigiloso::StaticClass();

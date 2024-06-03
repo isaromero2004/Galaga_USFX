@@ -22,9 +22,12 @@ class GALAGA_USFX_API IState
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	virtual void Sigiloso() = 0;
-	virtual void Protegido() = 0;
-	virtual void Potenciado() = 0;
+	virtual void ActivarSigilio() = 0;
+	virtual void ActivarProteccion() = 0;
+	virtual void ActivarPotencia() = 0;
 
-	virtual void SetSpawn(class AGalaga_USFXPawn* Pawn) = 0;
+
+	virtual FString ToString() = 0;
+
+	virtual void SetPawn(class AGalaga_USFXPawn* Pawn) = 0;
 };

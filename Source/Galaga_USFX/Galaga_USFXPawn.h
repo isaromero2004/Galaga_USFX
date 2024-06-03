@@ -50,6 +50,8 @@ public:
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 	void ReloadAmmo();
+	void ActivarDoubleShot();
+	void DesactivarDoubleShot();
 
 	/** Offset from the ships location to spawn projectiles */
 	UPROPERTY(Category = Gameplay, EditAnywhere, BlueprintReadWrite)
@@ -71,6 +73,7 @@ public:
 
 	// Begin Actor Interface
 	virtual void Tick(float DeltaSeconds) override;
+	virtual void BeginPlay() override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End Actor Interface
 
@@ -94,6 +97,8 @@ private:
 
 	/* Flag to control firing  */
 	uint32 bCanFire : 1;
+	FTimerHandle DoubleShotTimer;
+	bool bDoubleFireEnabled;
 
 	/** Handle for efficient management of ShotTimerExpired timer */
 	FTimerHandle TimerHandle_ShotTimerExpired;
@@ -117,6 +122,7 @@ public:
 	void RecibirDano(float dano);
 	void Respawn();
 	FVector PosicionPawn;
+	void EstablecerVelocidad(float Velocidad);
 
 
 
@@ -143,19 +149,37 @@ public:
 	FORCEINLINE int Getvidas() const { return vidas; }
 	FORCEINLINE float Getenergia() const { return energia; }
 
-//private:
-//	IState* State;
-//	IState* SigilosoState;
-//	IState* ProtegidoState;
-//	IState* PotenciadoState;
-//	
-//public:
-//	IState* GetState();
-//	IState* GetSigilosoState();
-//	IState* GetProtegidoState();
-//	IState* GetPotenciadoState();
-//
-//	void SetState(IState* _state);
-//	
+private:
+	IState* State;
+	//IState* BasicoState;
+	IState* SigilosoState;
+	IState* ProtegidoState;
+	IState* PotenciadoState;
+	
+public:
+	IState* GetState() { return State; }
+	//IState* GetBasicoState() { return BasicoState; }
+	IState* GetSigilosoState() { return SigilosoState; }
+	IState* GetProtegidoState() { return ProtegidoState; }
+	IState* GetPotenciadoState() { return PotenciadoState; }
+
+	
+	void EstablecerState(IState* _state);
+	//void SetBasicoState(IState* _basico) { BasicoState = _basico; }
+	void SetSigilosoState(IState* _sigiloso) { SigilosoState = _sigiloso; }
+	void SetProtegidoState(IState* _protegido) { ProtegidoState = _protegido; }
+	void SetPotenciadoState(IState* _potenciado) { PotenciadoState = _potenciado; }
+
+	void PawnSigilioActivado();
+	void PawnProteccionActivado();
+	void PawnPotenciaActivado();
+
+
+	void inicializarStates();
+
+	private:
+
+
+	
 };
 

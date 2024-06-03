@@ -2,6 +2,7 @@
 
 
 #include "Potenciado.h"
+#include "Galaga_USFXPawn.h"
 
 // Sets default values
 APotenciado::APotenciado()
@@ -18,12 +19,43 @@ void APotenciado::BeginPlay()
 	
 }
 
+void APotenciado::ActivarSigilio()
+{
+}
+
+
+void APotenciado::ActivarPotencia()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Se activo el estado potenciado"));
+	naveJugador->EstablecerVelocidad(3000.0f);
+	naveJugador->ActivarDoubleShot();
+}
+
+
+
+
+void APotenciado::ActivarProteccion()
+{
+}
+
+
+
+FString APotenciado::ToString()
+{
+	return "Nave jugador Potenciada";
+}
+
+void APotenciado::SetPawn(AGalaga_USFXPawn* pawn)
+{
+	naveJugador = pawn;
+}
 // Called every frame
 void APotenciado::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
+
 
 // Called to bind functionality to input
 void APotenciado::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

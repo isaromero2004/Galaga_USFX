@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "State.h"
 #include "Potenciado.generated.h"
 
 UCLASS()
-class GALAGA_USFX_API APotenciado : public APawn
+class GALAGA_USFX_API APotenciado : public APawn, public IState
 {
 	GENERATED_BODY()
 
@@ -19,7 +20,23 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+private:
+	UPROPERTY()
+	class AGalaga_USFXPawn* naveJugador;
+
+public:
+
+	virtual void ActivarSigilio() override;
+	
+	virtual void ActivarPotencia() override;
+
+	virtual void ActivarProteccion() override;
+	
+
+	virtual FString ToString() override;
+	virtual void SetPawn(class AGalaga_USFXPawn* pawn) override;
+
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
