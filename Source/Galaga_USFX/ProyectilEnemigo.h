@@ -42,7 +42,7 @@ public:
 		FORCEINLINE void SetDano(float NewDano) { Dano = NewDano; }
 
 		void CambiarMovimiento(class IStrategy* NuevoMovimiento);
-		void Mover(float DeltaTime);
+		void MoverProyectil(float DeltaTime);
 		virtual void Tick(float DeltaTime) override;
 };
 

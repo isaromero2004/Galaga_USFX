@@ -150,12 +150,12 @@ public:
 	FORCEINLINE float Getenergia() const { return energia; }
 
 private:
-	 IState* State;
+	IState* State;
 	//IState* BasicoState;
-	 IState* SigilosoState;
-	 IState* ProtegidoState;
-	 IState* PotenciadoState;
-	
+	IState* SigilosoState;
+	IState* ProtegidoState;
+	IState* PotenciadoState;
+
 public:
 	IState* GetState() { return State; }
 	//IState* GetBasicoState() { return BasicoState; }
@@ -164,7 +164,7 @@ public:
 	IState* GetPotenciadoState() { return PotenciadoState; }
 
 	void inicializarStates();
-	
+
 	void EstablecerState(IState* _state);
 	//void SetBasicoState(IState* _basico) { BasicoState = _basico; }
 	void SetSigilosoState(IState* _sigiloso) { SigilosoState = _sigiloso; }
@@ -176,11 +176,9 @@ public:
 	void DisparoVelocidadPlus();
 
 
-	FString ObtenerEstadoActual() { return State->EscribirEstado(); }
+	FString ObtenerEstadoActual() {
+		return State->EscribirEstado();
 
-	private:
+	}
 
-
-	
 };
-

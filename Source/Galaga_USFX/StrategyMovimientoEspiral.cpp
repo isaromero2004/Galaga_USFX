@@ -3,6 +3,7 @@
 
 #include "StrategyMovimientoEspiral.h"
 
+
 // Sets default values
 AStrategyMovimientoEspiral::AStrategyMovimientoEspiral()
 {
@@ -24,7 +25,7 @@ void AStrategyMovimientoEspiral::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-void AStrategyMovimientoEspiral::Mover(AProyectilEnemigo* ProyectilEnemigo, float DeltaTime)
+void AStrategyMovimientoEspiral::Mover( AProyectilEnemigo* ProyectilEnemigo, float DeltaTime)
 {
     if (!ProyectilEnemigo)
         return;

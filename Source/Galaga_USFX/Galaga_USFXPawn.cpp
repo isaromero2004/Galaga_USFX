@@ -203,10 +203,11 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 void AGalaga_USFXPawn::RecibirDano(float dano)
 {
 	energia -= dano;
-	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Nave colisiona con proyectil, porcentaje de vida: %d"), vida);
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Nave colisiona con proyectil, porcentaje de vida: %d"), energia));
 		if (energia <= 0.0f)
 		{
 			vidas--;
+
 			if (vidas > 0)
 			{
 				Respawn();
@@ -215,7 +216,7 @@ void AGalaga_USFXPawn::RecibirDano(float dano)
 			else
 			{
 				Destroy();
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Game Over")));
+				//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Game Over")));
 			}
 		}
 		inicializarStates();
@@ -351,6 +352,7 @@ void AGalaga_USFXPawn::BeginPlay()
 
 	ProtegidoState = GetWorld()->SpawnActor<AProtegido>(AProtegido::StaticClass());
 	SigilosoState = GetWorld()->SpawnActor<ASigiloso>(ASigiloso::StaticClass());
+	PotenciadoState= GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
 
 	inicializarStates();
 }
@@ -625,7 +627,7 @@ void AGalaga_USFXPawn::ReloadEnergy()
 		// Muestra un mensaje indicando que no se encontró ningún objeto de munición
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Energia para recargar");
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Energia parpa eneria de camerom");
 		}
 	}
 }

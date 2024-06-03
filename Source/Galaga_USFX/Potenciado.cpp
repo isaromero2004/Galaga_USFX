@@ -27,7 +27,7 @@ void APotenciado::ActivarSigilio()
 void APotenciado::ActivarPotencia()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Se activo el estado potenciado"));
-	naveJugador->EstablecerVelocidad(3000.0f);
+	naveJugador->EstablecerVelocidad(2000.0f);
 	naveJugador->ActivarDoubleShot();
 }
 
@@ -47,10 +47,8 @@ FString APotenciado::EscribirEstado()
 
 void APotenciado::SetPawn(AGalaga_USFXPawn* pawn)
 {
-	naveJugador = Cast<AGalaga_USFXPawn>(pawn);
-	//NavePawn = NaveJugador;
-
-	naveJugador->EstablecerState(naveJugador->GetPotenciadoState());
+	
+	naveJugador = pawn;
 }
 // Called every frame
 void APotenciado::Tick(float DeltaTime)

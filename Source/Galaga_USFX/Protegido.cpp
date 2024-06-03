@@ -78,10 +78,10 @@ FString AProtegido::EscribirEstado()
 
 void AProtegido::SetPawn(AGalaga_USFXPawn* pawn)
 {
-	naveJugador = Cast<AGalaga_USFXPawn>(pawn);
-	//NavePawn = NaveJugador;
+	
+	naveJugador = pawn;
 
-	naveJugador->EstablecerState(naveJugador->GetProtegidoState());
+	
 
 }
 

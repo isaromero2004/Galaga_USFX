@@ -22,6 +22,8 @@ AProyectilEnemigo::AProyectilEnemigo()
 	ProjectileMesh->BodyInstance.SetCollisionProfileName("Projectile");
 	ProjectileMesh->OnComponentHit.AddDynamic(this, &AProyectilEnemigo::OnHit);		// set up a notification for when this component hits something
 	RootComponent = ProjectileMesh;
+	ProjectileMesh->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
+
 
 	// Use a ProjectileMovementComponent to govern this projectile's movement
 	//ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
@@ -59,7 +61,7 @@ void AProyectilEnemigo::CambiarMovimiento(IStrategy* NuevoMovimiento)
 	Movimiento = NuevoMovimiento;
 }
 
-void AProyectilEnemigo::Mover(float DeltaTime)
+void AProyectilEnemigo::MoverProyectil(float DeltaTime)
 {
 	if (Movimiento)
 	{
@@ -70,10 +72,13 @@ void AProyectilEnemigo::Mover(float DeltaTime)
 void AProyectilEnemigo::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	Mover(DeltaTime);
+	MoverProyectil(DeltaTime);
+
+
 }
 
 //
+//             v
 //void AProyectilEnemigo::ColisionarNaveEnemiga(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 //{
 

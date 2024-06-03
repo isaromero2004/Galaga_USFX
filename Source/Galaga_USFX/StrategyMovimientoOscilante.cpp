@@ -10,7 +10,7 @@ AStrategyMovimientoOscilante::AStrategyMovimientoOscilante()
 	PrimaryActorTick.bCanEverTick = true;
 	OscillationAmplitude = 100.0f; // Amplitud de la oscilación
 	OscillationFrequency = 2.0f;   // Frecuencia de la oscilación
-	Velocidad = 1000.0f;
+	Velocidad = 10.0f;
 
 }
 

@@ -25,7 +25,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 public:
-	virtual void Mover(AProyectilEnemigo* Projectile, float DeltaTime) override;
+	virtual void Mover(AProyectilEnemigo* ProyectilEnemigo, float DeltaTime) override;
 
 private:
 	float Velocidad = 2000.0f; // Velocidad hacia adelante

@@ -3,7 +3,7 @@
 
 #include "NaveEnemigaCaza.h"
 #include "ProyectilEnemigo.h"
-	#include "StrategyMovimientoRecto.h"
+#include "StrategyMovimientoRecto.h"
 
 ANaveEnemigaCaza::ANaveEnemigaCaza()
 {

@@ -26,7 +26,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	void Mover(AProyectilEnemigo* ProyectilEnemigo, float DeltaTime) override;
 private:
-	float Velocidad = 1000.0f;          // Velocidad hacia adelante
-	float SpiralRadius = 100.0f;    // Radio de la espiral
-	float SpiralFrequency = 2.0f;
+	float Velocidad = 800.0f;          // Velocidad hacia adelante
+	float SpiralRadius = 50.0f;    // Radio de la espiral
+	float SpiralFrequency = 0.0f;
 };
