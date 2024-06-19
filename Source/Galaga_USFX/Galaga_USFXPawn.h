@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Inventario.h"
+#include "ProxyCapsulas.h"
 #include "Capsulas.h"
 #include "State.h"
 #include "Galaga_USFXPawn.generated.h"
@@ -32,6 +33,7 @@ public:
 
 	UPROPERTY()
 	UInventario* MyInventory;
+	
 	UFUNCTION()
 	void DropItem();
 	UFUNCTION()
@@ -134,6 +136,7 @@ protected:
 
 
 	FTimerHandle TimerHandle_Salto;
+	AProxyCapsulas* ProxyCapsulas;
 
 	virtual void noroeste(float Value);
 	virtual void noreste(float Value);

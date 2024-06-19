@@ -4,8 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Inventario.h"
 #include "InterfazProxy.h"
 #include "Capsulas.generated.h"
+
+
 
 UCLASS(abstract)
 class GALAGA_USFX_API ACapsulas : public AActor, public IInterfazProxy
@@ -15,6 +18,8 @@ class GALAGA_USFX_API ACapsulas : public AActor, public IInterfazProxy
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Projectile, meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* mallaCapsulas;
+	UPROPERTY()
+	UInventario* Inventario;
 
 protected:
 
@@ -24,6 +29,8 @@ protected:
 	int trayectoria;
 	float duracion;
 	float limiteX;
+	int32 NumItems;
+	FTransform PutDownLocation;
 
 	//UMovimiento* MovimientoCapsulas;
 
@@ -48,16 +55,8 @@ public:
 	// Sets default values for this actor's properties
 	ACapsulas();
 
-	virtual void Recoger()override;
+	virtual void Recoger(ACapsulas* Capsulas)override;
 	virtual void Soltar(const FTransform& PutDownLocation)override;
-	
-//protected:
-//	// Called when the game starts or when spawned
-//	virtual void BeginPlay() override;
-//
-//public:	
-//	// Called every frame
-//	virtual void Tick(float DeltaTime) override;
 
 
 protected:

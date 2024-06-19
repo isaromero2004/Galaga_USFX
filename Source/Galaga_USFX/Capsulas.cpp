@@ -20,37 +20,31 @@ ACapsulas::ACapsulas()
 
 	
 }
-//void ACapsulas::BeginPlay()
-//{
-//	Super::BeginPlay();
-//	
-//}
-//
-//// Called every frame
-//void ACapsulas::Tick(float DeltaTime)
-//{
-//	Super::Tick(DeltaTime);
-//	//MovimientoCapsulas->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
-//	
-//
-//}
 
-void ACapsulas::Recoger()
+
+void ACapsulas::Recoger(ACapsulas* Capsulas)
 {
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
 
+	Capsulas->Inventario = Inventario;
+	Inventario->AddToInventory(Capsulas);
+	NumItems ++;
+
+
 }
 
-void ACapsulas::Soltar(const FTransform& PutDownLocation)
+void ACapsulas::Soltar(const FTransform& NewPutDownLocation)
 {
-	
+	AActor* Capsula = this;
+	Inventario->CurrentInventory.Dequeue(Capsula);
+	NumItems --;
+
 	SetActorTickEnabled(true);
 	SetActorHiddenInGame(false);
 	SetActorEnableCollision(true);
-	SetActorLocation(PutDownLocation.GetLocation());
-
+	SetActorLocation(NewPutDownLocation.GetLocation());
 }
 
 

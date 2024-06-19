@@ -20,18 +20,22 @@ void AProxyCapsulas::SetInventario(UInventario* InventarioRef)
 	Inventario = InventarioRef;
 }
 
-void AProxyCapsulas::Recoger()
+void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 {
-	if (Inventario && !Inventario->InventarioLleno())
+	if (!Inventario->InventarioLleno())
 	{
-		Inventario->AddToInventory(CapsulaReal);
-		CapsulaReal->Recoger();
+		//Inventario->AddToInventory(CapsulaReal);
+		Capsulas->Recoger(Capsulas);
 
-		Inventario->CurrentSize++;
+
+		//Inventario->CurrentSize++;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Inventario lleno."));
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
+		}
 
 	}
 }
@@ -40,14 +44,17 @@ void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)
 {
 	if (Inventario && Inventario->CurrentSize > 0)
 	{
-		ACapsulas* Capsula;
-		Inventario->CurrentInventory.Dequeue(Capsula);
-		Capsula->Soltar(PutDownLocation);
-		Inventario->CurrentSize--;
+		//ACapsulas* Capsula;
+		//Inventario->CurrentInventory.Dequeue(Capsula);
+		CapsulaReal->Soltar(PutDownLocation);
+		//Inventario->CurrentSize--;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Inventario vacío."));
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
+		}
 	}
 }
 // Called when the game starts or when spawned

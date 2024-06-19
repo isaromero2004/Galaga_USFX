@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	GALAGA_USFX_API UClass* Z_Construct_UClass_UInventario();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
-	GALAGA_USFX_API UClass* Z_Construct_UClass_ACapsulas_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(UInventario::execInventarioLleno)
 	{
@@ -28,7 +28,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	}
 	DEFINE_FUNCTION(UInventario::execRemoveFromInventory)
 	{
-		P_GET_OBJECT(ACapsulas,Z_Param_ActorToRemove);
+		P_GET_OBJECT(AActor,Z_Param_ActorToRemove);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->RemoveFromInventory(Z_Param_ActorToRemove);
@@ -36,7 +36,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	}
 	DEFINE_FUNCTION(UInventario::execAddToInventory)
 	{
-		P_GET_OBJECT(ACapsulas,Z_Param_ActorToAdd);
+		P_GET_OBJECT(AActor,Z_Param_ActorToAdd);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		*(int32*)Z_Param__Result=P_THIS->AddToInventory(Z_Param_ActorToAdd);
@@ -56,7 +56,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	{
 		struct Inventario_eventAddToInventory_Parms
 		{
-			ACapsulas* ActorToAdd;
+			AActor* ActorToAdd;
 			int32 ReturnValue;
 		};
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActorToAdd;
@@ -67,7 +67,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventario_AddToInventory_Statics::NewProp_ActorToAdd = { "ActorToAdd", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventAddToInventory_Parms, ActorToAdd), Z_Construct_UClass_ACapsulas_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventario_AddToInventory_Statics::NewProp_ActorToAdd = { "ActorToAdd", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventAddToInventory_Parms, ActorToAdd), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UInventario_AddToInventory_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventAddToInventory_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventario_AddToInventory_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventario_AddToInventory_Statics::NewProp_ActorToAdd,
@@ -129,7 +129,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	{
 		struct Inventario_eventRemoveFromInventory_Parms
 		{
-			ACapsulas* ActorToRemove;
+			AActor* ActorToRemove;
 		};
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActorToRemove;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -138,7 +138,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::NewProp_ActorToRemove = { "ActorToRemove", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventRemoveFromInventory_Parms, ActorToRemove), Z_Construct_UClass_ACapsulas_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::NewProp_ActorToRemove = { "ActorToRemove", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventRemoveFromInventory_Parms, ActorToRemove), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::NewProp_ActorToRemove,
 	};
@@ -176,9 +176,9 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Galaga_USFX,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UInventario_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UInventario_AddToInventory, "AddToInventory" }, // 730990722
+		{ &Z_Construct_UFunction_UInventario_AddToInventory, "AddToInventory" }, // 3873938359
 		{ &Z_Construct_UFunction_UInventario_InventarioLleno, "InventarioLleno" }, // 1916374413
-		{ &Z_Construct_UFunction_UInventario_RemoveFromInventory, "RemoveFromInventory" }, // 504851856
+		{ &Z_Construct_UFunction_UInventario_RemoveFromInventory, "RemoveFromInventory" }, // 1149590305
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UInventario_Statics::Class_MetaDataParams[] = {
@@ -215,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UInventario, 3566475402);
+	IMPLEMENT_CLASS(UInventario, 422186384);
 	template<> GALAGA_USFX_API UClass* StaticClass<UInventario>()
 	{
 		return UInventario::StaticClass();

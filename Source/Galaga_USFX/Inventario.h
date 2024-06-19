@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Capsulas.h"
+//#include "Capsulas.h"
 #include "Containers/Queue.h"
 #include "Inventario.generated.h"
 
@@ -22,14 +22,14 @@ public:
 	// Sets default values for this component's properties
 	UInventario();
 
-	TQueue<ACapsulas*> CurrentInventory;
+	TQueue<AActor*> CurrentInventory;
 	int CapacidadMaxima = 2;
 	int CurrentSize = 0;
 
 	UFUNCTION()
-	int32 AddToInventory(ACapsulas* ActorToAdd);
+	int32 AddToInventory(AActor* ActorToAdd);
 	UFUNCTION()
-	void RemoveFromInventory(ACapsulas* ActorToRemove);
+	void RemoveFromInventory(AActor* ActorToRemove);
 	UFUNCTION()
 	bool InventarioLleno() const;
 	

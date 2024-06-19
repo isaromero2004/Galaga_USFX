@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	GALAGA_USFX_API UClass* Z_Construct_UClass_UInventario_NoRegister();
 	GALAGA_USFX_API UClass* Z_Construct_UClass_UInterfazProxy_NoRegister();
 // End Cross Module References
 	void ACapsulas::StaticRegisterNativesACapsulas()
@@ -37,6 +38,10 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_mallaCapsulas_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_mallaCapsulas;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Inventario_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Inventario;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -61,8 +66,16 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACapsulas_Statics::NewProp_mallaCapsulas = { "mallaCapsulas", nullptr, (EPropertyFlags)0x00100000000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACapsulas, mallaCapsulas), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACapsulas_Statics::NewProp_mallaCapsulas_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACapsulas_Statics::NewProp_mallaCapsulas_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACapsulas_Statics::NewProp_Inventario_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Capsulas.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACapsulas_Statics::NewProp_Inventario = { "Inventario", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ACapsulas, Inventario), Z_Construct_UClass_UInventario_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ACapsulas_Statics::NewProp_Inventario_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ACapsulas_Statics::NewProp_Inventario_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACapsulas_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACapsulas_Statics::NewProp_mallaCapsulas,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACapsulas_Statics::NewProp_Inventario,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACapsulas_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UInterfazProxy_NoRegister, (int32)VTABLE_OFFSET(ACapsulas, IInterfazProxy), false },
@@ -94,7 +107,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACapsulas, 3519871979);
+	IMPLEMENT_CLASS(ACapsulas, 106438169);
 	template<> GALAGA_USFX_API UClass* StaticClass<ACapsulas>()
 	{
 		return ACapsulas::StaticClass();

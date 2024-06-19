@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define GALAGA_USFX_Capsulas_generated_h
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_SPARSE_DATA
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_RPC_WRAPPERS
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_INCLASS_NO_PURE_DECLS \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_SPARSE_DATA
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_RPC_WRAPPERS
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACapsulas(); \
 	friend struct Z_Construct_UClass_ACapsulas_Statics; \
@@ -26,7 +26,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<ACapsulas*>(this); }
 
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_INCLASS \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_INCLASS \
 private: \
 	static void StaticRegisterNativesACapsulas(); \
 	friend struct Z_Construct_UClass_ACapsulas_Statics; \
@@ -36,7 +36,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<ACapsulas*>(this); }
 
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_STANDARD_CONSTRUCTORS \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ACapsulas(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_ABSTRACT_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ACapsulas) \
@@ -49,7 +49,7 @@ private: \
 public:
 
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_ENHANCED_CONSTRUCTORS \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ACapsulas(ACapsulas&&); \
@@ -60,28 +60,28 @@ public: \
 	DEFINE_ABSTRACT_DEFAULT_CONSTRUCTOR_CALL(ACapsulas)
 
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_PRIVATE_PROPERTY_OFFSET
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_10_PROLOG
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_GENERATED_BODY_LEGACY \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_PRIVATE_PROPERTY_OFFSET
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_PROLOG
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_PRIVATE_PROPERTY_OFFSET \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_SPARSE_DATA \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_RPC_WRAPPERS \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_INCLASS \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_STANDARD_CONSTRUCTORS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_PRIVATE_PROPERTY_OFFSET \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_SPARSE_DATA \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_RPC_WRAPPERS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_INCLASS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_GENERATED_BODY \
+#define Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_PRIVATE_PROPERTY_OFFSET \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_SPARSE_DATA \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_INCLASS_NO_PURE_DECLS \
-	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_13_ENHANCED_CONSTRUCTORS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_PRIVATE_PROPERTY_OFFSET \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_SPARSE_DATA \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_INCLASS_NO_PURE_DECLS \
+	Galaga_USFX_Source_Galaga_USFX_Capsulas_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

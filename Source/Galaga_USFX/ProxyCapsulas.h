@@ -14,18 +14,18 @@ class GALAGA_USFX_API AProxyCapsulas : public AActor, public IInterfazProxy
 {
 	GENERATED_BODY()
 
-private: 
+private:
 	ACapsulas* CapsulaReal;
 	UInventario* Inventario;
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AProxyCapsulas();
 
 	void SetCapsulaReal(ACapsulas* Capsula);
 	void SetInventario(UInventario* InventarioRef);
 
-	virtual void Recoger() override;
+	virtual void Recoger(ACapsulas* Capsulas) override;
 	virtual void Soltar(const FTransform& PutDownLocation) override;
 
 protected:

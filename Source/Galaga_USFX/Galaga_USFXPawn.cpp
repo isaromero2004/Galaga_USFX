@@ -193,7 +193,7 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 void AGalaga_USFXPawn::RecibirDano(float dano)
 {
 	energia -= dano;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Nave colisiona con proyectil, porcentaje de vida: %f"), energia));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Nave colisiona con proyectil, energia restante: %f"), energia));
 		if (energia <= 0.0f)
 		{
 			vidas--;
@@ -345,6 +345,15 @@ void AGalaga_USFXPawn::BeginPlay()
 	PotenciadoState= GetWorld()->SpawnActor<APotenciado>(APotenciado::StaticClass());
 
 	inicializarStates();
+
+	if (!ProxyCapsulas)
+	{
+		// Opcionalmente, crear una nueva instancia si no se encontró ninguna
+		ProxyCapsulas = GetWorld()->SpawnActor<AProxyCapsulas>(AProxyCapsulas::StaticClass());
+	}
+	
+	MyInventory = Cast<UInventario>(UGameplayStatics::GetPlayerPawn(this, 0)->GetComponentByClass(UInventario::StaticClass()));
+	ProxyCapsulas->SetInventario(MyInventory);
 }
 
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
@@ -400,35 +409,26 @@ void AGalaga_USFXPawn::ShotTimerExpired()
 
 void AGalaga_USFXPawn::DropItem()
 {
-	if (MyInventory->CurrentInventory.IsEmpty())//MyInventory->CurrentInventory.Num() == 0
-	{
-		if (GEngine)
-		{
-			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, Message);
-		}
-		return;
-	}
-	ACapsulas* Item = nullptr;
-	MyInventory->CurrentInventory.Dequeue(Item);
-	NumItems -= 1;
-	
 	FVector ShipLocation = GetActorLocation();
-	FVector ItemOrigin;
-	FVector ItemBounds;
-	Item->GetActorBounds(false, ItemOrigin, ItemBounds);
+	
+	if (ProxyCapsulas)
+	{
+		int32 PreviousNumItems = NumItems;
 
-	// Ajusta la posición para centrar el objeto con respecto a la nave
-	float DropDistance = 200.0f; // Distancia adicional para dejar caer el objeto
-	float ItemVelocidad = 0.0f; // Velocidad del objeto al soltarlo
-	FVector DropOffset = FVector(0.0f, 0.0f, 0.0f); // Ajusta la posición verticalmente para centrar el objeto
-	FTransform PutDownLocation = FTransform(GetActorRotation(), ShipLocation + DropOffset +
-		(RootComponent->GetForwardVector() * DropDistance)); // Combina la ubicación de la nave con el desplazamiento vertical y horizontal
+		//// Ajusta la posición para centrar el objeto con respecto a la nave
+		float DropDistance = 200.0f; // Distancia adicional para dejar caer el objeto
+		float ItemVelocidad = 0.0f; // Velocidad del objeto al soltarlo
+		FVector DropOffset = FVector(0.0f, 0.0f, 0.0f); // Ajusta la posición verticalmente para centrar el objeto
+		FTransform PutDownLocation = FTransform(GetActorRotation(), ShipLocation + DropOffset + (RootComponent->GetForwardVector() * DropDistance)); // Combina la ubicación de la nave con el desplazamiento vertical y horizontal
 
-	Item->Soltar(PutDownLocation);
-
-	//Verifica el inventario después de soltar un objeto
-	CheckInventory();
+		ProxyCapsulas->Soltar(PutDownLocation);
+		NumItems= MyInventory->CurrentSize;
+		if (PreviousNumItems != NumItems)
+		{
+			CheckInventory();
+		}
+		
+	}
 }
 
 void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
@@ -436,6 +436,8 @@ void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal,
 	FVector NormalImpulse, const FHitResult& Hit)
 {
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+
 	ACapsulas* InventoryItem =
 		Cast<ACapsulas>(Other);
 	if (InventoryItem != nullptr)
@@ -449,23 +451,17 @@ void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
 void AGalaga_USFXPawn::TakeItem(ACapsulas*
 	InventoryItem)
 {
-	if (!MyInventory->InventarioLleno())
+	int32 PreviousNumItems = NumItems;
+
+	InventoryItem->Inventario = MyInventory;
+	ProxyCapsulas->Recoger(InventoryItem);
+
+	NumItems = MyInventory->CurrentSize;
+	if (PreviousNumItems != NumItems)
 	{
-		InventoryItem->Recoger();
-		MyInventory->AddToInventory(InventoryItem);
-		// Declarar un TimerHandle
 
-		NumItems += 1;
+		CheckInventory();
 	}
-	else {
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
-		}
-	}
-
-	//Verifica el inventario después de recoger un objeto
-	CheckInventory();
 }
 
 void AGalaga_USFXPawn::ReloadAmmo()
@@ -474,7 +470,7 @@ void AGalaga_USFXPawn::ReloadAmmo()
 	bool bFoundAmmo = false;
 
 	// Itera sobre los objetos en el inventario para encontrar uno de munición
-	ACapsulas* InventoryItem = nullptr;
+	AActor* InventoryItem = nullptr;
 
 	
 	while (MyInventory->CurrentInventory.Dequeue(InventoryItem))
@@ -530,20 +526,20 @@ void AGalaga_USFXPawn::CheckInventory()
 	// Verifica si el componente de inventario existe
 	if (MyInventory)
 	{
-		if (MyInventory->InventarioLleno())
-		{
-			if (GEngine)
-			{
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
-			}
-		}
-		else if (MyInventory->CurrentInventory.IsEmpty())
-		{
-			if (GEngine)
-			{
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
-			}
-		}
+		//if (MyInventory->InventarioLleno())
+		//{
+		//	if (GEngine)
+		//	{
+		//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
+		//	}
+		//}
+		//else if (MyInventory->CurrentInventory.IsEmpty())
+		//{
+		//	if (GEngine)
+		//	{
+		//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
+		//	}
+		//}
 		if (GEngine)
 		{
 			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);
@@ -569,7 +565,7 @@ void AGalaga_USFXPawn::ReloadEnergy()
 	// Bandera para verificar si se encontró un objeto de energia
 	bool bFoundEnergy = false;
 	// Itera sobre los objetos en el inventario para encontrar uno de Energia
-	ACapsulas* InventoryItem = nullptr;
+	AActor* InventoryItem = nullptr;
 	//for (AInventoryActor* InventoryItem : MyInventory->CurrentInventory)
 	while (MyInventory->CurrentInventory.Dequeue(InventoryItem))
 	{

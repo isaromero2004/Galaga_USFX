@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulasArmas() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACapsulasArmas, 1958453818);
+	IMPLEMENT_CLASS(ACapsulasArmas, 2539974764);
 	template<> GALAGA_USFX_API UClass* StaticClass<ACapsulasArmas>()
 	{
 		return ACapsulasArmas::StaticClass();

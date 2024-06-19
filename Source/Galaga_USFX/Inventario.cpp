@@ -29,7 +29,7 @@ void UInventario::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 	// ...
 }
 
-int32 UInventario::AddToInventory(ACapsulas* ActorToAdd)
+int32 UInventario::AddToInventory(AActor* ActorToAdd)
 {
 	if (!InventarioLleno())
 	{
@@ -39,7 +39,7 @@ int32 UInventario::AddToInventory(ACapsulas* ActorToAdd)
 	}
 	return -1;
 }
-void UInventario::RemoveFromInventory(ACapsulas* ActorToRemove)
+void UInventario::RemoveFromInventory(AActor* ActorToRemove)
 {
 	//CurrentInventory.Remove(ActorToRemove);
 	CurrentInventory.Dequeue(ActorToRemove);

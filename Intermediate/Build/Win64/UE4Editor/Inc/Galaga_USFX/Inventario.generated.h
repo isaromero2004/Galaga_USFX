@@ -8,7 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class ACapsulas;
+class AActor;
 #ifdef GALAGA_USFX_Inventario_generated_h
 #error "Inventario.generated.h already included, missing '#pragma once' in Inventario.h"
 #endif
