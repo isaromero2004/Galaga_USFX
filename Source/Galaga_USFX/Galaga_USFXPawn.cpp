@@ -526,20 +526,7 @@ void AGalaga_USFXPawn::CheckInventory()
 	// Verifica si el componente de inventario existe
 	if (MyInventory)
 	{
-		//if (MyInventory->InventarioLleno())
-		//{
-		//	if (GEngine)
-		//	{
-		//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
-		//	}
-		//}
-		//else if (MyInventory->CurrentInventory.IsEmpty())
-		//{
-		//	if (GEngine)
-		//	{
-		//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
-		//	}
-		//}
+	
 		if (GEngine)
 		{
 			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);

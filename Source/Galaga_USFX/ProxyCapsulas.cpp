@@ -34,7 +34,7 @@ void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 	{
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno, no se puede agarrar otro Item");
 		}
 
 	}
@@ -53,7 +53,7 @@ void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)
 	{
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio, no hay Item para soltar");
 		}
 	}
 }
