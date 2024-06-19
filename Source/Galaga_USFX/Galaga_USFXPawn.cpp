@@ -149,12 +149,6 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	PlayerInputComponent->BindAxis(FireForwardBinding);
 	PlayerInputComponent->BindAxis(FireRightBinding);
 
-
-
-
-	//FInputAxisKeyMapping DropItemKey("DropItem", EKeys::X, 1.0f);
-	//GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(DropItemKey);
-	//PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
 	FInputActionKeyMapping ReloadAmmoKey("ReloadAmmo", EKeys::R, 0, 0, 0, 0);
 	UPlayerInput::AddEngineDefinedActionMapping(ReloadAmmoKey);
 	PlayerInputComponent->BindAction("ReloadAmmo", IE_Pressed, this, &AGalaga_USFXPawn::ReloadAmmo);
@@ -536,13 +530,9 @@ void AGalaga_USFXPawn::CheckInventory()
 		{
 			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, Message);
-		}
-		
+		}	
 	}
-
 }
-
-
 
 void AGalaga_USFXPawn::ReloadEnergy()
 {

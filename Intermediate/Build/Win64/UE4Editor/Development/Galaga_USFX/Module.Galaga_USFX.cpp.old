@@ -12,7 +12,6 @@
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXGameMode.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Galaga_USFXProjectile.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/InterfazProxy.cpp"
-#include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Inventario.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Meteorito.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/MotorNodriza.cpp"
 #include "C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Source/Galaga_USFX/Movimiento.cpp"

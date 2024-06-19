@@ -15,8 +15,6 @@ UInventario::UInventario()
 void UInventario::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
 }
 
@@ -41,7 +39,6 @@ int32 UInventario::AddToInventory(AActor* ActorToAdd)
 }
 void UInventario::RemoveFromInventory()
 {
-	//CurrentInventory.Remove(ActorToRemove);
 	AActor* ActorToRemove;
 	CurrentInventory.Dequeue(ActorToRemove);
 	CurrentSize--; // Decrementa el contador

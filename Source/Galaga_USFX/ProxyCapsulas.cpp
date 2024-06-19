@@ -31,9 +31,6 @@ void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 		{
 			SetCapsulaReal(Capsulas);
 		}
-
-
-		//Inventario->CurrentSize++;
 	}
 	else
 	{
@@ -45,14 +42,12 @@ void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 	}
 }
 
-void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)//, ACapsulas* CapsulaASoltar)
+void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)
 {
 	if (Inventario && Inventario->CurrentSize > 0)
 	{
-		//ACapsulas* Capsula;
-		//Inventario->CurrentInventory.Dequeue(Capsula);
 		CapsulaReal->Soltar(PutDownLocation);
-		//Inventario->CurrentSize--;
+
 	}
 	else
 	{

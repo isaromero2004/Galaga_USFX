@@ -37,7 +37,7 @@ void ACapsulas::Recoger(ACapsulas* Capsulas)
 
 void ACapsulas::Soltar(const FTransform& NewPutDownLocation)
 {
-	/*AActor* Capsula = Capsulas;*/
+	
 	Inventario->RemoveFromInventory();
 	NumItems --;
 
