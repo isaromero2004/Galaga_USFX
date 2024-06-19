@@ -21,7 +21,7 @@ class ACapsulas;
 #define Galaga_USFX_Source_Galaga_USFX_Galaga_USFXPawn_h_15_SPARSE_DATA
 #define Galaga_USFX_Source_Galaga_USFX_Galaga_USFXPawn_h_15_RPC_WRAPPERS \
  \
-	DECLARE_FUNCTION(execMoveForward); \
+	DECLARE_FUNCTION(execPitchCamera); \
 	DECLARE_FUNCTION(execNotifyHit); \
 	DECLARE_FUNCTION(execTakeItem); \
 	DECLARE_FUNCTION(execDropItem);
@@ -29,7 +29,7 @@ class ACapsulas;
 
 #define Galaga_USFX_Source_Galaga_USFX_Galaga_USFXPawn_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execMoveForward); \
+	DECLARE_FUNCTION(execPitchCamera); \
 	DECLARE_FUNCTION(execNotifyHit); \
 	DECLARE_FUNCTION(execTakeItem); \
 	DECLARE_FUNCTION(execDropItem);

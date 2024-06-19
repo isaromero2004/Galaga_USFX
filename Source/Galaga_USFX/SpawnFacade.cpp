@@ -11,6 +11,7 @@
 #include "Meteorito.h"
 #include "ParedObstaculo.h"
 #include "Galaga_USFXPawn.h"
+#include "ProxyCapsulas.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -122,7 +123,7 @@ void ASpawnFacade::SpawnearNaves()
     
  }
 
-    void ASpawnFacade::SpawnearCapsulas(FVector Posicion)
+    ACapsulas* ASpawnFacade::SpawnearCapsulas(FVector Posicion)
     {
         FRotator rotacionCapsulas = FRotator(0.0f, 0.0f, 0.0f);
 
@@ -131,10 +132,15 @@ void ASpawnFacade::SpawnearNaves()
         TSubclassOf<ACapsulas> RandomCapsulas = ClasesCapsulas[FMath::RandRange(0, ClasesCapsulas.Num() - 1)];
 
         
-        GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, Posicion, rotacionCapsulas);
+        ACapsulas* CapsulaGenerada= GetWorld()->SpawnActor<ACapsulas>(RandomCapsulas, Posicion, rotacionCapsulas);
+
+        AProxyCapsulas* ProxyCapsula= GetWorld()->SpawnActor<AProxyCapsulas>(AProxyCapsulas::StaticClass(), Posicion, rotacionCapsulas);
+        ProxyCapsula->SetCapsulaReal(CapsulaGenerada);
+        UInventario* MiInventario = Cast<UInventario>(UGameplayStatics::GetPlayerPawn(this, 0)->GetComponentByClass(UInventario::StaticClass()));
+        ProxyCapsula->SetInventario(MiInventario);
 
         GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Capsula de arma o energia spawnenado en la posición: " + Posicion.ToString()));
-
+        return CapsulaGenerada;
     }
 
     void ASpawnFacade::Update(FVector PosicionNave)

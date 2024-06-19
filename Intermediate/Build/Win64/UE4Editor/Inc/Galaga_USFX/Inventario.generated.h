@@ -17,12 +17,14 @@ class ACapsulas;
 #define Galaga_USFX_Source_Galaga_USFX_Inventario_h_15_SPARSE_DATA
 #define Galaga_USFX_Source_Galaga_USFX_Inventario_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execInventarioLleno); \
 	DECLARE_FUNCTION(execRemoveFromInventory); \
 	DECLARE_FUNCTION(execAddToInventory);
 
 
 #define Galaga_USFX_Source_Galaga_USFX_Inventario_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execInventarioLleno); \
 	DECLARE_FUNCTION(execRemoveFromInventory); \
 	DECLARE_FUNCTION(execAddToInventory);
 

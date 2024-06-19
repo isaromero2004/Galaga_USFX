@@ -20,26 +20,27 @@ ACapsulas::ACapsulas()
 
 	
 }
-void ACapsulas::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void ACapsulas::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	//MovimientoCapsulas->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
-	
-
-}
+//void ACapsulas::BeginPlay()
+//{
+//	Super::BeginPlay();
+//	
+//}
+//
+//// Called every frame
+//void ACapsulas::Tick(float DeltaTime)
+//{
+//	Super::Tick(DeltaTime);
+//	//MovimientoCapsulas->TickComponent(DeltaTime, ELevelTick::LEVELTICK_TimeOnly, nullptr);
+//	
+//
+//}
 
 void ACapsulas::Recoger()
 {
 	SetActorTickEnabled(false);
 	SetActorHiddenInGame(true);
 	SetActorEnableCollision(false);
+
 }
 
 void ACapsulas::Soltar(const FTransform& PutDownLocation)

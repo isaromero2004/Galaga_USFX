@@ -19,6 +19,13 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
 	GALAGA_USFX_API UClass* Z_Construct_UClass_ACapsulas_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UInventario::execInventarioLleno)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->InventarioLleno();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UInventario::execRemoveFromInventory)
 	{
 		P_GET_OBJECT(ACapsulas,Z_Param_ActorToRemove);
@@ -40,6 +47,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		UClass* Class = UInventario::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AddToInventory", &UInventario::execAddToInventory },
+			{ "InventarioLleno", &UInventario::execInventarioLleno },
 			{ "RemoveFromInventory", &UInventario::execRemoveFromInventory },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -77,6 +85,43 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UInventario_AddToInventory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UInventario_InventarioLleno_Statics
+	{
+		struct Inventario_eventInventarioLleno_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UInventario_InventarioLleno_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((Inventario_eventInventarioLleno_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UInventario_InventarioLleno_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(Inventario_eventInventarioLleno_Parms), &Z_Construct_UFunction_UInventario_InventarioLleno_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventario_InventarioLleno_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventario_InventarioLleno_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInventario_InventarioLleno_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Inventario.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventario_InventarioLleno_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventario, nullptr, "InventarioLleno", nullptr, nullptr, sizeof(Inventario_eventInventarioLleno_Parms), Z_Construct_UFunction_UInventario_InventarioLleno_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventario_InventarioLleno_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventario_InventarioLleno_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventario_InventarioLleno_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UInventario_InventarioLleno()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UInventario_InventarioLleno_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -132,6 +177,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UInventario_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UInventario_AddToInventory, "AddToInventory" }, // 730990722
+		{ &Z_Construct_UFunction_UInventario_InventarioLleno, "InventarioLleno" }, // 1916374413
 		{ &Z_Construct_UFunction_UInventario_RemoveFromInventory, "RemoveFromInventory" }, // 504851856
 	};
 #if WITH_METADATA
@@ -169,7 +215,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UInventario, 1264104629);
+	IMPLEMENT_CLASS(UInventario, 3566475402);
 	template<> GALAGA_USFX_API UClass* StaticClass<UInventario>()
 	{
 		return UInventario::StaticClass();

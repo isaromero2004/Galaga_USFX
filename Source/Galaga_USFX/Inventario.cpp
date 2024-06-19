@@ -31,14 +31,26 @@ void UInventario::TickComponent(float DeltaTime, ELevelTick TickType, FActorComp
 
 int32 UInventario::AddToInventory(ACapsulas* ActorToAdd)
 {
-	//return CurrentInventory.Add(ActorToAdd);
-	return CurrentInventory.Enqueue(ActorToAdd);
+	if (!InventarioLleno())
+	{
+		CurrentInventory.Enqueue(ActorToAdd);
+		CurrentSize++; // Incrementa el contador
+		return CurrentSize;
+	}
+	return -1;
 }
 void UInventario::RemoveFromInventory(ACapsulas* ActorToRemove)
 {
 	//CurrentInventory.Remove(ActorToRemove);
 	CurrentInventory.Dequeue(ActorToRemove);
+	CurrentSize--; // Decrementa el contador
 }
+
+bool UInventario::InventarioLleno() const
+{
+	return CurrentSize >= CapacidadMaxima;
+}
+
 
 
 

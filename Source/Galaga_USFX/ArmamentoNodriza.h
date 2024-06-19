@@ -3,7 +3,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "NaveNodriza.h"
+//#include "NaveNodriza.h"
 #include "ArmamentoNodriza.generated.h"
 
 UCLASS()

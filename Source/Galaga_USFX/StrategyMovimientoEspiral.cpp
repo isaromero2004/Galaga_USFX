@@ -41,7 +41,7 @@ void AStrategyMovimientoEspiral::Mover( AProyectilEnemigo* ProyectilEnemigo, flo
     float OffsetX = FMath::Cos(DeltaTime * SpiralFrequency) * SpiralRadius;
     float OffsetY = FMath::Sin(DeltaTime * SpiralFrequency) * SpiralRadius;
 
-    Location.X += OffsetX;
+    Location.X -= OffsetX;
     Location.Y += OffsetY;
 
     ProyectilEnemigo->SetActorLocation(Location);

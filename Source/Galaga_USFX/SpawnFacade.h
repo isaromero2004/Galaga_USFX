@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Subscriptor.h"
 #include "GameFramework/Actor.h"
+#include "Capsulas.h"
 #include "SpawnFacade.generated.h"
 
 UCLASS()
@@ -38,7 +39,7 @@ public:
 //irtual void TransformacionNave(FVector Ubicacion);
 	void SpawnearNaves();
 	void SpawnearObstaculos();
-	void SpawnearCapsulas(FVector Posicion);
+	ACapsulas* SpawnearCapsulas(FVector Posicion);
 	void SpawnearTodo();
 	void SpawnComponentes(const FString _Componente);
 

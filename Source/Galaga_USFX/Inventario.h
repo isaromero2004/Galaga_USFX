@@ -23,11 +23,16 @@ public:
 	UInventario();
 
 	TQueue<ACapsulas*> CurrentInventory;
+	int CapacidadMaxima = 2;
+	int CurrentSize = 0;
 
 	UFUNCTION()
 	int32 AddToInventory(ACapsulas* ActorToAdd);
 	UFUNCTION()
 	void RemoveFromInventory(ACapsulas* ActorToRemove);
+	UFUNCTION()
+	bool InventarioLleno() const;
+	
 
 protected:
 	// Called when the game starts

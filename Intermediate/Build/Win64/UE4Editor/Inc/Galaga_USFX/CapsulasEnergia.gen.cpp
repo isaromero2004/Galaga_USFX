@@ -72,7 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulasEnergia() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACapsulasEnergia, 1012569054);
+	IMPLEMENT_CLASS(ACapsulasEnergia, 1567983894);
 	template<> GALAGA_USFX_API UClass* StaticClass<ACapsulasEnergia>()
 	{
 		return ACapsulasEnergia::StaticClass();

@@ -44,9 +44,9 @@ public:
 		Hit) override;
 
 	UFUNCTION()
-	void MoveForward(float Value);
-	void MoveRight(float AxisValue);
-	void MovNoroeste(float AxisValue);
+	//void MoveForward(float Value);
+	//void MoveRight(float AxisValue);
+	//void MovNoroeste(float AxisValue);
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 	void ReloadAmmo();
@@ -151,7 +151,6 @@ public:
 
 private:
 	IState* State;
-	//IState* BasicoState;
 	IState* SigilosoState;
 	IState* ProtegidoState;
 	IState* PotenciadoState;

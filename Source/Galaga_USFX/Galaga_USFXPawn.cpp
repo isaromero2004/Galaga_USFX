@@ -128,18 +128,8 @@ AGalaga_USFXPawn::AGalaga_USFXPawn()
 
 }
 
-void AGalaga_USFXPawn::MoveForward(float Value)
-{
-	// Implementa la lógica de movimiento aquí
-}
 
-void AGalaga_USFXPawn::MoveRight(float AxisValue)
-{
-}
 
-void AGalaga_USFXPawn::MovNoroeste(float AxisValue)
-{
-}
 
 void AGalaga_USFXPawn::PitchCamera(float AxisValue)
 {
@@ -203,7 +193,7 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 void AGalaga_USFXPawn::RecibirDano(float dano)
 {
 	energia -= dano;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Nave colisiona con proyectil, porcentaje de vida: %d"), energia));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Nave colisiona con proyectil, porcentaje de vida: %f"), energia));
 		if (energia <= 0.0f)
 		{
 			vidas--;
@@ -211,7 +201,7 @@ void AGalaga_USFXPawn::RecibirDano(float dano)
 			if (vidas > 0)
 			{
 				Respawn();
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Lives: %d"), vidas));
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Vidas: %d"), vidas));
 			}
 			else
 			{
@@ -389,13 +379,6 @@ void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 				
 			}
 
-			// Restablece el contador cuando se alcance el límite máximo
-			if (NumProyectilesDisparados >= ProyectilesPorDisparar)
-			{
-				bCanFire = false;
-				GetWorld()->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AGalaga_USFXPawn::ShotTimerExpired, FireRate);
-			}
-
 			bCanFire = false;
 			World->GetTimerManager().SetTimer(TimerHandle_ShotTimerExpired, this, &AGalaga_USFXPawn::ShotTimerExpired, FireRate);
 
@@ -412,20 +395,6 @@ void AGalaga_USFXPawn::FireShot(FVector FireDirection)
 
 void AGalaga_USFXPawn::ShotTimerExpired()
 {
-	// Restablece el contador y permite disparar de nuevo
-	++NumProyectilesDisparados; // Incrementa el contador de proyectiles disparados en 1
-
-	if (NumProyectilesDisparados >= ProyectilesPorDisparar)
-	{
-		ProyectilesPorDisparar = 0;
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municiones");
-			
-
-
-		}
-	}
 	bCanFire = true;
 }
 
@@ -480,30 +449,20 @@ void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
 void AGalaga_USFXPawn::TakeItem(ACapsulas*
 	InventoryItem)
 {
-	InventoryItem->Recoger();
-	MyInventory->AddToInventory(InventoryItem);
-	// Declarar un TimerHandle
-
-	NumItems += 1;
-
-	// Configurar el temporizador con SetTimer
-	float DelayInSeconds = 10.0f; // Tiempo de retraso en segundos
-	bool bLooping = false; // Si el temporizador debe repetirse automáticamente o no
-	ACapsulasArmas* AmmoItem = Cast<ACapsulasArmas>(InventoryItem);
-	if (AmmoItem)
+	if (!MyInventory->InventarioLleno())
 	{
-		FTimerHandle MyTimerHandle1;
-		GetWorldTimerManager().SetTimer(MyTimerHandle1, this, &AGalaga_USFXPawn::ReloadAmmo, DelayInSeconds, bLooping);
-	}
+		InventoryItem->Recoger();
+		MyInventory->AddToInventory(InventoryItem);
+		// Declarar un TimerHandle
 
-	ACapsulasEnergia* EnergyItem = Cast<ACapsulasEnergia>(InventoryItem);
-	if (EnergyItem)
-	{
-		FTimerHandle MyTimerHandle2;
-		GetWorldTimerManager().SetTimer(MyTimerHandle2, this, &AGalaga_USFXPawn::ReloadEnergy, DelayInSeconds, bLooping);
+		NumItems += 1;
 	}
-
-	//GetWorldTimerManager().SetTimer(MyTimerHandle1, this, &AGalaga_USFX_L01Pawn::ReloadAmmo, DelayInSeconds, bLooping);
+	else {
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
+		}
+	}
 
 	//Verifica el inventario después de recoger un objeto
 	CheckInventory();
@@ -530,11 +489,11 @@ void AGalaga_USFXPawn::ReloadAmmo()
 			bDoubleFireEnabled = true; // Habilita el disparo de doble munición
 			GetWorld()->GetTimerManager().SetTimer(DoubleShotTimer, this, &AGalaga_USFXPawn::DesactivarDoubleShot, 5.0f, false);
 
-			/*if (GEngine)
+			if (GEngine)
 			{
-				FString Message = FString::Printf(TEXT("Se habilitó disparo de doble munición"));
-				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, Message);
-			}*/
+				FString Message = FString::Printf(TEXT("Se habilito disparo de doble municion"));
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, Message);
+			}
 
 			NumItems -= 1; // Disminuye el contador de objetos en el inventario
 			CheckInventory();
@@ -543,14 +502,14 @@ void AGalaga_USFXPawn::ReloadAmmo()
 			break;
 		}
 	}
-	//if (!bFoundAmmo)
-	//{
-	//	// Muestra un mensaje indicando que no se encontró ningún objeto de munición
-	//	if (GEngine)
-	//	{
-	//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municion para recargar");
-	//	}
-	//}
+	if (!bFoundAmmo)
+	{
+		// Muestra un mensaje indicando que no se encontró ningún objeto de munición
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes municion para recargar");
+		}
+	}
 }
 
 	void AGalaga_USFXPawn::ActivarDoubleShot()
@@ -567,24 +526,40 @@ void AGalaga_USFXPawn::ReloadAmmo()
 
 void AGalaga_USFXPawn::CheckInventory()
 {
-
+	
 	// Verifica si el componente de inventario existe
 	if (MyInventory)
 	{
+		if (MyInventory->InventarioLleno())
+		{
+			if (GEngine)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario lleno");
+			}
+		}
+		else if (MyInventory->CurrentInventory.IsEmpty())
+		{
+			if (GEngine)
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Inventario vacio");
+			}
+		}
 		if (GEngine)
 		{
 			FString Message = FString::Printf(TEXT("Tienes %d objetos en tu inventario"), NumItems);
 			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, Message);
 		}
+		
 	}
-	else
-	{
+	//else
+	//{
 
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "No tienes un Items de municion en el inventario");
-		}
-	}
+	//	if (GEngine)
+	//	{
+
+	//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Items en el inventario");
+	//	}
+	//}
 }
 
 
@@ -598,26 +573,25 @@ void AGalaga_USFXPawn::ReloadEnergy()
 	//for (AInventoryActor* InventoryItem : MyInventory->CurrentInventory)
 	while (MyInventory->CurrentInventory.Dequeue(InventoryItem))
 	{
-		// Intenta hacer un cast a AInventoryActorEnergy
+		// Intenta hacer un cast a ACapsulasEnergia
 		ACapsulasEnergia* EnergyItem = Cast<ACapsulasEnergia>(InventoryItem);
 		if (EnergyItem)
 		{
 			// Se encontró un objeto de munición en el inventario
 			bFoundEnergy = true;
-			// Se encontró un objeto de Energia en el inventario
-			// Elimina el objeto de munición del inventario
-			//MyInventory->RemoveFromInventory(EnergyItem);
 
+			energia += 100;
 			// Muestra un mensaje de depuración
 			if (GEngine)
 			{
+				
 				//FString Message = FString::Printf(TEXT("Se recargaron %d de municion"), MaxProyectilesDisparados);
 				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, "Se restablecio 100 pts de vida");
+				GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Energia: %f"), energia));
 			}
 			NumItems -= 1;
 			CheckInventory();
-			// Sal del bucle ya que encontraste y manejaste un objeto de munición
-			break;
+
 		}
 
 	}
@@ -627,7 +601,7 @@ void AGalaga_USFXPawn::ReloadEnergy()
 		// Muestra un mensaje indicando que no se encontró ningún objeto de munición
 		if (GEngine)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Energia parpa eneria de camerom");
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Items de Energia en el inventario");
 		}
 	}
 }

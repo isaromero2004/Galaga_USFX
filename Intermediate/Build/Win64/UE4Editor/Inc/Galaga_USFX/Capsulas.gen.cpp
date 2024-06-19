@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_Galaga_USFX();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	GALAGA_USFX_API UClass* Z_Construct_UClass_UInterfazProxy_NoRegister();
 // End Cross Module References
 	void ACapsulas::StaticRegisterNativesACapsulas()
 	{
@@ -37,6 +38,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_mallaCapsulas;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -62,6 +64,9 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACapsulas_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACapsulas_Statics::NewProp_mallaCapsulas,
 	};
+		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ACapsulas_Statics::InterfaceParams[] = {
+			{ Z_Construct_UClass_UInterfazProxy_NoRegister, (int32)VTABLE_OFFSET(ACapsulas, IInterfazProxy), false },
+		};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACapsulas_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACapsulas>::IsAbstract,
 	};
@@ -72,11 +77,11 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 		DependentSingletons,
 		nullptr,
 		Z_Construct_UClass_ACapsulas_Statics::PropPointers,
-		nullptr,
+		InterfaceParams,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ACapsulas_Statics::PropPointers),
-		0,
+		UE_ARRAY_COUNT(InterfaceParams),
 		0x009000A5u,
 		METADATA_PARAMS(Z_Construct_UClass_ACapsulas_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ACapsulas_Statics::Class_MetaDataParams))
 	};
@@ -89,7 +94,7 @@ void EmptyLinkFunctionForGeneratedCodeCapsulas() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACapsulas, 1722424192);
+	IMPLEMENT_CLASS(ACapsulas, 3519871979);
 	template<> GALAGA_USFX_API UClass* StaticClass<ACapsulas>()
 	{
 		return ACapsulas::StaticClass();

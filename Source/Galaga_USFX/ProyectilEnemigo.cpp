@@ -75,13 +75,9 @@ void AProyectilEnemigo::Tick(float DeltaTime)
 	MoverProyectil(DeltaTime);
 
 
+
 }
 
-//
-//             v
-//void AProyectilEnemigo::ColisionarNaveEnemiga(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
-//{
 
-//}
 
 
