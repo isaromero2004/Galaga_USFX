@@ -24,18 +24,6 @@ AProyectilEnemigo::AProyectilEnemigo()
 	RootComponent = ProjectileMesh;
 	ProjectileMesh->SetRelativeScale3D(FVector(2.0f, 2.0f, 2.0f));
 
-
-	// Use a ProjectileMovementComponent to govern this projectile's movement
-	//ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement0"));
-	//ProjectileMovement->UpdatedComponent = ProjectileMesh;
-	//ProjectileMovement->InitialSpeed = 3000.f;
-	//ProjectileMovement->MaxSpeed = 3000.f;
-	//ProjectileMovement->bRotationFollowsVelocity = true;
-	//ProjectileMovement->bShouldBounce = false;
-	//ProjectileMovement->ProjectileGravityScale = 0.f; // No gravity
-
-	//// Die after 3 seconds by default
-	//InitialLifeSpan = 3.0f;
 	Dano = 100;
 
 }

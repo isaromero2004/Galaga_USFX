@@ -45,10 +45,6 @@ public:
 		HitNormal, FVector NormalImpulse, const FHitResult&
 		Hit) override;
 
-	UFUNCTION()
-	//void MoveForward(float Value);
-	//void MoveRight(float AxisValue);
-	//void MovNoroeste(float AxisValue);
 	void PitchCamera(float AxisValue);
 	void YawCamera(float AxisValue);
 	void ReloadAmmo();

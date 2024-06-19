@@ -3,6 +3,7 @@
 
 #include "ProxyCapsulas.h"
 
+
 // Sets default values
 AProxyCapsulas::AProxyCapsulas()
 {
@@ -26,6 +27,10 @@ void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 	{
 		//Inventario->AddToInventory(CapsulaReal);
 		Capsulas->Recoger(Capsulas);
+		if (Inventario->CurrentSize == 1)
+		{
+			SetCapsulaReal(Capsulas);
+		}
 
 
 		//Inventario->CurrentSize++;
@@ -40,7 +45,7 @@ void AProxyCapsulas::Recoger(ACapsulas* Capsulas)
 	}
 }
 
-void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)
+void AProxyCapsulas::Soltar(const FTransform& PutDownLocation)//, ACapsulas* CapsulaASoltar)
 {
 	if (Inventario && Inventario->CurrentSize > 0)
 	{

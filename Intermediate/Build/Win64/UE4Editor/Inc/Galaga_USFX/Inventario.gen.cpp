@@ -28,10 +28,9 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	}
 	DEFINE_FUNCTION(UInventario::execRemoveFromInventory)
 	{
-		P_GET_OBJECT(AActor,Z_Param_ActorToRemove);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->RemoveFromInventory(Z_Param_ActorToRemove);
+		P_THIS->RemoveFromInventory();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UInventario::execAddToInventory)
@@ -127,27 +126,17 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	}
 	struct Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics
 	{
-		struct Inventario_eventRemoveFromInventory_Parms
-		{
-			AActor* ActorToRemove;
-		};
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ActorToRemove;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::NewProp_ActorToRemove = { "ActorToRemove", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Inventario_eventRemoveFromInventory_Parms, ActorToRemove), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::NewProp_ActorToRemove,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Inventario.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventario, nullptr, "RemoveFromInventory", nullptr, nullptr, sizeof(Inventario_eventRemoveFromInventory_Parms), Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInventario, nullptr, "RemoveFromInventory", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UInventario_RemoveFromInventory_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UInventario_RemoveFromInventory()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -178,7 +167,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UInventario_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UInventario_AddToInventory, "AddToInventory" }, // 3873938359
 		{ &Z_Construct_UFunction_UInventario_InventarioLleno, "InventarioLleno" }, // 1916374413
-		{ &Z_Construct_UFunction_UInventario_RemoveFromInventory, "RemoveFromInventory" }, // 1149590305
+		{ &Z_Construct_UFunction_UInventario_RemoveFromInventory, "RemoveFromInventory" }, // 1393126209
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UInventario_Statics::Class_MetaDataParams[] = {
@@ -215,7 +204,7 @@ void EmptyLinkFunctionForGeneratedCodeInventario() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UInventario, 422186384);
+	IMPLEMENT_CLASS(UInventario, 2472233903);
 	template<> GALAGA_USFX_API UClass* StaticClass<UInventario>()
 	{
 		return UInventario::StaticClass();

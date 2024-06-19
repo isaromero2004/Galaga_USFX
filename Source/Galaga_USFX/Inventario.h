@@ -29,7 +29,7 @@ public:
 	UFUNCTION()
 	int32 AddToInventory(AActor* ActorToAdd);
 	UFUNCTION()
-	void RemoveFromInventory(AActor* ActorToRemove);
+	void RemoveFromInventory();
 	UFUNCTION()
 	bool InventarioLleno() const;
 	

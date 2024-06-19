@@ -151,7 +151,7 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 
 
 
-	
+
 	//FInputAxisKeyMapping DropItemKey("DropItem", EKeys::X, 1.0f);
 	//GetWorld()->GetFirstPlayerController()->PlayerInput->AddAxisMapping(DropItemKey);
 	//PlayerInputComponent->BindAction("DropItem", IE_Pressed, this, &AGalaga_USFXPawn::DropItem);
@@ -159,7 +159,7 @@ void AGalaga_USFXPawn::SetupPlayerInputComponent(class UInputComponent* PlayerIn
 	UPlayerInput::AddEngineDefinedActionMapping(ReloadAmmoKey);
 	PlayerInputComponent->BindAction("ReloadAmmo", IE_Pressed, this, &AGalaga_USFXPawn::ReloadAmmo);
 
-	FInputActionKeyMapping ReloadEnergyKey("ReloadEnergy", EKeys::V, 0,0,0,0);
+	FInputActionKeyMapping ReloadEnergyKey("ReloadEnergy", EKeys::V, 0, 0, 0, 0);
 	UPlayerInput::AddEngineDefinedActionMapping(ReloadEnergyKey);
 	PlayerInputComponent->BindAction("ReloadEnergy", IE_Pressed, this, &AGalaga_USFXPawn::ReloadEnergy);
 
@@ -346,14 +346,19 @@ void AGalaga_USFXPawn::BeginPlay()
 
 	inicializarStates();
 
+
 	if (!ProxyCapsulas)
 	{
+		
 		// Opcionalmente, crear una nueva instancia si no se encontró ninguna
 		ProxyCapsulas = GetWorld()->SpawnActor<AProxyCapsulas>(AProxyCapsulas::StaticClass());
+		
+
 	}
 	
 	MyInventory = Cast<UInventario>(UGameplayStatics::GetPlayerPawn(this, 0)->GetComponentByClass(UInventario::StaticClass()));
 	ProxyCapsulas->SetInventario(MyInventory);
+	
 }
 
 void AGalaga_USFXPawn::FireShot(FVector FireDirection)
@@ -411,8 +416,7 @@ void AGalaga_USFXPawn::DropItem()
 {
 	FVector ShipLocation = GetActorLocation();
 	
-	if (ProxyCapsulas)
-	{
+
 		int32 PreviousNumItems = NumItems;
 
 		//// Ajusta la posición para centrar el objeto con respecto a la nave
@@ -428,14 +432,15 @@ void AGalaga_USFXPawn::DropItem()
 			CheckInventory();
 		}
 		
-	}
+	
 }
 
 void AGalaga_USFXPawn::NotifyHit(class UPrimitiveComponent*
 	MyComp, AActor* Other, class UPrimitiveComponent* OtherComp,
 	bool bSelfMoved, FVector HitLocation, FVector HitNormal,
 	FVector NormalImpulse, const FHitResult& Hit)
-{
+	{
+
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
 	ACapsulas* InventoryItem =
@@ -534,15 +539,7 @@ void AGalaga_USFXPawn::CheckInventory()
 		}
 		
 	}
-	//else
-	//{
 
-	//	if (GEngine)
-	//	{
-
-	//		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "No tienes Items en el inventario");
-	//	}
-	//}
 }
 
 

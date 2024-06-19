@@ -45,7 +45,6 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Publisher.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\NaveEnemiga.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\FabricaNaves.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFX.init.gen.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXGameMode.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Galaga_USFXGameMode.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
@@ -53,24 +52,10 @@ C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\Engine/
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
 C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXGameMode.generated.h
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXPawn.gen.cpp
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Galaga_USFXPawn.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
-C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\ProxyCapsulas.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ProxyCapsulas.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\State.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\State.generated.h
-C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXPawn.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Galaga_USFXProjectile.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Galaga_USFXProjectile.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXProjectile.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/InterfazProxy.gen.cpp
-C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Inventario.gen.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Meteorito.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Meteorito.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Obstaculo.h
@@ -122,17 +107,29 @@ C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_US
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ParedObstaculo.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Potenciado.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Potenciado.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\State.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\State.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Potenciado.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Protegido.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Protegido.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Protegido.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/ProxyCapsulas.gen.cpp
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/ProxyCapsulas.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ProxyCapsulas.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/ProyectilEnemigo.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/ProyectilEnemigo.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\ProyectilEnemigo.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Publisher.gen.cpp
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/Sigiloso.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/Sigiloso.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX\Galaga_USFXPawn.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementReplication.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CharacterMovementReplication.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Galaga_USFXPawn.generated.h
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Intermediate\Build\Win64\UE4Editor\Inc\Galaga_USFX\Sigiloso.generated.h
 C:/Users/LENOVO/OneDrive/Documentos/Unreal Projects/Galaga_USFX/Intermediate/Build/Win64/UE4Editor/Inc/Galaga_USFX/SpawnFacade.gen.cpp
 C:\Users\LENOVO\OneDrive\Documentos\Unreal Projects\Galaga_USFX\Source\Galaga_USFX/SpawnFacade.h

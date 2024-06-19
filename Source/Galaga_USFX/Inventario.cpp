@@ -39,9 +39,10 @@ int32 UInventario::AddToInventory(AActor* ActorToAdd)
 	}
 	return -1;
 }
-void UInventario::RemoveFromInventory(AActor* ActorToRemove)
+void UInventario::RemoveFromInventory()
 {
 	//CurrentInventory.Remove(ActorToRemove);
+	AActor* ActorToRemove;
 	CurrentInventory.Dequeue(ActorToRemove);
 	CurrentSize--; // Decrementa el contador
 }

@@ -28,14 +28,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXPawn() {}
 	GALAGA_USFX_API UClass* Z_Construct_UClass_UInventario_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(AGalaga_USFXPawn::execPitchCamera)
-	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->PitchCamera(Z_Param_AxisValue);
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(AGalaga_USFXPawn::execNotifyHit)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_MyComp);
@@ -72,7 +64,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXPawn() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "DropItem", &AGalaga_USFXPawn::execDropItem },
 			{ "NotifyHit", &AGalaga_USFXPawn::execNotifyHit },
-			{ "PitchCamera", &AGalaga_USFXPawn::execPitchCamera },
 			{ "TakeItem", &AGalaga_USFXPawn::execTakeItem },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -188,40 +179,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXPawn() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics
-	{
-		struct Galaga_USFXPawn_eventPitchCamera_Parms
-		{
-			float AxisValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::NewProp_AxisValue = { "AxisValue", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(Galaga_USFXPawn_eventPitchCamera_Parms, AxisValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::NewProp_AxisValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::Function_MetaDataParams[] = {
-		{ "Comment", "//void MoveForward(float Value);\n//void MoveRight(float AxisValue);\n//void MovNoroeste(float AxisValue);\n" },
-		{ "ModuleRelativePath", "Galaga_USFXPawn.h" },
-		{ "ToolTip", "void MoveForward(float Value);\nvoid MoveRight(float AxisValue);\nvoid MovNoroeste(float AxisValue);" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGalaga_USFXPawn, nullptr, "PitchCamera", nullptr, nullptr, sizeof(Galaga_USFXPawn_eventPitchCamera_Parms), Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
 	struct Z_Construct_UFunction_AGalaga_USFXPawn_TakeItem_Statics
 	{
 		struct Galaga_USFXPawn_eventTakeItem_Parms
@@ -308,7 +265,6 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXPawn() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGalaga_USFXPawn_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGalaga_USFXPawn_DropItem, "DropItem" }, // 3933661112
 		{ &Z_Construct_UFunction_AGalaga_USFXPawn_NotifyHit, "NotifyHit" }, // 1774870990
-		{ &Z_Construct_UFunction_AGalaga_USFXPawn_PitchCamera, "PitchCamera" }, // 2065879881
 		{ &Z_Construct_UFunction_AGalaga_USFXPawn_TakeItem, "TakeItem" }, // 3187972593
 	};
 #if WITH_METADATA
@@ -433,7 +389,7 @@ void EmptyLinkFunctionForGeneratedCodeGalaga_USFXPawn() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGalaga_USFXPawn, 1941852067);
+	IMPLEMENT_CLASS(AGalaga_USFXPawn, 2938023273);
 	template<> GALAGA_USFX_API UClass* StaticClass<AGalaga_USFXPawn>()
 	{
 		return AGalaga_USFXPawn::StaticClass();

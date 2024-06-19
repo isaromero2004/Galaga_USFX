@@ -37,8 +37,8 @@ void ACapsulas::Recoger(ACapsulas* Capsulas)
 
 void ACapsulas::Soltar(const FTransform& NewPutDownLocation)
 {
-	AActor* Capsula = this;
-	Inventario->CurrentInventory.Dequeue(Capsula);
+	/*AActor* Capsula = Capsulas;*/
+	Inventario->RemoveFromInventory();
 	NumItems --;
 
 	SetActorTickEnabled(true);
